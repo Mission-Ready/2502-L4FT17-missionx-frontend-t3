@@ -1,19 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Yellow/Home";
-import LoginAndSignup from "./pages/Yellow/LoginAndSignup";
-import Instruction from "./pages/Pink/Instructions";
-import LearningObjective from "./pages/Pink/LearningObjective";
-import MakeProject from "./pages/Pink/MakeProject";
-import VideoTutorial from "./pages/Pink/VideoTutorial";
-import StudentProfileLibrary from "./pages/Green/StudentProfileLibrary";
-import StudentProfileViewer from "./pages/Green/StudentProfileViewer";
-import ProjectSubmission from "./pages/Brown/ProjectSubmission";
-import SubmitProject from "./pages/Brown/SubmitProject";
-import StudentProfile from "./pages/Blue/StudentProfile";
-import ProgressTracker from "./pages/Blue/ProgressTracker";
-import HelpRequest from "./pages/Turqoise/HelpRequest";
-import TeacherProfileViewer from "./pages/Turqoise/TeacherProfileViewer";
+import Home from "./pages/Yellow/Home/Home";
+import LoginAndSignup from "./pages/Yellow/LoginAndSignup/LoginAndSignup";
+import Instruction from "./pages/Pink/Instructions/Instructions";
+import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective";
+import MakeProject from "./pages/Pink/MakeProject/MakeProject";
+import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
+import StudentProfileLibrary from "./pages/Green/StudentProfileLibrary/StudentProfileLibrary";
+import StudentProfileViewer from "./pages/Green/StudentProfileViewer/StudentProfileViewer";
+import ProjectSubmission from "./pages/Brown/ProjectSubmission/ProjectSubmission";
+import SubmitProject from "./pages/Brown/SubmitProject/SubmitProject";
+import StudentProfile from "./pages/Blue/StudentProfile/StudentProfile";
+import ProgressTracker from "./pages/Blue/ProgressTracker/ProgressTracker";
+import HelpRequest from "./pages/Turqoise/HelpRequest/HelpRequest";
+import TeacherProfileViewer from "./pages/Turqoise/TeacherProfileViewer/TeacherProfileViewer";
 
 function App() {
   return (
