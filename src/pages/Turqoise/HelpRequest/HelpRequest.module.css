@@ -36,11 +36,10 @@
     padding: 12px;
 }
 
-
 .listOfStudents {
     display: grid;
     grid-column: span;
-    gap: 1.5rem;
+    gap: 1.6rem;
     align-items: center;  
     font-size: 25px;
 }
