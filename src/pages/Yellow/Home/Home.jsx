@@ -1,3 +1,17 @@
-export default function(){
-  return
+export default function Home(){
+  return(
+  <div>
+    
+    <header>
+      Header
+    </header>
+    <body>
+      body
+    </body>
+
+    <footer>
+      footer
+    </footer>
+    </div>
+  )
 }
