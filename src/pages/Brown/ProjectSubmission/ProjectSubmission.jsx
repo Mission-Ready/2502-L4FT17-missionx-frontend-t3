@@ -2,12 +2,13 @@ import React, { useState } from "react"; // Import React and useState
 import styles from "./components/ProjectSubmission.module.css"; // Import CSS styles
 import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; // Import project data
 import studentData from "../../../pages/Brown/ProjectSubmission/studentData.js"; // Import student data
-import mensGroup from "../../../pages/Brown/ProjectSubmission/mensGroup.js";  // Import men's group data
-import womensGroup from "../../../pages/Brown/ProjectSubmission/womensGroup.js";  // Import women's group data
+import mensGroup from "../../../pages/Brown/ProjectSubmission/mensGroup.js"; // Import men's group data
+import womensGroup from "../../../pages/Brown/ProjectSubmission/womensGroup.js"; // Import women's group data
+import projectImage from "../../../assets/StudentDashboard/makeProject-screenshot.png"; //Import the image of makeProject-screenshot
+import ImageModal from "./components/ImageModal"; // Import components of image modal
 
 
-const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
-
+// const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
 
 // Function to format dates
 function formatDate(dateString) {
@@ -24,7 +25,8 @@ function formatDate(dateString) {
     minute: "2-digit",
     hour12: true,
   });
-  return { datePart, timePart }; // Return formatted date and time
+  // Return formatted date and time
+  return { datePart, timePart }; 
 }
 
 // Function to format the student's name
@@ -35,7 +37,7 @@ function formatDate(dateString) {
 //   return `${firstName} ${lastName}`; // Combine and return
 // }
 
-// Function to format the student's first name only Capitalized
+// Function to format the student's name to uppercase for the first name
 function formatName(name) {
   const nameParts = name.split(" "); // Split the name into parts
   const firstName = nameParts[0].toUpperCase(); // Capitalize the first name
@@ -57,13 +59,15 @@ function getPronoun(student) {
       return "her"; // For women's group
     }
   }
-
   return "their"; // Default case if not found
 }
 
 // Component to display each project card
 const ProjectCard = ({ project }) => {
-  const [isChecked, setIsChecked] = useState(false); // Manage checkbox state
+  // Manage checkbox state
+  const [isChecked, setIsChecked] = useState(false); 
+  
+  const [isModalOpen, setIsModalOpen] = useState(false); // Additionally, // Manage modal open state
 
   // Handle checkbox change
   const handleCheckboxChange = () => {
@@ -71,13 +75,16 @@ const ProjectCard = ({ project }) => {
   };
 
   // Find the student data based on project student_id
-  const student = studentData.find(student => student.student_id === project.student_id);
+  const student = studentData.find(
+    (student) => student.student_id === project.student_id
+  );
   // Assigned another variable name as pronoun to distinguish mens and womens
+  // Determine the pronoun for the student
   const pronoun = getPronoun(student); // pronounをここで定義
 
   // Assigned another variable name as first name capitalized
   const firstNameCapitalized = formatName(student.name); // Capitalized first name
-  
+
   return (
     <div className={styles.projectCardContainer}>
       <div className={styles.checkboxContainer}>
@@ -85,7 +92,8 @@ const ProjectCard = ({ project }) => {
           type="checkbox"
           className={styles.checkmark}
           checked={isChecked} // Reflect checkbox state
-          onChange={handleCheckboxChange} // Handle state change
+          // onChange={handleCheckboxChange} // Handle state change
+          onChange={() => setIsChecked(!isChecked)} // Handle checkbox state change
         />
       </div>
       <div className={styles.projectSubmissionSmallContainer}>
@@ -102,26 +110,52 @@ const ProjectCard = ({ project }) => {
               {formatDate(project.dates.date_submitted).timePart}
             </p>
             {project.submission_status && (
-              <p>{firstNameCapitalized} submitted {pronoun} projects.</p> // Use formatName here
+              <p>
+                {firstNameCapitalized} submitted {pronoun} projects.
+              </p> // Use formatName here
             )}
             {!project.submission_status && (
-              <p>{firstNameCapitalized} did not submit {pronoun} projects.</p> // Use formatName here
+              <p>
+                {firstNameCapitalized} wants to show {pronoun} projects.
+              </p> // Use formatName here
             )}
+            {/* Added imagery */}
+            <img
+              src={projectImage}
+              alt="Project Screenshot"
+              className={styles.projectImage} // Apply new class
+              onClick={() => setIsModalOpen(true)} // Open the modal by clicking the imagery
+              style={{ cursor: "pointer" }} // cursor over pointer
+            />            
+            {/* Enlarge photo */}            
+            <div className={styles.enlargePhotoContainer} onClick={() => setIsModalOpen(true)} style={{ cursor: "pointer" }}>
+              <span role="img" aria-label="magnifying glass">🔍</span>
+              <p className={styles.enlargePhotoText}>ENLARGE PHOTO</p>
+            </div>
           </div>
         )}
       </div>
+      <ImageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} imageSrc={projectImage} />
     </div>
   );
 };
 
-// Main component
 export default function ProjectSubmission() {
   return (
     <div className={styles.projectSubmissionBackground}>
       <main className={styles.projectSubmissionContainer}>
-        <h1 className={styles.projectSubmissionText}>
-          <b>PROJECT SUBMISSIONS</b>
-        </h1>
+        <div className={styles.headerContainer}>
+          <h1 className={styles.projectSubmissionText}>PROJECT SUBMISSIONS</h1>
+          <div className={styles.markBtn}>
+            <button>
+              📥 DOWNLOAD FILES
+            </button>
+            <button>
+              ✅ MARK AS COMPLETE PROJECT
+            </button>
+          </div>
+        </div>
+
         <section className={styles.projectscrollContainer}>
           {studentProjectsData.map((project, index) => (
             <ProjectCard key={index} project={project} /> // Display each project card
