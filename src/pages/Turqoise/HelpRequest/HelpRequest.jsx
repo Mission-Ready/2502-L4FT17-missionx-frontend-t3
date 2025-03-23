@@ -38,7 +38,7 @@ export default function HelpRequest() {
           </div>
         </section>
       </section>
-      <Footer />
+      <Footer></Footer>
     </section>
   );
 }
