@@ -3,6 +3,11 @@
     color: #707070;            
     padding: 20px 0;          
     text-align: center;        
+    height: 5vh;
+    background-color: white;   
+    color: #707070;           
+    padding: 20px 0;          
+    text-align: center;     
   }
   
   .container {
@@ -10,3 +15,4 @@
     margin: 0 auto;           
   }
   
+

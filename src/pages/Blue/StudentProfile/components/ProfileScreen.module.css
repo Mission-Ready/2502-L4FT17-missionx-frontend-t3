@@ -1,0 +1,21 @@
+.profileScreen {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  background-color: #d2eefa;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  /* Layout Properties */
+  top: 109px;
+  left: 166px;
+  width: 1717px;
+  height: 860px;
+  border-radius: 30px;
+}
+
+.profileLink {
+  text-decoration: none;
+}
+
+
+
