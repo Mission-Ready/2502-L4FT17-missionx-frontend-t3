@@ -1,4 +1,7 @@
 import React, { useState } from "react"; // Import React and useState
+import Header from '../../../common/components/Header.jsx';
+import SideBar from '../../../common/components/SideBar.jsx';
+import Footer from '../../../common/components/Footer.jsx';
 import styles from "./components/ProjectSubmission.module.css"; // Import CSS styles
 import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; // Import project data
 import studentData from "../../../pages/Brown/ProjectSubmission/studentData.js"; // Import student data
@@ -154,27 +157,32 @@ export default function ProjectSubmission() {
   };
 
   return (
+
+    <>
+    <Header /> {/* Display Header component */}
+    <SideBar /> {/* Display SideBar component */}
+
     <div className={styles.projectSubmissionBackground}>
+            
       <main className={styles.projectSubmissionContainer}>
         <div className={styles.headerContainer}>
           <h1 className={styles.projectSubmissionText}>PROJECT SUBMISSIONS</h1>
           <div className={styles.markBtn}>
-            {/* <button>
-              📥 DOWNLOAD FILES
-            </button> */}
-            <button onClick={()=>{downloadFileAtURL(PNG_FILE_URL)}}>📥 DOWNLOAD FILES</button>{/* onClick */}
-            <button>
-              ✅ MARK AS COMPLETE PROJECT
-            </button>
+            <button onClick={() => { downloadFileAtURL(PNG_FILE_URL); }}>📥 DOWNLOAD FILES</button>
+            <button>✅ MARK AS COMPLETE PROJECT</button>
           </div>
         </div>
 
         <section className={styles.projectscrollContainer}>
           {studentProjectsData.map((project, index) => (
-            <ProjectCard key={index} project={project} /> // Display each project card
+            <ProjectCard key={index} project={project} /> // 各プロジェクトカードを表示
           ))}
         </section>
       </main>
+      
+      
     </div>
+    <Footer /> {/* Display  component */}
+    </>
   );
 }
