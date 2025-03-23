@@ -67,6 +67,8 @@ const students = [
 
 export default function StudentProfile() {
   return (
+
+
     <>
       <div className={styles.Screen}>
         <header>
@@ -75,5 +77,6 @@ export default function StudentProfile() {
         <ProfileScreen students={students} />
       </div>
     </>
+
   );
 }
