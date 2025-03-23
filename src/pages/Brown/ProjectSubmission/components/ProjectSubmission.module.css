@@ -1,49 +1,152 @@
+/* Universal selector to apply box-sizing, margin, and padding globally */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding:0;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
 }
 
+/* Background style for the project submission section */
+/* .innerContainer */
 .projectSubmissionBackground {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #B2E4FA;
-    width: 100%;
-    height: 100vh;
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #b2e4fa; /* Light blue background color */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
 }
 
+/* Container style for the project submission content */
+/* .innerContainer */
 .projectSubmissionContainer {
-    display: flex;
-    background-color: #D9F2FD;
-    justify-content: center;
-    align-items: center;
-    width: 98%;
-    height: 80vh;
-    border-radius: 20px ;
-    padding: 50px;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  background-color: #d9f2fd; /* Slightly darker blue background */
+  justify-content: flex-start; /* Align items to the start */
+  align-items: flex-start; /* Align items to the start */
+  width: 78%; /* Slightly less than full width */
+  height: 80vh; /* 80% of viewport height */
+  border-radius: 20px; /* Rounded corners */
+  padding: 50px; /* Padding around the container */
+  margin-top: 10px; /* Margin at the top */
 }
 
+/* Style for the project submission title */
+.projectSubmissionText {  
+  font-family: "adobe-clean", sans-serif; /* Font family */
+  font-weight: bold; /* Bold text */
+  font-style: Nunito, Black; /* Font style (may need correction) */
+  font-size: 24px; /* Font size */
+  margin-bottom: 20px; /* Margin below the title */
+  color: #6C6C6C; /* Text color */
+  border-left-color: #6C6C6C; /* Left border color (may need border property) */
+  margin-bottom: 10px; /* Adjust bottom margin */
+  margin-top: 0; /* No top margin */
+}
+
+/* Header container style for title and buttons */
+.headerContainer {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between title and buttons */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Full width */
+  margin-bottom: 40px; /* Margin below the header */
+}
+
+/* Button styles within the markBtn container */
+.markBtn button {
+  margin-left: 10px; /* Space between buttons */
+  color: #6C6C6C; /* Button text color */
+}
+
+/* Flex container for child divs in the submission container */
 .projectSubmissionContainer > div {
-    display: flex;
-
-
-
-
+  display: flex; /* Use flexbox for layout */
 }
 
-
+/* Small container style for each project submission */
 .projectSubmissionSmallContainer {
-    display: flex;
-    background-color: #EEEEEE;    
-    justify-content: center;
-    /* align-items: left; */
-    width: 80%;
-    height: 20vh;
-    border-radius: 20px ;
-    padding: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex; /* Use flexbox for layout */
+  flex-direction: wrap; /* Allow items to wrap */
+  align-items: center; /* Center items vertically */
+  background-color: #FFFFFF; /* White background */
+  width: calc(100% - 40px); /* Width adjusted to account for margins */
+  height: auto; /* Automatic height */
+  margin-top: 20px; /* Top margin */
+  margin-left: 20px; /* Left margin */
+  margin-right: 20px; /* Right margin */
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px; /* Padding inside the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
 
+/* Checkbox container style */
+.checkboxContainer {
+  display: flex; /* Use flexbox for layout */
+  width: 80%; /* Width of the checkbox container */
+  align-items: center; /* Center items vertically */
+  margin-right: 10px; /* Right margin */
+  position: relative; /* Position relative for absolute children */
+}
+
+/* Style for checkbox input */
+input[type="checkbox"] {
+  width: 32px; /* Checkbox width */
+  height: 32px; /* Checkbox height */
+  position: relative; /* Position relative for styling */
+}
+
+/* Checkmark style for custom checkbox */
+.checkmark {
+  display: inline-block; /* Inline block for proper sizing */
+  width: 32px; /* Width of the checkmark */
+  height: 32px; /* Height of the checkmark */
+  background-color: #ffffff; /* White background */
+  border: 1px solid #707070; /* Gray border */
+  border-radius: 3px; /* Slightly rounded corners */
+  margin-right: 5px; /* Space to the right of the checkmark */
+  position: relative; /* Position relative for absolute children */
+}
+
+/* Style for the checkmark's before pseudo-element */
+.checkmark::before {
+  content: ''; /* Empty content for the pseudo-element */
+  position: absolute; /* Position absolutely within the checkmark */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  height: 50%; /* Height of the pseudo-element */
+  background-color: rgba(0, 0, 0, 0.1); /* Light gray background */
+  border-radius: 3px 3px 0 0; /* Rounded top corners */
+  z-index: 1; /* Layer above the background */
+}
+
+/* Style when checkbox is checked */
+input[type="checkbox"]:checked + .checkmark {
+  background-color: #B2E4FA; /* Change background color when checked */
+}
+
+/* Style for student images */
+.studentImage {
+  width: 40px; /* Fixed width for student images */
+  height: auto; /* Automatic height */
+  margin-left: 10px; /* Left margin */
+}
+
+/* Style for project images */
+.projectImage {
+  width: 70%; /* Set width to 70% of the container */
+  max-width: 300px; /* Maximum width of 300px */
+  height: auto; /* Automatic height */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 10px; /* Top margin */
+}
+
+/* Style for enlarge photo text */
+.enlargePhotoText {
+  margin-top: 10px; /* Top margin */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center the text */
 }
 
 

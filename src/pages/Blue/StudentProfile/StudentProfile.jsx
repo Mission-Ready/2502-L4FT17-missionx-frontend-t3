@@ -67,14 +67,16 @@ const students = [
 
 export default function StudentProfile() {
   return (
+
+
     <>
       <div className={styles.Screen}>
         <header>
 
         </header>
-        <SideBar></SideBar>
         <ProfileScreen students={students} />
       </div>
     </>
+
   );
 }
