@@ -6,6 +6,7 @@
 }
 
 /* Background style for the project submission section */
+/* .innerContainer */
 .projectSubmissionBackground {
   display: flex; /* Use flexbox layout */
   justify-content: center; /* Center horizontally */
@@ -16,16 +17,17 @@
 }
 
 /* Container style for the project submission content */
+/* .innerContainer */
 .projectSubmissionContainer {
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Stack children vertically */
   background-color: #d9f2fd; /* Slightly darker blue background */
   justify-content: flex-start; /* Align items to the start */
   align-items: flex-start; /* Align items to the start */
-  width: 98%; /* Slightly less than full width */
+  width: 78%; /* Slightly less than full width */
   height: 80vh; /* 80% of viewport height */
   border-radius: 20px; /* Rounded corners */
-  padding: 20px; /* Padding around the container */
+  padding: 50px; /* Padding around the container */
   margin-top: 10px; /* Margin at the top */
 }
 

@@ -1,9 +1,5 @@
 import React from 'react';
-
 import styles from './Footer.module.css';
-
-import styles from '.components/Footer.module.css'; // CSSモジュールを使用する場合
-
 
 export default function Footer() {
   return (
@@ -14,6 +10,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-
-
