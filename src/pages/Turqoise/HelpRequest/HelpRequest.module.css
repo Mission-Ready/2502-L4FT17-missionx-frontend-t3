@@ -4,12 +4,16 @@
     padding: 0;
 }
 
+.sideBar {
+    display: flex;
+}
+
 .outerContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #B2E4FA;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
 }
 
@@ -29,16 +33,22 @@
     font-weight: 700;
 }
 
-.markBtn {
+.headBtn {
     display: flex;
     justify-content: end;
     gap: 20px;
     padding: 12px;
 }
+.markBtn {
+    width: 12vw;
+}
+.markBtn:hover {
+    cursor: pointer;
+}
 
 .listOfStudents {
     display: grid;
-    grid-column: span;
+    grid-row: span;
     gap: 1.6rem;
     align-items: center;  
     font-size: 25px;
@@ -59,10 +69,14 @@
 .img {
     height: 60px;
     width: 60px;
-    border: 4ox solid black;
 }
 
-.innerContainer > div {
-    display: flex;
-
+.studentsBtn {
+    border: 1px solid black;
+    width: 15px;
+    height: 15px;
+    margin-left: 16px;
+}
+.studentsBtn:hover {
+    cursor: pointer;
 }
