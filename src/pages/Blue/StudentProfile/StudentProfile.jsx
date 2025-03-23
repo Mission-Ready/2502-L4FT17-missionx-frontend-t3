@@ -74,7 +74,6 @@ export default function StudentProfile() {
         <header>
 
         </header>
-        <SideBar></SideBar>
         <ProfileScreen students={students} />
       </div>
     </>
