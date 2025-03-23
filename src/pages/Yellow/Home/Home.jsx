@@ -1,13 +1,15 @@
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+
 export default function Home(){
   return(
   <div>
     
     <header>
-      Header
+      <Header></Header>
+      <Banner></Banner>
     </header>
-    <body>
-      body
-    </body>
+    
 
     <footer>
       footer-footer
