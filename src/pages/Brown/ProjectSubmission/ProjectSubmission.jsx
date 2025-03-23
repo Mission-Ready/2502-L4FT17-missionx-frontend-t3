@@ -140,11 +140,9 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-
 export default function ProjectSubmission() {
 
   const PNG_FILE_URL = "./images/students/AidenAndrews.png"; // Update the URL to be relative
-
   const downloadFileAtURL = (url) => {
     const fileName = url.split('/').pop(); // Get the file name from the URL
     const aTag = document.createElement('a'); // Create an anchor tag
@@ -154,13 +152,16 @@ export default function ProjectSubmission() {
     aTag.click(); // Programmatically click the anchor to trigger the download
     aTag.remove(); // Remove the anchor from the document
   };
-  
+
   return (
     <div className={styles.projectSubmissionBackground}>
       <main className={styles.projectSubmissionContainer}>
         <div className={styles.headerContainer}>
           <h1 className={styles.projectSubmissionText}>PROJECT SUBMISSIONS</h1>
           <div className={styles.markBtn}>
+            {/* <button>
+              📥 DOWNLOAD FILES
+            </button> */}
             <button onClick={()=>{downloadFileAtURL(PNG_FILE_URL)}}>📥 DOWNLOAD FILES</button>{/* onClick */}
             <button>
               ✅ MARK AS COMPLETE PROJECT
