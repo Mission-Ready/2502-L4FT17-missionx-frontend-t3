@@ -3,6 +3,7 @@ import styles from "./SideBar.module.css";
 import { useState } from "react";
 
 export default function SideBar() {
+
   const [open, setOpen] = useState(true)
 
   return (
@@ -74,3 +75,4 @@ export default function SideBar() {
     </div>
   );
 }
+
