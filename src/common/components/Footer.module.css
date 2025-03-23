@@ -1,12 +1,15 @@
 .footer {
+
     height: 5vh;
-    background-color: white;   
-    color: #707070;            
-    padding: 20px 0;         
-    text-align: center;        
+    background-color: white;   /* 背景色を白に設定 */
+    color: #707070;            /* テキスト色を #707070 に設定 */
+    padding: 20px 0;          /* 上下のパディング */
+    text-align: center;        /* テキストを中央寄せ */
   }
   
   .container {
-    max-width: 1200px;       
-    margin: 0 auto;           
+    max-width: 1200px;        /* 最大幅を設定 */
+    margin: 0 auto;           /* 中央寄せ */
   }
+  
+

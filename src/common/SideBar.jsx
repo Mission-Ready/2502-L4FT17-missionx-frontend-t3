@@ -3,7 +3,8 @@ import styles from "./SideBar.module.css";
 import { useState } from "react";
 
 export default function SideBar() {
-  const [open, setOpen] = useState(false)
+
+  const [open, setOpen] = useState(true)
 
   return (
     <div className={`${styles.sideBar} ${open ? styles.smallSideBar : ""}`}>
@@ -74,3 +75,4 @@ export default function SideBar() {
     </div>
   );
 }
+
