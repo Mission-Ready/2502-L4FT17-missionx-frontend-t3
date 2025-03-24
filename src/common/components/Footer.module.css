@@ -1,18 +1,17 @@
 .footer {
-    background-color: white;   
-    color: #707070;            
-    padding: 20px 0;          
-    text-align: center;        
-    height: 5vh;
-    background-color: white;   
-    color: #707070;           
-    padding: 20px 0;          
-    text-align: center;     
-  }
-  
-  .container {
-    max-width: 1200px;        
-    margin: 0 auto;           
-  }
+  background-color: #f1f1f1; 
+  padding: 10px 20px;
+  text-align: center; 
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
+  margin-top: auto; 
+}
+
+.footer p {
+  margin: 0; 
+  color: #333; 
+}
+
   
 

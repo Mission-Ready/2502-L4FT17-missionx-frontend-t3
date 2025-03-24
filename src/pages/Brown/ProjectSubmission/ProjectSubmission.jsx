@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // Import React and useState
-import Header from '../../../common/components/Header.jsx';
-import SideBar from '../../../common/components/SideBar.jsx';
-import Footer from '../../../common/components/Footer.jsx';
+import Header from "../../../common/components/Header.jsx";
+import SideBar from "../../../common/components/SideBar.jsx";
+import Footer from "../../../common/components/Footer.jsx";
 import styles from "./components/ProjectSubmission.module.css"; // Import CSS styles
 import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; // Import project data
 import studentData from "../../../pages/Brown/ProjectSubmission/studentData.js"; // Import student data
@@ -9,7 +9,6 @@ import mensGroup from "../../../pages/Brown/ProjectSubmission/mensGroup.js"; // 
 import womensGroup from "../../../pages/Brown/ProjectSubmission/womensGroup.js"; // Import women's group data
 import projectImage from "../../../assets/StudentDashboard/makeProject-screenshot.png"; //Import the image of makeProject-screenshot
 import ImageModal from "./components/ImageModal"; // Import components of image modal
-
 
 // const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
 
@@ -29,7 +28,7 @@ function formatDate(dateString) {
     hour12: true,
   });
   // Return formatted date and time
-  return { datePart, timePart }; 
+  return { datePart, timePart };
 }
 
 // Function to format the student's name
@@ -68,15 +67,14 @@ function getPronoun(student) {
 // Component to display each project card
 const ProjectCard = ({ project }) => {
   // Manage checkbox state
-  const [isChecked, setIsChecked] = useState(true); 
-  
+  const [isChecked, setIsChecked] = useState(true);
+
   const [isModalOpen, setIsModalOpen] = useState(false); // Additionally, // Manage modal open state
 
   // Handle checkbox change
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked); // Toggle checkbox state
   };
-
 
   // Find the student data based on project student_id
   const student = studentData.find(
@@ -130,28 +128,37 @@ const ProjectCard = ({ project }) => {
               className={styles.projectImage} // Apply new class
               onClick={() => setIsModalOpen(true)} // Open the modal by clicking the imagery
               style={{ cursor: "pointer" }} // cursor over pointer
-            />            
-            {/* Enlarge photo */}            
-            <div className={styles.enlargePhotoContainer} onClick={() => setIsModalOpen(true)} style={{ cursor: "pointer" }}>
-              <span role="img" aria-label="magnifying glass">🔍</span>
+            />
+            {/* Enlarge photo */}
+            <div
+              className={styles.enlargePhotoContainer}
+              onClick={() => setIsModalOpen(true)}
+              style={{ cursor: "pointer" }}
+            >
+              <span role="img" aria-label="magnifying glass">
+                🔍
+              </span>
               <p className={styles.enlargePhotoText}>ENLARGE PHOTO</p>
             </div>
           </div>
         )}
       </div>
-      <ImageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} imageSrc={projectImage} />
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        imageSrc={projectImage}
+      />
     </div>
   );
 };
 
 export default function ProjectSubmission() {
-
   const PNG_FILE_URL = "./images/students/AidenAndrews.png"; // Update the URL to be relative
   const downloadFileAtURL = (url) => {
-    const fileName = url.split('/').pop(); // Get the file name from the URL
-    const aTag = document.createElement('a'); // Create an anchor tag
+    const fileName = url.split("/").pop(); // Get the file name from the URL
+    const aTag = document.createElement("a"); // Create an anchor tag
     aTag.href = url; // Set the href to the URL
-    aTag.setAttribute('download', fileName); // Set the download attribute
+    aTag.setAttribute("download", fileName); // Set the download attribute
     document.body.appendChild(aTag); // Append the anchor to the document body
     aTag.click(); // Programmatically click the anchor to trigger the download
     aTag.remove(); // Remove the anchor from the document
@@ -159,32 +166,40 @@ export default function ProjectSubmission() {
 
   return (
     <>
-    <Header /> {/* Display Header component */}
+      {/* <Header />  */}
+      {/* Display Header component */}
 
-    <div style={{display:"flex"}}>
-    <SideBar /> {/* Display SideBar component */}
+      <div style={{ display: "flex" }}>
+        {/* <SideBar /> Display SideBar component */}
 
-    <div className={styles.projectSubmissionBackground}>
-            
-      <main className={styles.projectSubmissionContainer}>
-        <div className={styles.headerContainer}>
-          <h1 className={styles.projectSubmissionText}>PROJECT SUBMISSIONS</h1>
-          <div className={styles.markBtn}>
-            <button onClick={() => { downloadFileAtURL(PNG_FILE_URL); }}>📥 DOWNLOAD FILES</button>
-            <button>✅ MARK AS COMPLETE PROJECT</button>
-          </div>
+        <div className={styles.projectSubmissionBackground}>
+          <main className={styles.projectSubmissionContainer}>
+            <div className={styles.headerContainer}>
+              <h1 className={styles.projectSubmissionText}>
+                PROJECT SUBMISSIONS
+              </h1>
+              <div className={styles.markBtn}>
+                <button
+                  onClick={() => {
+                    downloadFileAtURL(PNG_FILE_URL);
+                  }}
+                >
+                  📥 DOWNLOAD FILES
+                </button>
+                <button>✅ MARK AS COMPLETE PROJECT</button>
+              </div>
+            </div>
+
+            <section className={styles.projectscrollContainer}>
+              {studentProjectsData.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+              ))}
+            </section>
+          </main>
         </div>
-        
-        <section className={styles.projectscrollContainer}>
-          {studentProjectsData.map((project, index) => (
-            <ProjectCard key={index} project={project} /> // 各プロジェクトカードを表示
-          ))}
-        </section>
-
-      </main>       
-    </div>
-    </div>
-    <Footer /> {/* Display  component */}
+      </div>
+      {/* <Footer />  */}
+      {/* Display  component */}
     </>
   );
 }
