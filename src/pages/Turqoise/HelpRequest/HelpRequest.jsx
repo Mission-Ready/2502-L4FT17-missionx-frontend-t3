@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./Helprequest.module.css"
+import styles from "./HelpRequest.module.css"
 /* import TestNav from '../../../common/TestNav' */
 import Header from '../../../common/Header';
 import SideBar from '../../../common/SideBar';
@@ -11,7 +11,7 @@ export default function HelpRequest() {
       <Header />
       
       <section className={styles.sideBar}>
-        <SideBar />
+        <SideBar></SideBar>
 
         <section className={styles.outerContainer}>
           
