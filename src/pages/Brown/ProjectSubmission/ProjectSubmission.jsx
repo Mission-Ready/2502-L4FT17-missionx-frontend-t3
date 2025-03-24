@@ -68,7 +68,7 @@ function getPronoun(student) {
 // Component to display each project card
 const ProjectCard = ({ project }) => {
   // Manage checkbox state
-  const [isChecked, setIsChecked] = useState(false); 
+  const [isChecked, setIsChecked] = useState(true); 
   
   const [isModalOpen, setIsModalOpen] = useState(false); // Additionally, // Manage modal open state
 
@@ -76,6 +76,7 @@ const ProjectCard = ({ project }) => {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked); // Toggle checkbox state
   };
+
 
   // Find the student data based on project student_id
   const student = studentData.find(
@@ -157,9 +158,10 @@ export default function ProjectSubmission() {
   };
 
   return (
-
     <>
     <Header /> {/* Display Header component */}
+
+    <div style={{display:"flex"}}>
     <SideBar /> {/* Display SideBar component */}
 
     <div className={styles.projectSubmissionBackground}>
@@ -172,15 +174,15 @@ export default function ProjectSubmission() {
             <button>✅ MARK AS COMPLETE PROJECT</button>
           </div>
         </div>
-
+        
         <section className={styles.projectscrollContainer}>
           {studentProjectsData.map((project, index) => (
             <ProjectCard key={index} project={project} /> // 各プロジェクトカードを表示
           ))}
         </section>
-      </main>
-      
-      
+
+      </main>       
+    </div>
     </div>
     <Footer /> {/* Display  component */}
     </>
