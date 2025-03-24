@@ -1,6 +1,6 @@
-import styles from './Header.module.css'
+import styles from './BrownHeader.module.css'
 
-export default function Header() {
+export default function BrownHeader() {
   return (
     <section className={styles.header}>
         <div>
@@ -8,8 +8,9 @@ export default function Header() {
         </div>
         <div className={styles.rightSide}>
             <div className={styles.rightBtn}>
-                <button className={styles.helpBtn} >Help Centre</button>
-                <button className={styles.moreBtn} >More Projects</button>
+                <button className={styles.startBtn} >Start Project</button>
+                <button className={styles.helpBtn} >Ask Teacher for help</button>
+                <button className={styles.moreBtn} >More Project</button>
             </div>
             <div className={styles.rightFlag}>
                 <img className={styles.nzFlag} src="/src/assets/NavBar/NZFlag.png" alt="" />
