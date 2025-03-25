@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+  }
+
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-top: 200px;
+    padding-left: 266px;
+    width: 292px;
+    height: 57px;
+    }
+
+.rightSection{
+    display: flex;
+    justify-content: right;
+    margin-top: 0px;
+}
+section h4 {
+    padding-top: 50px
+}
+
+section h2 {
+    padding-top: 100px;
+}
+
+.studentsCreateButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.groupContainer h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.groupImages {
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 120px
+
+}
+
+.moreInfoContainer h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+}
+
+.moreInfoButtons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 120px;
+    
+}
+
+.informationOnClick {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+

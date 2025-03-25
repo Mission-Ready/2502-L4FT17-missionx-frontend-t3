@@ -1,8 +1,13 @@
 import React from "react";
-import Hero from "../../../../assets/Home/hero.png";
-import style from "./Banner.module.css"
+// import Hero from "../../../../assets/Home/hero.png";
+import style from "./Banner.module.css";
+import Button from '@mui/material/Button';
+import { createTheme } from '@mui/material/styles';
+
 
 function Banner() {
+
+
   return (
     <div className={style.container}>
       
@@ -18,9 +23,10 @@ function Banner() {
       </h3>
 
     <div className={style.button}>
-      <button>Learn More</button>
+
+      <Button variant="outlined">Learn More</Button>
     
-      <button className={style.signupButton}>Sign up </button>
+      <Button variant="contained" color= "success"  size="large" className={style.signupButton}>Sign up </Button>
 
     </div>
     
