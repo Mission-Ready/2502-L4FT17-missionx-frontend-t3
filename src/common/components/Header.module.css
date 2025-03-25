@@ -2,7 +2,7 @@
     height: 5vh;
     display: flex;
     justify-content: space-between;
-
+    padding-right: 50px; /* 右側にパディングを追加 */
 }
 
 .starImg {
@@ -12,6 +12,7 @@
 
 .rightSide {
     display: flex;
+    margin-left: auto; /* 右に寄せる */
 }
 
 .rightBtn {
@@ -19,8 +20,8 @@
     margin: 5px 0;
     gap: 5px;
     padding: 6px 20px;
-   
 }
+
 .helpBtn {
     color: white;
     background-color: deeppink;
@@ -28,6 +29,7 @@
     border-radius: 4px;    
     width: 10vh;
 }
+
 .moreBtn {
     color: white;
     background-color: #43c0f6;
@@ -37,10 +39,10 @@
 }
 
 .rightFlag {
-    margin: 3px 6px ;
+    margin: 3px 6px;
     gap: 6px;
 }
 
 .nzFlag {
-    margin-right: 4px;
+    margin-right: 10px;
 }

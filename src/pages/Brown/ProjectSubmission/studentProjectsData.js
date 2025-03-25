@@ -18,5 +18,3 @@ const studentProjectsData = [
 
 // Export the student project data array for use in other modules
 export default studentProjectsData;
-
-  

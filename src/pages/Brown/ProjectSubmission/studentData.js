@@ -13,23 +13,20 @@ const studentData = [
     school: "Ranui Primary School", // Name of the school the student attends
     profile_pic: {
       src: AidenAndrews, // Source path for the student's profile picture
-      alt: "Aiden Andrews" // Alt text for the profile picture
+      alt: "Aiden Andrews", // Alt text for the profile picture
     },
     date_of_birth: "2010-12-31", // Student's date of birth
     contact_number: "09-234-5678", // Student's contact number
     course: {
       currentValue: "Beginner", // Current course level of the student
-      options: ["Beginner", "Intermediate", "Advanced"] // Possible course levels
+      options: ["Beginner", "Intermediate", "Advanced"], // Possible course levels
     },
     subject_matter: {
       currentValue: "computer science", // Current subject matter the student is studying
-      options: ["computer science", "maths", "language", "art", "music"] // Available subjects
-    }
-  }
+      options: ["computer science", "maths", "language", "art", "music"], // Available subjects
+    },
+  },
 ];
 
 // Export the student data array for use in other modules
 export default studentData;
-
-
-  

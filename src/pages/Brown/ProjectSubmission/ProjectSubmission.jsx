@@ -10,7 +10,7 @@ import womensGroup from "../../../pages/Brown/ProjectSubmission/womensGroup.js";
 import projectImage from "../../../assets/StudentDashboard/makeProject-screenshot.png"; //Import the image of makeProject-screenshot
 import ImageModal from "./components/ImageModal"; // Import components of image modal
 
-// const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
+const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
 
 // Function to format dates
 function formatDate(dateString) {
@@ -46,6 +46,12 @@ function formatName(name) {
   return `${firstName}`; // Combine and return
 }
 
+// Find the student data based on project student_id
+const project = studentProjectsData[0];
+const student = studentData.find(
+  (student) => student.student_id === project.student_id
+);
+
 // Function to determine the pronoun based on the group
 function getPronoun(student) {
   // Check if the student is in the men's group
@@ -68,18 +74,8 @@ function getPronoun(student) {
 const ProjectCard = ({ project }) => {
   // Manage checkbox state
   const [isChecked, setIsChecked] = useState(true);
-
   const [isModalOpen, setIsModalOpen] = useState(false); // Additionally, // Manage modal open state
 
-  // Handle checkbox change
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked); // Toggle checkbox state
-  };
-
-  // Find the student data based on project student_id
-  const student = studentData.find(
-    (student) => student.student_id === project.student_id
-  );
   // Assigned another variable name as pronoun to distinguish mens and womens
   // Determine the pronoun for the student
   const pronoun = getPronoun(student); // pronounをここで定義
@@ -87,8 +83,15 @@ const ProjectCard = ({ project }) => {
   // Assigned another variable name as first name capitalized
   const firstNameCapitalized = formatName(student.name); // Capitalized first name
 
+  // Handle checkbox change
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // Toggle checkbox state
+  };
+
   return (
+    // white box container called projectCardContainer
     <div className={styles.projectCardContainer}>
+      {/* checkbox div section */}
       <div className={styles.checkboxContainer}>
         <input
           type="checkbox"
@@ -98,50 +101,59 @@ const ProjectCard = ({ project }) => {
           onChange={() => setIsChecked(!isChecked)} // Handle checkbox state change
         />
       </div>
+
+      {/* Smaller div group of "AIDEN" submitted his projects."*/}
       <div className={styles.projectSubmissionSmallContainer}>
         <img
           src={student.profile_pic.src}
           alt={student.profile_pic.alt}
           className={styles.studentImage}
         />
-        {isChecked && ( // Display date only if checked
-          <div>
-            <p>
-              {formatDate(project.dates.date_submitted).datePart}
-              <br />
-              {formatDate(project.dates.date_submitted).timePart}
-            </p>
-            {project.submission_status && (
-              <p>
-                {firstNameCapitalized} submitted {pronoun} projects.
-              </p> // Use formatName here
-            )}
-            {!project.submission_status && (
-              <p>
-                {firstNameCapitalized} wants to show {pronoun} projects.
-              </p> // Use formatName here
-            )}
-            {/* Added imagery */}
-            <img
-              src={projectImage}
-              alt="Project Screenshot"
-              className={styles.projectImage} // Apply new class
-              onClick={() => setIsModalOpen(true)} // Open the modal by clicking the imagery
-              style={{ cursor: "pointer" }} // cursor over pointer
-            />
-            {/* Enlarge photo */}
-            <div
-              className={styles.enlargePhotoContainer}
-              onClick={() => setIsModalOpen(true)}
-              style={{ cursor: "pointer" }}
-            >
-              <span role="img" aria-label="magnifying glass">
-                🔍
-              </span>
-              <p className={styles.enlargePhotoText}>ENLARGE PHOTO</p>
-            </div>
+        {/* ---------------------------------------------------------------------------------------- */}
+        {/*Smaller div group of submission status in text if it's true as "submitted" or
+      false as "wants to show" (his/her) projects */}
+        <div>
+          {project.submission_status ? (
+            <h1 className={styles.centeredText}>
+              {firstNameCapitalized} submitted {pronoun} projects.{" "}
+            </h1>
+          ) : (
+            <h1 className={styles.centeredText}>
+              {firstNameCapitalized} wants to show {pronoun} projects.
+            </h1>
+          )}
+          {/* Display Project imagery */}
+          <img
+            src={projectImage}
+            alt="Project Screenshot"
+            className={`${styles.projectImage} ${styles.centeredImage}`} // add new class
+            onClick={() => setIsModalOpen(true)} // Open the modal on click
+            style={{ cursor: "pointer" }} // Set cursor to pointer
+          />
+          {/* Enlarge photo */}
+          <div
+            className={styles.enlargePhotoContainer}
+            onClick={() => setIsModalOpen(true)}
+            style={{ cursor: "pointer" }}
+          >
+            <span role="img" aria-label="magnifying glass">
+              {" "}
+              🔍{" "}
+            </span>
+            <h4 className={styles.enlargePhotoText}>ENLARGE PHOTO</h4>
           </div>
-        )}
+        </div>
+        {/* ---------------------------------------------------------------------------------------- */}
+        {/* Smaller h3 group of date_submitted tag Upper part: Days/ Lower part: NZ local time*/}
+        <h3 className={styles.dateSubmitted}>
+          <span className={styles.dateText}>
+            {formatDate(project.dates.date_submitted).datePart}
+          </span>
+          <br />
+          <span className={styles.timeText}>
+            {formatDate(project.dates.date_submitted).timePart}
+          </span>
+        </h3>
       </div>
       <ImageModal
         isOpen={isModalOpen}
@@ -153,7 +165,7 @@ const ProjectCard = ({ project }) => {
 };
 
 export default function ProjectSubmission() {
-  const PNG_FILE_URL = "./images/students/AidenAndrews.png"; // Update the URL to be relative
+  const PNG_FILE_URL = AidenAndrews; // Update the URL to be relative
   const downloadFileAtURL = (url) => {
     const fileName = url.split("/").pop(); // Get the file name from the URL
     const aTag = document.createElement("a"); // Create an anchor tag
@@ -171,7 +183,6 @@ export default function ProjectSubmission() {
 
       <div style={{ display: "flex" }}>
         {/* <SideBar /> Display SideBar component */}
-
         <div className={styles.projectSubmissionBackground}>
           <main className={styles.projectSubmissionContainer}>
             <div className={styles.headerContainer}>
