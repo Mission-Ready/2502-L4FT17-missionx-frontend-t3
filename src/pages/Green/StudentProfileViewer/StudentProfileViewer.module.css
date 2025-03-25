@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+
+}
+
+.outerBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #EEEEEE;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+
+}
+/* Background Grey Color */
+.studentProfileViewerBackground {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #EEEEEE;
+    height: 100%;
+    width: 100%;
+    
+    
+
+}
+
+/* Small Box */
+.profileBox {
+   display: flex;
+    height: 550px;
+    width: 350px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 150px 80px 0px 0px;
+}
+
+.profileBox > div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.profileImageBox {
+    display: flex;
+    justify-content: center;
+    margin: -200px 20px 20px 20px;
+}
+.profileBox > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.profileImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 40px;
+    width: 70%;
+    
+}
+
+.profileBoxButtons {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 80px;
+    
+}
+.profileBoxButtons button {
+    display: flex;
+    flex-direction: column;
+    padding: 3px 20px;
+    border: 2px solid #2AC5F5;
+    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2AC5F5;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px #2AC5F566;
+    cursor: pointer;
+
+}
+
+
+/* Big Box----------------------------------------------------------------------- */
+.profileInfoBox {
+    display: flex;
+    height: 700px;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 150px 0px 0px 0px;
+
+}
+
+.profileInfoDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.profileName {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-size: 48px;
+}
+
+.profileSchool {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    padding: 20px;
+}
+.profileSchool div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-align: center;
+    width:100%;
+    font-size: 24px;
+    color: grey;
+    
+  }
+
+  .backToProjectsButton {
+    background-color: #FF0ABC;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .backToProjectsButtonBox {
+    display: flex;
+    position: relative;
+    justify-content: right;
+    margin-right: 17%;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
