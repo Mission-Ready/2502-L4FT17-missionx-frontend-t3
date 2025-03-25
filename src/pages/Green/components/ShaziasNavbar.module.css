@@ -18,22 +18,26 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 64px;
+    height: 50px;
 
 }
 
 .star {
   display: flex;
-  width: 120px;
-  height: 60px;
-  padding-left: 266px;
+  width: 100px;
+  height: 45px;
+  padding-left: 200px;
+  cursor: pointer;
 
 }
 
 .mainNav {
   display: flex;
+  justify-content: center;
+  align-items: end;
   list-style: none;
-  padding-top: 40px;
+  margin-bottom: 8px;
+  
   text-align: justify;
 }
 
@@ -49,8 +53,6 @@
 .languageAndLogin {
   padding-right: 200px;
   background: padding-box;
-  align-items: left;
-  justify-items: space;
   cursor: pointer;
 }
 
@@ -58,8 +60,30 @@
  background: padding-box;
 }
 
-.userBox {
+.outerUserBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.outerUserBox h4 {
   display: flex;
   flex-direction: row;
+  justify-content: right;
+  gap: 5px;
+}
+
+.userBox {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
  
+}
+.userImage {
+  width: 24;
+  height: 24px;
+}
+
+.linkStudentProfileViewer {
+  text-decoration: none;
+  color: inherit;
 }

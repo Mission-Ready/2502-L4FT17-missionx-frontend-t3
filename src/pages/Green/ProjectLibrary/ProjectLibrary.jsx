@@ -56,6 +56,8 @@ function ProjectLibrary() {
    
   return (
     <div className={styles.Background}>
+      <div id="top" />
+
       <ShaziasNavbar></ShaziasNavbar>
 
     <div className={styles.outerBox}>
@@ -296,7 +298,7 @@ function ProjectLibrary() {
     </div>
 
     <div className={styles.backBtns}>
-      <button className={styles.backToTop}>BACK TO TOP</button>
+      <a href="#top"><button className={styles.backToTop}>BACK TO TOP</button></a>
       <button className={styles.backToDash}> BACK TO DASHBOARD</button>
     </div>
 

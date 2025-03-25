@@ -5,7 +5,7 @@ import LevelUpWorksWhite from '../../../assets/Navbar/LevelUpWorks-white.png'
 import RawiriFletcher from '../../../../public/images/students/RawiriFletcher.png'
 import MaoriFlag from '../../../assets/Navbar/MaoriFlag.png'
 import NZFlag from '../../../assets/Navbar/NZFlag.png'
-
+import { Link } from 'react-router-dom';
 
 
 export default function ShaziasNavbar() {
@@ -24,13 +24,14 @@ export default function ShaziasNavbar() {
      
         <div className= {styles.languageAndLogin}>
             
-            <nav >
+            <nav className={styles.outerUserBox}>
                 <h4 style={{fontSize:'11px',padding:'3px'}}>LANG<img style={
                   {top: "8px",left:'1617px',width: '24px',height: '12px'}} src={MaoriFlag}alt="Maori Flag" /><img style={{top: "8px",left:'1617px',width: '24px',height: '12px'}} src={NZFlag} alt="NZ Flag" /></h4>
+                <Link to="/studentProfileViewer" className={styles.linkStudentProfileViewer}>
                 <div className={styles.userBox}>
-                  <img className={styles.userImage} style={{top: '31px', left: '1497px',width: '24px',height: '24px'}} src={RawiriFletcher} alt="Avatar White" /> <h4>Rawiri Fletcher</h4>
+                   <img className={styles.userImage} src={RawiriFletcher} alt="User Pfp" /><h3>Rawiri Fletcher</h3>
                 </div>
-                
+                </Link>
             </nav>
 
         </div>

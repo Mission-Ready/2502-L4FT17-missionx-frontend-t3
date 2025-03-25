@@ -2,6 +2,7 @@ import styles from "./StudentProfileViewer.module.css"
 import RawiriFletcher from "../../../../public/images/students/RawiriFletcher.png"
 import KerrysFooter from "../components/KerrysFooter"
 import ShaziasNavbar from "../components/ShaziasNavbar"
+import { Link } from 'react-router-dom';
 
 function StudentProfileViewer() {
   return (
@@ -107,7 +108,9 @@ function StudentProfileViewer() {
       </section>
       </div>
       <div className={styles.backToProjectsButtonBox}>
+        <Link to="/projectLibrary" className={styles.linkProjectLibrary}>
         <button className={styles.backToProjectsButton}>BACK TO PROJECTS</button> 
+        </Link>
       </div>
     
     
