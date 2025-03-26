@@ -14,7 +14,7 @@
     align-items: center;
     background-color: #B2E4FA;
     height: 90vh;
-    width: 100%;
+    width: 100vh;
 }
 
 .innerContainer {
@@ -54,6 +54,12 @@
     font-size: 25px;
 }
 
+.checkBox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .box {
     list-style: none;
     border: 2px solid rgba(125, 113, 113, 0.232);
@@ -69,6 +75,11 @@
 .img {
     height: 60px;
     width: 60px;
+}
+
+.spanDate {
+    font-size: 10px;
+    display: block;
 }
 
 .studentsBtn {
