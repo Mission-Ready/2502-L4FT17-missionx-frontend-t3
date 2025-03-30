@@ -4,7 +4,7 @@
     padding:0;
   }
 
-
+/* {what we offer section} */
 .leftSection {
     display: flex;
     flex-direction: column;
@@ -15,24 +15,30 @@
     height: 57px;
     }
 
-.rightSection{
-    display: flex;
-    justify-content: right;
-    margin-top: 0px;
-}
 section h4 {
     padding-top: 50px
 }
 
 section h2 {
     padding-top: 100px;
-}
+}    
 
+/* left section buttons that talk to the image in the right section */
 .studentsCreateButtons {
     display: flex;
     flex-direction: row;
 }
 
+
+ /* {images section connected to the what we offer section} */
+.rightSection{
+    display: flex;
+    justify-content: right;
+    margin-top: 0px;
+}
+
+
+/* {/* Teaching kids programming sections with photos */
 
 .groupContainer h1 {
     display: flex;
@@ -48,6 +54,7 @@ section h2 {
 
 }
 
+/* {how our programmes helps teachers and schools section} */
 .moreInfoContainer h1 {
     display: flex;
     justify-content: center;
@@ -64,10 +71,42 @@ section h2 {
     
 }
 
+ /* {pop up for key competencies} */
+ 
 .informationOnClick {
     display: flex;
     flex-direction: column;
-   
+    justify-content: center;
+    padding-left: 320px;
+
 }
 
+.keyCompetencies {
+    display: grid;
+    
+}
+
+.enquireNow{
+    display: flex;
+    flex-direction: row;
+    /* padding-top: 634px;
+    padding-left: 107px; */
+    height: 3695px;;
+
+}
+.enquireNowLeft {
+
+    padding-left: 282px;
+    padding-top: 150px;
+    width: 625px;
+    height: 417px;
+}
+
+.enquireNowRight{
+   
+ 
+    padding-left: 482px;
+    padding-top: 150px;
+  
+}
 

@@ -12,16 +12,20 @@ export default function Header() {
   return (
     <div className= {styles.container}>
 
+        {/* //star logo */}
         <div className={styles.star}>
           <img src={LevelUpWorksWhite } alt="LevelUpWorksWhite "/>
         </div>
        
+
+       {/* //nav buttons */}
         <nav className= {styles.mainNav}>
             <li>HOME</li>
             <li>FEATURES</li>
             <li>TEACHERS</li>
         </nav>
-     
+
+        {/* register and login plus language logo */}
         <div className= {styles.languageAndLogin}>
             
             <nav >

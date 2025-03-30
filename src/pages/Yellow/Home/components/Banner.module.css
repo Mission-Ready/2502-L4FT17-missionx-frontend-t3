@@ -5,6 +5,7 @@
 
 }
 
+/* styling for the entire component */
 .container {
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@
     margin: 0px,0px;
 }
 
+/* styling for the biggest text */
 .subHeroText {
     display: flex;
     flex-direction: column;
@@ -33,6 +35,7 @@
     
 }
 
+/* styling for the smaller text */
 .heroText {
     display: flex;
     flex-direction: column;
@@ -43,10 +46,9 @@
     height: 140px;
 
     
-    
-
 }
 
+/* styling for the buttons  */
 .button {
     display: flex;
     padding-left: 266px;

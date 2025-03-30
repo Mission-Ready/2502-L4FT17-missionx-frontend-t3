@@ -7,7 +7,7 @@
 
 
 
-
+/* styling for the whole component */
 .container{
     display: flex;
     background-color: #43C0F6;
@@ -22,6 +22,7 @@
 
 }
 
+/* styling for the star logo and text */
 .star {
   display: flex;
   width: 120px;
@@ -30,6 +31,7 @@
 
 }
 
+/* styling for the nav buttons */
 .mainNav {
   display: flex;
   list-style: none;
@@ -37,6 +39,7 @@
   text-align: justify;
 }
 
+/* styling for the nav buttons */
 .mainNav li {
   font-family: sans-serif;
   font-weight: bold;
@@ -45,6 +48,7 @@
 
 }
 
+ /* {register and login plus language logo} */
 .languageAndLogin {
   padding-right: 200px;
   background: padding-box;
@@ -52,6 +56,7 @@
   justify-items: space;
 }
 
+ /* {register and login plus language logo} */
 .languageAndLogin h4 {
  background: padding-box;
 }

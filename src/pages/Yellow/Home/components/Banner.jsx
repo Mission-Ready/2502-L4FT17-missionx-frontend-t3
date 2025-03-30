@@ -11,7 +11,7 @@ function Banner() {
   return (
     <div className={style.container}>
       
-
+      {/* text */}
       <h1 className={style.heroText}>
         <font color="#767676" style={{fontFamily:"Nunito, Black", fontSize: "60px", textAlign:"left"} }>Prepare young minds for a better</font>
         <font color="#42C0F6" style={{fontFamily:"Nunito, Black", fontSize: "60px", textAlign:"left"} }> future.</font>
@@ -22,6 +22,7 @@ function Banner() {
         learning areas with our project-based learning programme.
       </h3>
 
+    {/* buttons */}
     <div className={style.button}>
 
       <Button variant="outlined">Learn More</Button>
