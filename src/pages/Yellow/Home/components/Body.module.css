@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+  }
+
+/* {what we offer section} */
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-top: 200px;
+    padding-left: 266px;
+    width: 292px;
+    height: 57px;
+    }
+
+section h4 {
+    padding-top: 50px
+}
+
+section h2 {
+    padding-top: 100px;
+}    
+
+/* left section buttons that talk to the image in the right section */
+.studentsCreateButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+
+ /* {images section connected to the what we offer section} */
+.rightSection{
+    display: flex;
+    justify-content: right;
+    margin-top: 0px;
+}
+
+
+/* {/* Teaching kids programming sections with photos */
+
+.groupContainer h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.groupImages {
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 120px
+
+}
+
+/* {how our programmes helps teachers and schools section} */
+.moreInfoContainer h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+}
+
+.moreInfoButtons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 120px;
+    
+}
+
+ /* {pop up for key competencies} */
+ 
+.informationOnClick {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 320px;
+
+}
+
+.keyCompetencies {
+    display: grid;
+    
+}
+
+.enquireNow{
+    display: flex;
+    flex-direction: row;
+    /* padding-top: 634px;
+    padding-left: 107px; */
+    height: 3695px;;
+
+}
+.enquireNowLeft {
+
+    padding-left: 282px;
+    padding-top: 150px;
+    width: 625px;
+    height: 417px;
+}
+
+.enquireNowRight{
+   
+ 
+    padding-left: 482px;
+    padding-top: 150px;
+  
+}
+

@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+
+}
+
+/* styling for the entire component */
+.container {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../../assets/Home/hero.png);
+    background-size: cover;
+    
+    top: 64px;
+    left: 0px;
+    width: 100%;
+    height: 400px;
+    padding: 0px,0px;
+    margin: 0px,0px;
+}
+
+/* styling for the biggest text */
+.subHeroText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    top: 266px;
+    left: 266px;
+    width: 162px;
+    height: 98px;
+    width:30em;
+    padding-left: 266px;
+    padding-top: 80px;
+    
+}
+
+/* styling for the smaller text */
+.heroText {
+    display: flex;
+    flex-direction: column;
+    text-align:left;
+    top: 115px;
+    padding-left: 266px;
+    width: 800px;
+    height: 140px;
+
+    
+}
+
+/* styling for the buttons  */
+.button {
+    display: flex;
+    padding-left: 266px;
+    padding-top: 100px;
+    margin-left:80px;
+    
+
+
+}
+
+.signupButton {
+  display: flex;
+  margin-left: 100px;
+}
