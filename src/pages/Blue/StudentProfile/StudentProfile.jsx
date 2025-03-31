@@ -1,6 +1,5 @@
 
 import ProfileScreen from "./components/ProfileScreen";
-import SideBar from "../../../common/SideBar";
 import styles from "./StudentProfile.module.css";
 
 const students = [
@@ -68,13 +67,8 @@ const students = [
 
 export default function StudentProfile() {
   return (
-
-
     <>
       <div className={styles.Screen}>
-        <header>
-
-        </header>
         <ProfileScreen students={students} />
       </div>
     </>

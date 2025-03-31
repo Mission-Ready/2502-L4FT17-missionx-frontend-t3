@@ -1,9 +1,8 @@
 .card {
   /* Layout Properties */
-  top: 204px;
-  left: 373px;
-  width: 193px;
-  height: 182px;
+  width: 9vw;
+  height: auto;
+  aspect-ratio: 1 / 1;
   /* UI Properties */
   background: transparent url("img/Rectangle 256.png") 0% 0% no-repeat
     padding-box;
@@ -19,10 +18,8 @@
 
 .image {
   /* Layout Properties */
-  top: 223px;
-  left: 417px;
-  width: 104px;
-  height: 105px;
+  width: 55%;
+  height: auto;
   /* UI Properties */
   background: transparent url("img/Ellipse 38.png") 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -30,17 +27,15 @@
 
 .name {
   /* Layout Properties */
-  top: 345px;
-  left: 377px;
-  width: 187px;
-  height: 32px;
+  width: 100%;
+  margin-top: 15px;
   /* UI Properties */
   background: transparent url("img/AIDEN ANDREWS.png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
   text-align: center;
   color: #707070;
-  font-size: 14px;
+  font-size: 0.8vw;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
