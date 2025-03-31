@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./HelpRequest.module.css"
 import Header from '../../../common/Header';
 import SideBar from '../../../common/SideBar';
-import Footer from '../../../common/components/Footer';
+import Footer from '../../../common/Footer';
 import { useState } from 'react';
 
 
@@ -30,7 +30,7 @@ export default function HelpRequest() {
 
   return (
     <section>
-      <Header />
+      {/* <Header /> */}
       
       <section className={styles.sideBar}>
         {/* <SideBar></SideBar> */}
@@ -62,7 +62,7 @@ export default function HelpRequest() {
           </div>
         </section>
       </section>
-      <Footer></Footer>
+      {/* <Footer/> */}
     </section>
   );
 }
