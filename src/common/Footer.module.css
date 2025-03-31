@@ -14,5 +14,9 @@
     max-width: 1200px;        
     margin: 0 auto;           
   }
+
+  .container p {
+    font-family: sans-serif;
+  }
   
 
