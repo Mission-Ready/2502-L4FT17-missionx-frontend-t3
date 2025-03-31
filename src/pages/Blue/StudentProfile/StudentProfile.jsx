@@ -1,3 +1,4 @@
+
 import ProfileScreen from "./components/ProfileScreen";
 import styles from "./StudentProfile.module.css";
 
@@ -74,3 +75,4 @@ export default function StudentProfile() {
 
   );
 }
+
