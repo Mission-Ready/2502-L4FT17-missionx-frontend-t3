@@ -1,18 +1,21 @@
 import React from 'react'
 import styles from "./HelpRequest.module.css"
 import Header from '../../../common/Header';
-import SideBar from '../../../common/SideBar';
-import Footer from '../../../common/Footer';
+// import SideBar from '../../../common/SideBar';
+import Footer from '../../../common/components/Footer';
+import { useState } from 'react';
+
+
 
 export default function HelpRequest() {
   
   
   const [students, setStudents] = useState([
-    { id: 1, name: 'Aiden', img: 'AidenAndrews.png', needsHelp: true, checked: false },
-    { id: 2, name: 'Rawiri', img: 'RawiriFletcher.png', needsHelp: true, checked: false },
-    { id: 3, name: 'Neveah', img: 'NeveahMachenry.png', needsHelp: true, checked: false },
-    { id: 4, name: 'Javier', img: 'JavierFuego.png', needsHelp: true, checked: false },
-    { id: 5, name: 'Tokio', img: 'TokioHan.png', needsHelp: true, checked: false },
+    { id: 1, name: 'Aiden', img: 'AidenAndrews.png', needsHelp: true, checked: false, date: 'TUE 28 April 2020 10:43 AM' },
+    { id: 2, name: 'Rawiri', img: 'RawiriFletcher.png', needsHelp: true, checked: false, date: 'TUE 28 April 2020 9:52 AM' },
+    { id: 3, name: 'Neveah', img: 'NeveahMachenry.png', needsHelp: true, checked: false, date: 'MON 27 April 2020 4:59 PM' },
+    { id: 4, name: 'Javier', img: 'JavierFuego.png', needsHelp: true, checked: false, date: 'MON 27 April 2020 3:00 PM' },
+    { id: 5, name: 'Tokio', img: 'TokioHan.png', needsHelp: true, checked: false, date: 'MON 27 April 2020 11:23 AM' },
   ]);
 
   function handleCheckboxChange(id) {
@@ -27,7 +30,7 @@ export default function HelpRequest() {
 
   return (
     <section>
-      {/* <Header /> */}
+      <Header />
       
       <section className={styles.sideBar}>
         {/* <SideBar></SideBar> */}
@@ -50,8 +53,8 @@ export default function HelpRequest() {
                     />
                     <li className={styles.box}>
                       <img className={styles.img} src={`\\public\\images\\students\\${student.img}`} alt="" />
-                      {student.name.toUpperCase()} needs help with {student.name === 'Neveah' || student.name === 'Tokio' ? 'her' : 'his'} project.
-                      <span className={styles.spanDate}>TUE 28 April 2020 <p>10:43 AM</p></span>
+                      {student.name.toUpperCase()} needs help with {student.name === 'Neveah' || student.name === 'Tokio' ? 'her' : 'his'} project.<span className={styles.spanDate}>{student.date}</span>
+                      
                     </li>
                   </div>
                 ))}
@@ -63,6 +66,8 @@ export default function HelpRequest() {
     </section>
   );
 }
+
+
 
 
 
