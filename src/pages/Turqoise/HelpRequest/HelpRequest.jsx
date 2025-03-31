@@ -2,8 +2,7 @@ import React from 'react'
 import styles from "./HelpRequest.module.css"
 import Header from '../../../common/Header';
 import SideBar from '../../../common/SideBar';
-import Footer from '../../../common/components/Footer';
-import { useState } from 'react';
+import Footer from '../../../common/Footer';
 
 export default function HelpRequest() {
   

@@ -1,7 +1,7 @@
 .sideBar {
   /* Layout Properties */
   width: 236px;
-  height: 100vh;
+  height: 90vh;
   background-color: #43c0f6;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.navLink:hover{
+.navLink:hover {
   background-color: #2f82a5;
 }
 
@@ -65,13 +65,16 @@
 
 .arrowBox {
   background-color: #d2eefa;
-  width: 15%;
+  width: 3.5em;
   padding: 8px;
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer {
@@ -118,7 +121,7 @@
 }
 
 .smallSideBar .arrowBox {
-  width: 30%;
+  width: 3.5em;
 }
 .smallSideBar .arrowBox img {
   transform: rotate(180deg);
@@ -136,5 +139,9 @@
 }
 
 .navLinkActive {
-  background-color: orange;
+  background-color: #b2e4fa;
+}
+
+.navLinkActive p {
+  color: #707070;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // Import React and useState
 import Header from '../../../common/components/Header.jsx';
 import SideBar from '../../../common/components/SideBar.jsx';
-import Footer from '../../../common/components/Footer.jsx';
+import Footer from '../../../common/Footer.jsx';
 import styles from "./components/ProjectSubmission.module.css"; // Import CSS styles
 import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; // Import project data
 import studentData from "../../../pages/Brown/ProjectSubmission/studentData.js"; // Import student data
