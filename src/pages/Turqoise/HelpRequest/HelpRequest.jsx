@@ -3,7 +3,7 @@ import styles from "./Helprequest.module.css"
 /* import TestNav from '../../../common/TestNav' */
 import Header from '../../../common/Header';
 import SideBar from '../../../common/SideBar';
-import Footer from '../../../common/components/Footer';
+import Footer from '../../../common/Footer';
 
 export default function HelpRequest() {
   return (

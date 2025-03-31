@@ -6,7 +6,7 @@ export default function SideBar() {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className={`${styles.sideBar} ${open ? styles.smallSideBar : ""}`}>
+    <div className={`${styles.sideBar} ${!open ? styles.smallSideBar : ""}`}>
       <div className={styles.top}>
         <div className={styles.pictureBorder}>
           <img
@@ -16,6 +16,7 @@ export default function SideBar() {
           />
         </div>
 
+        {/* Progress Tracker */}
         <NavLink
           to="progressTracker"
           className={({ isActive }) =>
@@ -24,12 +25,23 @@ export default function SideBar() {
               : styles.navLink
           }
         >
-          <img
-            src="/src/assets/TeacherDashboard/progressTracker.png"
-            alt="progress-tracker"
-          />
-          <p>PROGRESS TRACKER</p>
+          {({ isActive }) => (
+            <>
+              <img
+                src={
+                  isActive
+                    ? "/src/assets/TeacherDashboard/progressTrackerSelected.png"
+                    : "/src/assets/TeacherDashboard/progressTracker.png"
+                }
+                alt="progress-tracker"
+              />
+
+              <p>PROGRESS TRACKER</p>
+            </>
+          )}
         </NavLink>
+
+        {/* Student Profile */}
         <NavLink
           to="studentProfiles"
           className={({ isActive }) =>
@@ -38,12 +50,23 @@ export default function SideBar() {
               : styles.navLink
           }
         >
-          <img
-            src="/src/assets/TeacherDashboard/studentProfiles.png"
-            alt="student-profile"
-          />
-          <p>STUDENT PROFILE</p>
+          {({ isActive }) => (
+            <>
+              <img
+                src={
+                  isActive
+                    ? "/src/assets/TeacherDashboard/studentProfilesSelected.png"
+                    : "/src/assets/TeacherDashboard/studentProfiles.png"
+                }
+                alt="student-profiles"
+              />
+
+              <p>STUDENT PROFILE</p>
+            </>
+          )}
         </NavLink>
+
+        {/* Help Request */}
         <NavLink
           to="helpRequest"
           className={({ isActive }) =>
@@ -52,12 +75,23 @@ export default function SideBar() {
               : styles.navLink
           }
         >
-          <img
-            src="/src/assets/TeacherDashboard/helpRequests.png"
-            alt="help-request"
-          />
-          <p>HELP REQUEST</p>
+          {({ isActive }) => (
+            <>
+              <img
+                src={
+                  isActive
+                    ? "/src/assets/TeacherDashboard/helpRequestsSelected.png"
+                    : "/src/assets/TeacherDashboard/helpRequests.png"
+                }
+                alt="help-request"
+              />
+
+              <p>HELP REQUEST</p>
+            </>
+          )}
         </NavLink>
+
+        {/* Project Submission */}
         <NavLink
           to="projectSubmission"
           className={({ isActive }) =>
@@ -66,12 +100,23 @@ export default function SideBar() {
               : styles.navLink
           }
         >
-          <img
-            src="/src/assets/TeacherDashboard/projectSubmissions.png"
-            alt="project-submissions"
-          />
-          <p>PROJECT SUBMISSION</p>
+           {({ isActive }) => (
+            <>
+              <img
+                src={
+                  isActive
+                    ? "/src/assets/TeacherDashboard/projectSubmissionsSelected.png"
+                    : "/src/assets/TeacherDashboard/projectSubmissions.png"
+                }
+                alt="project-submission"
+              />
+
+              <p>PROJECT SUBMISSION</p>
+            </>
+           )}
         </NavLink>
+
+        {/* Project Library */}
         <NavLink
           to="studentProjectLibrary"
           className={({ isActive }) =>
@@ -80,11 +125,20 @@ export default function SideBar() {
               : styles.navLink
           }
         >
-          <img
-            src="/src/assets/TeacherDashboard/projectLibrary.png"
-            alt="project-library"
-          />
-          <p>PROJECT LIBRARY</p>
+           {({ isActive }) => (
+            <>
+              <img
+                src={
+                  isActive
+                    ? "/src/assets/TeacherDashboard/projectLibrarySelected.png"
+                    : "/src/assets/TeacherDashboard/projectLibrary.png"
+                }
+                alt="project-library"
+              />
+
+              <p>PROJECT LIBRARY</p>
+            </>
+           )}
         </NavLink>
       </div>
 
@@ -109,4 +163,3 @@ export default function SideBar() {
     </div>
   );
 }
-
