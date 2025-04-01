@@ -1,8 +1,4 @@
-import React from "react";
 import styles from "./HelpRequest.module.css";
-import Header from "../../../common/Header";
-import SideBar from "../../../common/SideBar";
-import Footer from "../../../common/Footer";
 import { useState } from "react";
 
 export default function HelpRequest() {
@@ -13,7 +9,8 @@ export default function HelpRequest() {
       img: "AidenAndrews.png",
       needsHelp: true,
       checked: false,
-      date: "TUE 28 April 2020 10:43 AM",
+      date: "TUE 28 April 2020",
+      time: "10:43 AM",
     },
     {
       id: 2,
@@ -21,7 +18,8 @@ export default function HelpRequest() {
       img: "RawiriFletcher.png",
       needsHelp: true,
       checked: false,
-      date: "TUE 28 April 2020 9:52 AM",
+      date: "TUE 28 April 2020",
+      time: "9:52 AM",
     },
     {
       id: 3,
@@ -29,7 +27,8 @@ export default function HelpRequest() {
       img: "NeveahMachenry.png",
       needsHelp: true,
       checked: false,
-      date: "MON 27 April 2020 4:59 PM",
+      date: "MON 27 April 2020",
+      time: " 4:59 PM",
     },
     {
       id: 4,
@@ -37,7 +36,8 @@ export default function HelpRequest() {
       img: "JavierFuego.png",
       needsHelp: true,
       checked: false,
-      date: "MON 27 April 2020 3:00 PM",
+      date: "MON 27 April 2020",
+      time: " 3:00 PM",
     },
     {
       id: 5,
@@ -45,7 +45,8 @@ export default function HelpRequest() {
       img: "TokioHan.png",
       needsHelp: true,
       checked: false,
-      date: "MON 27 April 2020 11:23 AM",
+      date: "MON 27 April 2020",
+      time: " 11:23 AM",
     },
   ]);
 
@@ -62,49 +63,43 @@ export default function HelpRequest() {
   }
 
   return (
-    <section>
-      {/* <Header /> */}
-
-      <section className={styles.sideBar}>
-        {/* <SideBar> */}
-
-        <section className={styles.outerContainer}>
-          <div className={styles.innerContainer}>
-            <p className={styles.helpRequest}>HELP REQUESTS</p>
-            <div className={styles.headBtn}>
-              <p>📫 REPLY</p>
-              <button className={styles.markBtn} onClick={handleMarkAsRead}>
-                ✔️ MARK AS READ
-              </button>
-            </div>
-            <ul className={styles.listOfStudents}>
-              {students.map((student) => (
-                <div key={student.id} className={styles.checkBox}>
-                  <input
-                    type="checkbox"
-                    checked={student.checked}
-                    onChange={() => handleCheckboxChange(student.id)}
-                  />
-                  <li className={styles.box}>
-                    <img
-                      className={styles.img}
-                      src={`\\public\\images\\students\\${student.img}`}
-                      alt=""
-                    />
-                    {student.name.toUpperCase()} needs help with{" "}
-                    {student.name === "Neveah" || student.name === "Tokio"
-                      ? "her"
-                      : "his"}{" "}
-                    project.
-                    <span className={styles.spanDate}>{student.date}</span>
-                  </li>
+    <section className={styles.outerContainer}>
+      <div className={styles.innerContainer}>
+        <p className={styles.helpRequest}>HELP REQUESTS</p>
+        <div className={styles.headBtn}>
+          <p>📫 REPLY</p>
+          <button className={styles.markBtn} onClick={handleMarkAsRead}>
+            ✔️ MARK AS READ
+          </button>
+        </div>
+        <ul className={styles.listOfStudents}>
+          {students.map((student) => (
+            <div key={student.id} className={styles.checkBox}>
+              <input
+                type="checkbox"
+                checked={student.checked}
+                onChange={() => handleCheckboxChange(student.id)}
+              />
+              <li className={styles.box}>
+                <img
+                  className={styles.img}
+                  src={`\\public\\images\\students\\${student.img}`}
+                  alt=""
+                />
+                {student.name.toUpperCase()} needs help with{" "}
+                {student.name === "Neveah" || student.name === "Tokio"
+                  ? "her"
+                  : "his"}{" "}
+                project.
+                <div className={styles.dateTime}>
+                  <span className={styles.spanDate}>{student.date}</span>
+                  <span className={styles.spanTime}>{student.time}</span>
                 </div>
-              ))}
-            </ul>
-          </div>
-        </section>
-      </section>
-      {/* <Footer/> */}
+              </li>
+            </div>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
