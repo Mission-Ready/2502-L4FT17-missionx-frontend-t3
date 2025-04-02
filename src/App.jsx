@@ -6,7 +6,7 @@ import Instruction from "./pages/Pink/Instructions/Instructions";
 import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective";
 import MakeProject from "./pages/Pink/MakeProject/MakeProject";
 import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
-import ProjectLibrary from "./pages/Green/ProjectLibrary/ProjectLibrary";
+import StudentProjectLibrary from "./pages/Green/ProjectLibrary/StudentProjectLibrary";
 import StudentProfileViewer from "./pages/Green/StudentProfileViewer/StudentProfileViewer";
 import ProjectSubmission from "./pages/Brown/ProjectSubmission/ProjectSubmission";
 import SubmitProject from "./pages/Brown/SubmitProject/SubmitProject";
@@ -67,8 +67,8 @@ function App() {
             element={<ProjectSubmission></ProjectSubmission>}
           ></Route>
           <Route
-          path="ProjectLibrary"
-          element={<ProjectLibrary></ProjectLibrary>}
+          path="StudentProjectLibrary"
+          element={<StudentProjectLibrary></StudentProjectLibrary>}
         ></Route>
         </Route>
 
