@@ -1,3 +1,5 @@
 export default function LoginAndSignup(){
-  return
+  return (
+    <div> login and sign up</div>
+  )
 }
