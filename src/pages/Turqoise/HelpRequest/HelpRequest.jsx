@@ -83,7 +83,7 @@ export default function HelpRequest() {
               <li className={styles.box}>
                 <img
                   className={styles.img}
-                  src={`\\public\\images\\students\\${student.img}`}
+                  src={`/public/images/students/${student.img}`}
                   alt=""
                 />
                 {student.name.toUpperCase()} needs help with{" "}
