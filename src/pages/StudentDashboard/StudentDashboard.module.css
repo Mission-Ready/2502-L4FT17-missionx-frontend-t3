@@ -1,3 +1,68 @@
+.headerContainer {
+  display: flex; /* 横に並べる */
+  align-items: center; /* 縦の中央揃え */
+  margin-top: 20px; /* 上部に余白を追加 */
+  margin-left: 30vh;
+  margin-top: -40px;
+}
+
+.titleContainer {
+  display: flex; 
+  flex-direction: column; /* タイトルとサブタイトルを縦に並べる */
+  margin-right: 20px; /* プロジェクト円との間に余白を追加 */
+}
+
+.title {
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  margin: 0; 
+}
+
+.subtitle {
+  font-size: 1.0rem; 
+  font-weight: normal; 
+  color: gray; 
+  margin: 0; 
+  padding-top: 2px; 
+}
+
+.projectCircles {
+  display: flex; /* 円を横に並べる */
+}
+
+.circle {
+  display: flex;
+  width: 30px; /* 通常時のサイズ */
+  height: 30px; /* 通常時のサイズ */
+  border-radius: 50%; /* 円形にする */
+  border: 2px solid #43C0F6; /* 円の境界線 */
+  align-items: center; /* 中央揃え */
+  justify-content: center; /* 中央揃え */
+  margin: 0 5px; /* 円同士の余白 */
+  text-decoration: none; /* 下線を消す */
+  color: #6C6C6C; /* 文字色 */
+  font-weight: bold; /* 太字 */
+  font-family: 'Nunito', sans-serif; /* フォントファミリー */
+  background-color: #FDF7C0; /* 背景色 */
+  transition: background-color 0.3s, width 0.3s, height 0.3s; /* スムーズなトランジション */
+}
+
+.circle:hover {
+  background-color: #43C0F6; /* ホバー時の背景色を変更 */
+  color: white; /* ホバー時の文字色を変更 */
+}
+
+.active {
+  background-color: #43C0F6; /* アクティブなプロジェクトの円の背景色 */
+  color: white; /* アクティブなプロジェクトの文字色 */
+}
+
+.smallCircle {
+  width: 15px; /* 非アクティブなプロジェクトのサイズ（半分） */
+  height: 15px; /* 非アクティブなプロジェクトのサイズ（半分） */
+  font-size: 0.8rem; /* 小さな数字のサイズを小さくする */
+}
+
 .wholeScreen2 {
-    display: flex;
-  }
+  padding: 20px; /* コンテンツの内側の余白 */
+}

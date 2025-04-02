@@ -9,7 +9,6 @@ import mensGroup from "../../../pages/Brown/ProjectSubmission/mensGroup.js"; // 
 import womensGroup from "../../../pages/Brown/ProjectSubmission/womensGroup.js"; // Import women's group data
 import projectImage from "../../../assets/StudentDashboard/makeProject-screenshot.png"; //Import the image of makeProject-screenshot
 import ImageModal from "./components/ImageModal"; // Import components of image modal
-
 const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
 
 // Function to format dates
@@ -78,7 +77,7 @@ const ProjectCard = ({ project }) => {
 
   // Assigned another variable name as pronoun to distinguish mens and womens
   // Determine the pronoun for the student
-  const pronoun = getPronoun(student); // pronounをここで定義
+  const pronoun = getPronoun(student); // global variable as pronoun
 
   // Assigned another variable name as first name capitalized
   const firstNameCapitalized = formatName(student.name); // Capitalized first name

@@ -1,11 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom"; // Import Navigate
 import "./App.css";
 import Home from "./pages/Yellow/Home/Home";
 import LoginAndSignup from "./pages/Yellow/LoginAndSignup/LoginAndSignup";
-// import Instruction from "./pages/Pink/Instructions/Instructions";
-// import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective";
-// import MakeProject from "./pages/Pink/MakeProject/MakeProject";
-// import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
+import Instruction from "./pages/Pink/Instructions/Instructions";
+import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective";
+import MakeProject from "./pages/Pink/MakeProject/MakeProject";
+import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
 import StudentProjectLibrary from "./pages/Green/StudentProjectLibrary/StudentProjectLibrary";
 import StudentProfileViewer from "./pages/Green/StudentProfileViewer/StudentProfileViewer";
 import ProjectSubmission from "./pages/Brown/ProjectSubmission/ProjectSubmission";
@@ -16,6 +16,7 @@ import HelpRequest from "./pages/Turqoise/HelpRequest/HelpRequest";
 import TeacherProfileViewer from "./pages/Turqoise/TeacherProfileViewer/TeacherProfileViewer";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
+import ProjectDetails from "./pages/StudentDashboard/ProjectDetails"; //Additionally input for student dashboard
 
 function App() {
   return (
@@ -27,31 +28,33 @@ function App() {
           element={<LoginAndSignup></LoginAndSignup>}
         ></Route>
 
-        {/* student dashboard */}
         <Route path="/student-dashboard" element={<StudentDashboard />}>
-          {/* <Route
+          <Route
             path="learningObjective"
             element={<LearningObjective></LearningObjective>}
-          ></Route> */}
-          {/* <Route
+          ></Route>
+          <Route
             path="instruction"
             element={<Instruction></Instruction>}
-          ></Route> */}
-          {/* <Route
+          ></Route>
+          <Route
             path="videoTutorial"
             element={<VideoTutorial></VideoTutorial>}
-          ></Route> */}
-          {/* <Route
+          ></Route>
+          <Route
             path="makeProject"
             element={<MakeProject></MakeProject>}
-          ></Route> */}
+          ></Route>
           <Route
             path="submitProject"
             element={<SubmitProject></SubmitProject>}
-          ></Route>
+          ></Route>        
+          <Route
+           path="project/:projectId"
+            element={<ProjectDetails></ProjectDetails>}   //Additionally input for student dashboard
+          ></Route>  
         </Route>
 
-        {/* teacher dashboard */}
         <Route path="teacher-dashboard" element={<TeacherDashboard />}>
           <Route
             path="progressTracker"
@@ -75,7 +78,6 @@ function App() {
           ></Route>
         </Route>
 
-
         <Route
           path="studentProfileViewer"
           element={<StudentProfileViewer></StudentProfileViewer>}
@@ -91,3 +93,4 @@ function App() {
 }
 
 export default App;
+
