@@ -51,7 +51,7 @@ function App() {
           ></Route>        
           <Route
            path="project/:projectId"
-            element={<ProjectDetails></ProjectDetails>}   //Additionally input for student dashboard
+            element={<ProjectDetails></ProjectDetails>}   
           ></Route>  
         </Route>
 

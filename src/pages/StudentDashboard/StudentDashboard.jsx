@@ -36,7 +36,7 @@ export default function StudentDashboard() {
             {projectNumbers.map((number) => (
               <div key={`project-${number}`}>
                 <Link
-                  to={`/student-dashboard/project/${number}`}
+                  // to={`/student-dashboard/project/${number}`}
                   className={`${styles.circle} ${location.pathname === `/student-dashboard/project/${number}` ? styles.active : ''}`}
                   aria-label={`Project ${number}`}
                   onClick={() => handleClick(number)}
