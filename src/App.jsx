@@ -6,7 +6,7 @@ import Instruction from "./pages/Pink/Instructions/Instructions";
 import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective";
 import MakeProject from "./pages/Pink/MakeProject/MakeProject";
 import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
-import StudentProjectLibrary from "./pages/Green/StudentProjectLibrary/StudentProjectLibrary";
+import ProjectLibrary from "./pages/Green/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/Green/StudentProfileViewer/StudentProfileViewer";
 import ProjectSubmission from "./pages/Brown/ProjectSubmission/ProjectSubmission";
 import SubmitProject from "./pages/Brown/SubmitProject/SubmitProject";
@@ -16,8 +16,6 @@ import HelpRequest from "./pages/Turqoise/HelpRequest/HelpRequest";
 import TeacherProfileViewer from "./pages/Turqoise/TeacherProfileViewer/TeacherProfileViewer";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
-import ProjectDetails from "./pages/StudentDashboard/ProjectDetails"; //Additionally input for student dashboard
-
 function App() {
   return (
     <>
@@ -48,11 +46,7 @@ function App() {
           <Route
             path="submitProject"
             element={<SubmitProject></SubmitProject>}
-          ></Route>        
-          <Route
-           path="project/:projectId"
-            element={<ProjectDetails></ProjectDetails>}   
-          ></Route>  
+          ></Route>                 
         </Route>
 
         <Route path="teacher-dashboard" element={<TeacherDashboard />}>
@@ -73,9 +67,9 @@ function App() {
             element={<ProjectSubmission></ProjectSubmission>}
           ></Route>
           <Route
-            path="studentProjectLibrary"
-            element={<StudentProjectLibrary></StudentProjectLibrary>}
-          ></Route>
+          path="ProjectLibrary"
+          element={<ProjectLibrary></ProjectLibrary>}
+        ></Route>
         </Route>
 
         <Route
