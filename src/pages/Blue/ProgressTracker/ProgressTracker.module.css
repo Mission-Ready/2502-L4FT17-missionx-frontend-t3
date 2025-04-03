@@ -1,0 +1,26 @@
+.Screen {
+  background-color: #B2E4FA;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.InnerScreen {
+  display: grid;
+  background-color: #d2eefa;
+  width: 90%;
+  height: 90%;
+  border-radius: 30px;
+  overflow-y: auto;
+}
+
+.Text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3%;
+  margin-top: 3%;
+  font-family: sans-serif;
+}
