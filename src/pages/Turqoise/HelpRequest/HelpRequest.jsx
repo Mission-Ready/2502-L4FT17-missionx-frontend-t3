@@ -50,6 +50,7 @@ export default function HelpRequest() {
     },
   ]);
 
+  // map the class #id with arrow function to track #id if checked or not
   function handleCheckboxChange(id) {
     setStudents(
       students.map((student) =>
