@@ -1,5 +1,6 @@
 import styles from "./HelpRequest.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function HelpRequest() {
   const [students, setStudents] = useState([
@@ -7,7 +8,7 @@ export default function HelpRequest() {
       id: 1,
       name: "Aiden",
       img: "AidenAndrews.png",
-      needsHelp: true,
+      // needsHelp: true,
       checked: false,
       date: "TUE 28 April 2020",
       time: "10:43 AM",
@@ -16,7 +17,7 @@ export default function HelpRequest() {
       id: 2,
       name: "Rawiri",
       img: "RawiriFletcher.png",
-      needsHelp: true,
+      // needsHelp: true,
       checked: false,
       date: "TUE 28 April 2020",
       time: "9:52 AM",
@@ -25,7 +26,7 @@ export default function HelpRequest() {
       id: 3,
       name: "Neveah",
       img: "NeveahMachenry.png",
-      needsHelp: true,
+      // needsHelp: true,
       checked: false,
       date: "MON 27 April 2020",
       time: " 4:59 PM",
@@ -34,7 +35,7 @@ export default function HelpRequest() {
       id: 4,
       name: "Javier",
       img: "JavierFuego.png",
-      needsHelp: true,
+      // needsHelp: true,
       checked: false,
       date: "MON 27 April 2020",
       time: " 3:00 PM",
@@ -43,14 +44,14 @@ export default function HelpRequest() {
       id: 5,
       name: "Tokio",
       img: "TokioHan.png",
-      needsHelp: true,
+      // needsHelp: true,
       checked: false,
       date: "MON 27 April 2020",
       time: " 11:23 AM",
     },
   ]);
 
-  // map the class #id with arrow function to track #id if checked or not
+  // map the class #id with arrow method to track #id if checked or not
   function handleCheckboxChange(id) {
     setStudents(
       students.map((student) =>
@@ -68,7 +69,10 @@ export default function HelpRequest() {
       <div className={styles.innerContainer}>
         <p className={styles.helpRequest}>HELP REQUESTS</p>
         <div className={styles.headBtn}>
-          <p>📫 REPLY</p>
+          <Link to="/teacherProfileViewer">
+            <button>📫 REPLY</button>
+          </Link>
+          {/* <p>📫 REPLY</p> */}
           <button className={styles.markBtn} onClick={handleMarkAsRead}>
             ✔️ MARK AS READ
           </button>

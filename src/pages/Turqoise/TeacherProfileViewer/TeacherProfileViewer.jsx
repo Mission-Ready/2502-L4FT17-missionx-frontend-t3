@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function teacherProfile() {
   return (
     <div className={styles.studentProfileViewerBackground}>
-      <MoneHeader></MoneHeader>
+      <MoneHeader />
       <div className={styles.outerBox}>
         <section className={styles.profileBox}>
           <div>
@@ -94,7 +94,7 @@ function teacherProfile() {
         </div>
       </div>
 
-      <MoneFooter></MoneFooter>
+      <MoneFooter />
     </div>
   );
 }
