@@ -1,5 +1,9 @@
+import LoginAndSignUpCard from "./components/LoginAndSignUpCard";
+
 export default function LoginAndSignup(){
   return (
-    <div> login and sign up</div>
+    <div> 
+      <LoginAndSignUpCard/>
+    </div>
   )
 }
