@@ -6,16 +6,21 @@ import Footer from "../../common/Footer";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
+// import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; 
 
 export default function StudentDashboard() {
   
   const projectNumbers = [];
+  // const studentId = studentProjectsData.studentID; 
+  const studentId = 23; // student IDを設定（必要に応じて変更）
+
 
   for (let i = 1; i <= 15; i++) {
     projectNumbers.push(i); 
   }
   
   const location = useLocation();
+
   const [activeProject, setActiveProject] = useState(null);
 
   const handleClick = (number) => {
@@ -39,12 +44,12 @@ export default function StudentDashboard() {
                   // to={`/student-dashboard/project/${number}`}
                   className={`${styles.circle} ${location.pathname === `/student-dashboard/project/${number}` ? styles.active : ''}`}
                   aria-label={`Project ${number}`}
-                  onClick={() => handleClick(number)}
+                  onClick={() => handleClick(number)} // Update Project on Click
                 >
                   {activeProject === number ? (
-                    <span>{number}</span>
+                    <span>{number}</span> // Show active project number
                   ) : (
-                    <span className={styles.smallCircle}></span>
+                    <span className={styles.smallCircle}></span> // Show small circle when inactive
                   )}
                 </Link>
               </div>
@@ -55,7 +60,11 @@ export default function StudentDashboard() {
       <div style={{ display: "flex" }}>
         <BrownSideBar />
         <div className={styles.wholeScreen2} style={{ flex: 1 }}>
-          <Outlet />
+          {/* View project details */}
+          {/* {activeProject && (
+            <ProjectDetails projectId={activeProject} studentId={studentId} />
+          )} */}
+          <Outlet context={{ activeProject, studentId }} /> {/* Passing activeProject and studentID to an Outlet */}
         </div>
       </div>
       <footer>
