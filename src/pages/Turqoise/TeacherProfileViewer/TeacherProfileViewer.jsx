@@ -79,7 +79,7 @@ function teacherProfile() {
       </div>
       <div className={styles.lastBox}>
         <div className={styles.backToProjectsButtonBox}>
-          <Link to="/makeProject" className={styles.linkProjectLibrary}>
+          <Link to="/ProjectLibrary" className={styles.linkProjectLibrary}>
             <button className={styles.backToProjectsButton}>
               BACK TO PROJECT
             </button>

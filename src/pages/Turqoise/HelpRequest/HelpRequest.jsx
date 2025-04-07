@@ -70,7 +70,7 @@ export default function HelpRequest() {
         <p className={styles.helpRequest}>HELP REQUESTS</p>
         <div className={styles.headBtn}>
           <Link to="/teacherProfileViewer">
-            <button>📫 REPLY</button>
+            <button className={styles.markBtn}>📫 REPLY</button>
           </Link>
           {/* <p>📫 REPLY</p> */}
           <button className={styles.markBtn} onClick={handleMarkAsRead}>
@@ -79,8 +79,9 @@ export default function HelpRequest() {
         </div>
         <ul className={styles.listOfStudents}>
           {students.map((student) => (
-            <div key={student.id} className={styles.checkBox}>
+            <div key={student.id} className={styles.middle}>
               <input
+                className={styles.checkBox}
                 type="checkbox"
                 checked={student.checked}
                 onChange={() => handleCheckboxChange(student.id)}
@@ -91,14 +92,18 @@ export default function HelpRequest() {
                   src={`/public/images/students/${student.img}`}
                   alt=""
                 />
-                {student.name.toUpperCase()} needs help with{" "}
-                {student.name === "Neveah" || student.name === "Tokio"
-                  ? "her"
-                  : "his"}{" "}
-                project.
-                <div className={styles.dateTime}>
-                  <span className={styles.spanDate}>{student.date}</span>
-                  <span className={styles.spanTime}>{student.time}</span>
+                <div className={styles.dateTimeContainer}>
+                  <div>
+                    {student.name.toUpperCase()} needs help with{" "}
+                    {student.name === "Neveah" || student.name === "Tokio"
+                      ? "her"
+                      : "his"}{" "}
+                    project.
+                  </div>
+                  <div className={styles.dateTime}>
+                    <span className={styles.spanDate}>{student.date}</span>
+                    <span className={styles.spanTime}>{student.time}</span>
+                  </div>
                 </div>
               </li>
             </div>

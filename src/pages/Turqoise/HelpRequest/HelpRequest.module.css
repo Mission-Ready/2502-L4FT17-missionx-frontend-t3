@@ -4,23 +4,16 @@
   padding: 0;
 }
 
-.sideBar {
-  display: flex;
-}
-
 .outerContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #b2e4fa;
   height: 90vh;
-  width: 2070px;
+  width: 100vw;
 }
 
 .innerContainer {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
   width: 78%;
   height: 80vh;
   border-radius: 20px;
@@ -39,37 +32,43 @@
   gap: 20px;
   padding: 12px;
 }
+
 .markBtn {
-  width: 12vw;
+  border: none;
+  background-color: #d9f2fd;
 }
 .markBtn:hover {
   cursor: pointer;
 }
 
 .listOfStudents {
-  display: grid;
-  grid-row: span;
-  gap: 1.6rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4.6rem;
   font-size: 25px;
 }
 
-.checkBox {
+.middle {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.checkBox {
+  border: none;
 }
 
 .box {
   list-style: none;
   border: 2px solid rgba(125, 113, 113, 0.232);
   background-color: white;
-  border-radius: 6px;
+  border-radius: 16px;
   box-shadow: 0 4px 8px rgba(164, 131, 131, 0.2);
   padding: 5px;
   display: flex;
   align-items: center;
   gap: 50px;
+  width: 100%;
 }
 
 .img {
@@ -77,24 +76,17 @@
   width: 60px;
 }
 
-.dateTime {
-  margin-left: 760px;
-}
-.spanDate {
-  font-size: 10px;
-  display: block;
-}
-.spanTime {
-  font-size: 10px;
-  display: block;
+.dateTimeContainer {
+  display: flex;
+  gap: 800px;
 }
 
-.studentsBtn {
-  border: 1px solid black;
-  width: 15px;
-  height: 15px;
-  margin-left: 16px;
+.dateTime {
+  display: flexbox;
+  flex-direction: column;
+  font-size: 10px;
 }
-.studentsBtn:hover {
-  cursor: pointer;
+.spanTime {
+  display: flex;
+  justify-content: end;
 }
