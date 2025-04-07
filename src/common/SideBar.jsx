@@ -147,10 +147,10 @@ export default function SideBar() {
       </div>
 
       <div className={styles.footer}>
-        <NavLink to="teacherProfileViewer" className={styles.footerElements}>
+        <Link to="/teacherProfileViewer" className={styles.footerElements}>
           <img src="/src/assets/profile.png" alt="profile" />
           <p>Profile</p>
-        </NavLink>
+        </Link>
         <NavLink to="settings" className={styles.footerElements}>
           <img src="/src/assets/settings.png" alt="settings" />
           <p>Settings</p>

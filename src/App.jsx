@@ -67,18 +67,17 @@ function App() {
             element={<ProjectSubmission></ProjectSubmission>}
           ></Route>
         </Route>
-                       <Route
+        <Route
           path="/ProjectLibrary"
           element={<ProjectLibrary></ProjectLibrary>}
         ></Route>
         <Route
-          path="studentProfileViewer"
-          element={<StudentProfileViewer></StudentProfileViewer>}
-        ></Route>
-
-        <Route
           path="teacherProfileViewer"
           element={<TeacherProfileViewer></TeacherProfileViewer>}
+        ></Route>
+        <Route
+          path="studentProfileViewer"
+          element={<StudentProfileViewer></StudentProfileViewer>}
         ></Route>
       </Routes>
     </>
