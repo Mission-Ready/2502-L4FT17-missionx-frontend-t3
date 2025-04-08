@@ -90,7 +90,7 @@ export default function HelpRequest() {
                   alt=""
                 />
                 <div className={styles.dateTimeContainer}>
-                  <div>
+                  <div className={styles.text}>
                     {student.name.toUpperCase()} needs help with{" "}
                     {student.gender === "female" ? "her" : "his"} project.
                   </div>
