@@ -55,7 +55,8 @@
 }
 
 .checkBox {
-  border: none;
+  width: 20px;
+  height: 20px;
 }
 
 .box {
@@ -79,12 +80,14 @@
 .dateTimeContainer {
   display: flex;
   gap: 800px;
+  justify-content: space-between;
 }
 
 .dateTime {
   display: flexbox;
   flex-direction: column;
   font-size: 10px;
+  margin-left: auto;
 }
 .spanTime {
   display: flex;

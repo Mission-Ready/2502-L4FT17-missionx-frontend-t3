@@ -8,8 +8,8 @@ export default function HelpRequest() {
       id: 1,
       name: "Aiden",
       img: "AidenAndrews.png",
-      // needsHelp: true,
       checked: false,
+      gender: "male",
       date: "TUE 28 April 2020",
       time: "10:43 AM",
     },
@@ -17,8 +17,8 @@ export default function HelpRequest() {
       id: 2,
       name: "Rawiri",
       img: "RawiriFletcher.png",
-      // needsHelp: true,
       checked: false,
+      gender: "male",
       date: "TUE 28 April 2020",
       time: "9:52 AM",
     },
@@ -26,8 +26,8 @@ export default function HelpRequest() {
       id: 3,
       name: "Neveah",
       img: "NeveahMachenry.png",
-      // needsHelp: true,
       checked: false,
+      gender: "female",
       date: "MON 27 April 2020",
       time: " 4:59 PM",
     },
@@ -35,8 +35,8 @@ export default function HelpRequest() {
       id: 4,
       name: "Javier",
       img: "JavierFuego.png",
-      // needsHelp: true,
       checked: false,
+      gender: "male",
       date: "MON 27 April 2020",
       time: " 3:00 PM",
     },
@@ -44,8 +44,8 @@ export default function HelpRequest() {
       id: 5,
       name: "Tokio",
       img: "TokioHan.png",
-      // needsHelp: true,
       checked: false,
+      gender: "female",
       date: "MON 27 April 2020",
       time: " 11:23 AM",
     },
@@ -69,20 +69,17 @@ export default function HelpRequest() {
       <div className={styles.innerContainer}>
         <p className={styles.helpRequest}>HELP REQUESTS</p>
         <div className={styles.headBtn}>
-          <Link to="/teacherProfileViewer">
-            <button className={styles.markBtn}>📫 REPLY</button>
-          </Link>
-          {/* <p>📫 REPLY</p> */}
+          <p>📫 REPLY</p>
           <button className={styles.markBtn} onClick={handleMarkAsRead}>
             ✔️ MARK AS READ
           </button>
         </div>
         <ul className={styles.listOfStudents}>
           {students.map((student) => (
-            <div key={student.id} className={styles.middle}>
+            <section key={student.id} className={styles.middle}>
               <input
-                className={styles.checkBox}
                 type="checkbox"
+                style={{ width: "20px", height: "20px" }}
                 checked={student.checked}
                 onChange={() => handleCheckboxChange(student.id)}
               />
@@ -95,10 +92,7 @@ export default function HelpRequest() {
                 <div className={styles.dateTimeContainer}>
                   <div>
                     {student.name.toUpperCase()} needs help with{" "}
-                    {student.name === "Neveah" || student.name === "Tokio"
-                      ? "her"
-                      : "his"}{" "}
-                    project.
+                    {student.gender === "female" ? "her" : "his"} project.
                   </div>
                   <div className={styles.dateTime}>
                     <span className={styles.spanDate}>{student.date}</span>
@@ -106,7 +100,7 @@ export default function HelpRequest() {
                   </div>
                 </div>
               </li>
-            </div>
+            </section>
           ))}
         </ul>
       </div>
