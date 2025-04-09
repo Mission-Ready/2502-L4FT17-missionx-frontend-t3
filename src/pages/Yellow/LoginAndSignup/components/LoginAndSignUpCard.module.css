@@ -39,3 +39,9 @@
     flex-direction:column;
     padding: 40px;
 }
+
+.teacherLogInForm {
+        display: flex;
+    flex-direction:column;
+    padding: 40px;
+}

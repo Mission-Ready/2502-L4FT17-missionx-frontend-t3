@@ -60,3 +60,45 @@
 .languageAndLogin h4 {
  background: padding-box;
 }
+
+.signUpContainer {
+    display: grid;
+    border: none;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 5%;
+    padding-left:20%;
+    padding-right: 20%;
+    padding-bottom: 60%;
+    
+
+
+}
+
+.studentSignUpInputField {
+    display: flex;
+    flex-direction:column;
+    padding: 40px;
+}
+
+.teacherSignUpInputField {
+    display: flex;
+    flex-direction:column;
+    padding: 40px;
+}
+
+.active {
+      background-color: red;
+        color: white;
+}
+
+.studentLogInForm {
+        display: flex;
+    flex-direction:column;
+    padding: 40px;
+}
+
+.teacherLogInForm {
+        display: flex;
+    flex-direction:column;
+    padding: 40px;
+}

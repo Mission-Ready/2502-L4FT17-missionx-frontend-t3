@@ -3,11 +3,10 @@ import styles from "./LoginAndSignUpCard.module.css";
 import students from "../../../../assets/LoginSignup/students.png";
 import teachers from "../../../../assets/LoginSignup/teachers.png";
 
-
 export default function LoginAndSignUpCard() {
-    const [isStudentLogIn, setIsStudentLogIn] = useState(true);
-    const [isTeacherLogIn, setIsTeacherLogIn]= useState()
-  
+  const [isStudentLogIn, setIsStudentLogIn] = useState(true);
+  const [isTeacherLogIn, setIsTeacherLogIn] = useState(true);
+
   return (
     <div className={styles.signUpContainer}>
       {/* Students Sign Up Section  */}
@@ -37,35 +36,43 @@ export default function LoginAndSignUpCard() {
           </button>
         </section>
 
-              {isStudentLogIn ? <>
-                  <div className={styles.studentLogInForm}>
-                      <input type="email" placeholder="Email Address" />
-                      <input type="password" placeholder="Password" />
-                      <button>LOG IN</button>
-                  </div> </> : ""}
-              {!isStudentLogIn ?
-                  <section className={styles.studentSignUpInputField}>
-                      <input
-                          type="name"
-                          class="studentNameField"
-                          placeholder="Full Name"
-                      ></input>
-                      <input
-                          type="email"
-                          class="studentEmailField"
-                          placeholder="Email Address"
-                      ></input>
-                      <input
-                          type="password"
-                          class="studentPasswordField"
-                          placeholder="Password"
-                      ></input>
-                      <input
-                          type="password"
-                          class="studentConfirmPasswordField"
-                          placeholder="Confirm Password"
-                      ></input>
-                  </section> : ""}
+        {isStudentLogIn ? (
+          <>
+            <div className={styles.studentLogInForm}>
+              <input type="email" placeholder="Email Address" />
+              <input type="password" placeholder="Password" />
+              <button>LOG IN</button>
+            </div>{" "}
+          </>
+        ) : (
+          ""
+        )}
+        {!isStudentLogIn ? (
+          <section className={styles.studentSignUpInputField}>
+            <input
+              type="name"
+              
+              placeholder="Full Name"
+            ></input>
+            <input
+              type="email"
+              
+              placeholder="Email Address"
+            ></input>
+            <input
+              type="password"
+              
+              placeholder="Password"
+            ></input>
+            <input
+              type="password"
+              
+              placeholder="Confirm Password"
+            ></input>
+          </section>
+        ) : (
+          ""
+        )}
       </div>
 
       {/* Teachers Sign Up Section */}
@@ -95,29 +102,44 @@ export default function LoginAndSignUpCard() {
           </button>
         </section>
 
-        <section className={styles.teacherSignUpInputField}>
+        {isTeacherLogIn ? 
+          <>
+            <div className={styles.teacherLogInForm}>
+              <input type="email" placeholder="Email Address" />
+              <input type="password" placeholder="Password" />
+              <button>LOG IN</button>
+            </div>
+          </>
+         :
+          ""}
+              
+        {!isTeacherLogIn ?
+         <section className={styles.teacherSignUpInputField}>
           <input
             type="name"
-            class="teacherNameField"
+            
             placeholder="Full Name"
           ></input>
           <input
             type="email"
-            class="teacherEmailField"
+            
             placeholder="Email Address"
           ></input>
           <input
             type="password"
-            class="teacherPasswordField"
+            
             placeholder="Password"
           ></input>
           <input
             type="password"
-            class="teacherConfirmPasswordField"
+            
             placeholder="Confirm Password"
           ></input>
-        </section>
+        </section> : ""}
+
+       
       </div>
     </div>
+    
   );
 }
