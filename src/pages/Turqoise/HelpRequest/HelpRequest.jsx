@@ -1,57 +1,11 @@
 import styles from "./HelpRequest.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import classes from "../../../common/data/classes";
 
 export default function HelpRequest() {
-  const [students, setStudents] = useState([
-    {
-      id: 1,
-      name: "Aiden",
-      img: "AidenAndrews.png",
-      checked: false,
-      gender: "male",
-      date: "TUE 28 April 2020",
-      time: "10:43 AM",
-    },
-    {
-      id: 2,
-      name: "Rawiri",
-      img: "RawiriFletcher.png",
-      checked: false,
-      gender: "male",
-      date: "TUE 28 April 2020",
-      time: "9:52 AM",
-    },
-    {
-      id: 3,
-      name: "Neveah",
-      img: "NeveahMachenry.png",
-      checked: false,
-      gender: "female",
-      date: "MON 27 April 2020",
-      time: " 4:59 PM",
-    },
-    {
-      id: 4,
-      name: "Javier",
-      img: "JavierFuego.png",
-      checked: false,
-      gender: "male",
-      date: "MON 27 April 2020",
-      time: " 3:00 PM",
-    },
-    {
-      id: 5,
-      name: "Tokio",
-      img: "TokioHan.png",
-      checked: false,
-      gender: "female",
-      date: "MON 27 April 2020",
-      time: " 11:23 AM",
-    },
-  ]);
+  const [students, setStudents] = useState(classes);
 
-  // map the class #id with arrow method to track #id if checked or not
   function handleCheckboxChange(id) {
     setStudents(
       students.map((student) =>
