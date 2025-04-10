@@ -1,5 +1,5 @@
 import styles from "./HelpRequest.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../../../common/data/classes";
 
@@ -33,7 +33,11 @@ export default function HelpRequest() {
             <section key={student.id} className={styles.middle}>
               <input
                 type="checkbox"
-                style={{ width: "20px", height: "20px" }}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  margin: "5px 1px 50px 1px",
+                }}
                 checked={student.checked}
                 onChange={() => handleCheckboxChange(student.id)}
               />
