@@ -134,7 +134,7 @@ const SubmitProject = (props) => {
             className={styles.fileInput} 
             id="file-upload" // Add an ID for the input
             // ref={fileInputRef} // Attach ref to the file input
-            style={{ display: 'none' }} // Hide the input
+            style={{ display: 'none' }} // Hide the input.
           />
           <label className={styles.fileLabel}>
             Choose File
