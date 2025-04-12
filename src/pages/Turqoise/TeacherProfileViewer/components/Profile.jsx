@@ -5,10 +5,18 @@ import { useEffect, useState } from "react";
 
 function Profile() {
   const profileData = [
-    { info: "School", data: "Homai School" },
-    { info: "Date of Birth", data: "25 June 1986" },
-    { info: "Contact No", data: "027 754 2800" },
-    { info: "Email Address", data: "jsalvador@hotmail.edu" },
+    { info: "School", 
+     data: "Homai School" 
+    },
+    { info: "Date of Birth", 
+     data: "25 June 1986" 
+    },
+    { info: "Contact No", 
+     data: "027 754 2800" 
+    },
+    { info: "Email Address", 
+     data: "jsalvador@hotmail.edu" 
+    },
   ];
 
   return (
