@@ -6,6 +6,22 @@ import classes from "../../../common/data/classes";
 export default function HelpRequest() {
   const [students, setStudents] = useState(classes);
 
+  //--------IMPORT CORS TO BACKEND---------//
+  // const [students, setStudents] = useState([]);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch("http://localhost:4000/api/request_page");
+  //       const result = await response.json();
+  //       setUsers(result.data);
+  //     } catch (error) {
+  //       console.error("errorrrrrrrr", error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
+
   function handleCheckboxChange(id) {
     setStudents(
       students.map((student) =>
@@ -29,6 +45,7 @@ export default function HelpRequest() {
           </button>
         </div>
         <ul className={styles.listOfStudents}>
+          {/* {} return ( */}
           {students.map((student) => (
             <section key={student.id} className={styles.middle}>
               <input
