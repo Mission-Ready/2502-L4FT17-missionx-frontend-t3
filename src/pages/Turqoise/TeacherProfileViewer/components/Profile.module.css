@@ -5,23 +5,12 @@
   font-family: "Quicksand", sans-serif;
 }
 
-.outerBox {
+.component {
   display: flex;
   justify-content: center;
   flex-direction: row;
   background-color: #eeeeee;
-  height: 100%;
-  width: 100%;
   padding: 50px;
-}
-
-.studentProfileViewerBackground {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #eeeeee;
-  height: 100%;
-  width: 100%;
 }
 
 .profileBox {
@@ -92,94 +81,30 @@
 }
 
 .profileInfoBox {
-  display: flex;
   height: 700px;
   width: 800px;
+  padding: 20px;
   background-color: white;
   border-radius: 20px;
   margin: 150px 0px 0px 0px;
   color: #707070;
 }
 
-.profileInfoDiv {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 20px;
-}
-
-.profileName {
+.profileInfo {
   display: flex;
   justify-content: center;
   margin: 20px;
   font-size: 48px;
 }
 
-.profileSchool {
+.profileData {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 25px 0;
   padding: 20px;
 }
-.profileSchool div {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  text-align: center;
+.profileData div {
   width: 100%;
   font-size: 24px;
   color: grey;
-}
-
-.lastBox {
-  display: flex;
-  margin-left: 57%;
-}
-
-.backToProjectsButton {
-  background-color: #d6b317;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  width: 200px;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-.backToProjectsButtonBox {
-  display: flex;
-  position: relative;
-  justify-content: right;
-  padding: 20px;
-  margin-bottom: 40px;
-}
-
-.linkProjectSLibrary {
-  text-decoration: none;
-  color: inherit;
-}
-
-.backToDashboardButton {
-  background-color: #ff0abc;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-.backToDashboardButtonBox {
-  display: flex;
-  position: relative;
-  justify-content: right;
-  padding: 20px;
-  margin-bottom: 40px;
-}
-.linkDashboardLibrary {
-  text-decoration: none;
-  color: inherit;
 }
