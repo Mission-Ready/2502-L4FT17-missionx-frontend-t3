@@ -10,11 +10,10 @@
   align-items: center;
   gap: 5%;
   /* Layout Properties */
-  top: 109px;
-  left: 166px;
   width: 90%;
-  height: 90%;
+  height: 80vh;
   border-radius: 30px;
+  overflow-y: auto;
 }
 
 .profileLink {
