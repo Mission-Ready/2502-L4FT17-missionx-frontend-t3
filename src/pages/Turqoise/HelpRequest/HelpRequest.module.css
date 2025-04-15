@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 .outerContainer {
@@ -36,9 +37,11 @@
 .markBtn {
   border: none;
   background-color: #d9f2fd;
+  transition: 0.3s ease-in-out;
 }
 .markBtn:hover {
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .listOfStudents {
@@ -52,10 +55,16 @@
 
 .middle {
   display: flex;
+  margin: 0 60px;
   align-items: center;
   gap: 20px;
 }
-
+.checking {
+  transition: 0.3s ease-in-out;
+}
+.checking:hover {
+  transform: scale(1.2);
+}
 .box {
   list-style: none;
   border: 2px solid rgba(125, 113, 113, 0.232);
