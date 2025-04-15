@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: none;
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
@@ -7,15 +8,20 @@
 
 .container {
   display: flex;
+  flex-direction: row;
   background-color: #43c0f6;
   justify-content: space-between;
-  text-align: justify;
-
   color: azure;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 50px;
+}
+
+.container1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .star {
@@ -45,6 +51,8 @@
 }
 
 .languageAndLogin {
+  display: flex;
+  justify-items: end;
   padding-right: 200px;
   background: padding-box;
   cursor: pointer;
@@ -70,6 +78,11 @@
   display: flex;
   justify-content: space-evenly;
   gap: 10px;
+  transition: 0.3s ease-in-out;
+  curser: pointer;
+}
+.userBox:hover {
+  transform: scale(1.1);
 }
 .userImage {
   width: 24;
