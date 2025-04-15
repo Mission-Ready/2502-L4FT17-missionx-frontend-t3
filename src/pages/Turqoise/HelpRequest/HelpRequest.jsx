@@ -63,7 +63,7 @@ export default function HelpRequest() {
                 />
                 <div className={styles.dateTimeContainer}>
                   <div className={styles.text}>
-                    {student.name.toUpperCase()} needs help with{" "}
+                    {student.name.split(" ")[0].toUpperCase()} needs help with{" "}
                     {student.gender === "Female" ? "her" : "his"} project.
                   </div>
                   <div className={styles.dateTime}>
