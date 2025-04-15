@@ -1,37 +1,34 @@
 import styles from "./HelpRequest.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import classes from "../../../common/data/classes";
 
 export default function HelpRequest() {
-  const [students, setStudents] = useState(classes);
 
-  //--------IMPORT CORS TO BACKEND---------//
-  // const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("http://localhost:4000/api/request_page");
-  //       const result = await response.json();
-  //       setUsers(result.data);
-  //     } catch (error) {
-  //       console.error("errorrrrrrrr", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("http://localhost:4000/api/request_page");
+        const result = await response.json();
+        setStudents(result.data);
+      } catch (error) {
+        console.error("errorrrrrrrr", error);
+      }
+    }
+    fetchData();
+  }, []);
   function handleCheckboxChange(id) {
     setStudents(
       students.map((student) =>
-        student.id === id ? { ...student, checked: !student.checked } : student
+        student.request_id === id
+          ? { ...student, done: !student.done }
+          : student
       )
     );
   }
-
   function handleMarkAsRead() {
-    setStudents(students.filter((student) => !student.checked));
+    setStudents(students.filter((student) => !student.done));
   }
 
   return (
@@ -45,32 +42,32 @@ export default function HelpRequest() {
           </button>
         </div>
         <ul className={styles.listOfStudents}>
-          {/* {} return ( */}
           {students.map((student) => (
             <section key={student.id} className={styles.middle}>
               <input
+                className={styles.checking}
                 type="checkbox"
                 style={{
                   width: "20px",
                   height: "20px",
-                  margin: "5px 1px 50px 1px",
+                  margin: "5px 0 50px 0",
                 }}
-                checked={student.checked}
-                onChange={() => handleCheckboxChange(student.id)}
+                checked={student.done}
+                onChange={() => handleCheckboxChange(student.request_id)}
               />
               <li className={styles.box}>
                 <img
                   className={styles.img}
-                  src={`/public/images/students/${student.img}`}
+                  src={`${student.profile_pic}`}
                   alt=""
                 />
                 <div className={styles.dateTimeContainer}>
                   <div className={styles.text}>
                     {student.name.toUpperCase()} needs help with{" "}
-                    {student.gender === "female" ? "her" : "his"} project.
+                    {student.gender === "Female" ? "her" : "his"} project.
                   </div>
                   <div className={styles.dateTime}>
-                    <span className={styles.spanDate}>{student.date}</span>
+                    <span className={styles.spanDate}>{student.date_created}</span>
                     <span className={styles.spanTime}>{student.time}</span>
                   </div>
                 </div>
