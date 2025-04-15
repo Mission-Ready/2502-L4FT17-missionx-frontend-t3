@@ -67,12 +67,12 @@ function App() {
             element={<ProjectSubmission></ProjectSubmission>}
           ></Route>
         </Route>
-                       <Route
+          <Route
           path="/ProjectLibrary"
           element={<ProjectLibrary></ProjectLibrary>}
         ></Route>
         <Route
-          path="studentProfileViewer"
+          path="studentProfileViewer/:studentId"
           element={<StudentProfileViewer></StudentProfileViewer>}
         ></Route>
 
