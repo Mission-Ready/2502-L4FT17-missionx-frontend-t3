@@ -35,7 +35,8 @@ section h2 {
     display: flex;
     justify-content: right;
     margin-top: 0px;
-    width: 100%;
+    width: 50vw;
+    padding-left : 2000px
 }
 
 
@@ -46,7 +47,7 @@ section h2 {
     justify-content: center;
     padding-top: 100px;
     padding-bottom: 50px;
-    width: 100%;
+    width: 100vw;
 }
 
 .groupImages {
@@ -63,7 +64,7 @@ section h2 {
     align-items: center;
     padding-top: 100px;
     padding-bottom: 50px;
-    width: 100%;
+    width: 100vw;
 
 }
 
@@ -95,7 +96,7 @@ section h2 {
     /* padding-top: 634px;
     padding-left: 107px; */
     height: 695px;;
-    width: 100%;
+    width: 100vw;
 
 }
 .enquireNowLeft {

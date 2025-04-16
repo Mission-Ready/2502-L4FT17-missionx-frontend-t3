@@ -9,6 +9,7 @@ import { useState} from "react";
 import students from "../../../../assets/LoginSignup/students.png";
 import teachers from "../../../../assets/LoginSignup/teachers.png";
 import esc from "../../../../assets/LoginSignup/esc.png";
+// import LoginAndSignUpCard from "../../LoginAndSignup/components/LoginAndSignUpCard";
 
 
 
@@ -22,18 +23,18 @@ export default function Header() {
   const [isStudentPassword, setIsStudentPassword] = useState('')
   const [isStudentLoginResult,setIsStudentLoginResult] = useState ('')
 
-  // const studentEmail =
-  //   document.getElementsByClassName("studentLoginEmail");
-  // const studentLoginPassword = document.getElementsByClassName(
-  //   "studentLoginPassword"
-  // );
-  // const studentLoginResult =
-  //   document.getElementsByClassName("studentLoginResult");
-  // const studentLoginButton =
-  //   document.getElementsByClassName("studentLoginButton");
-  // const studentSignUpButton = document.getElementsByClassName(
-  //   "studentSignUpButton"
-  // );
+  const studentEmail =
+    document.getElementsByClassName("studentLoginEmail");
+  const studentLoginPassword = document.getElementsByClassName(
+    "studentLoginPassword"
+  );
+  const studentLoginResult =
+    document.getElementsByClassName("studentLoginResult");
+  const studentLoginButton =
+    document.getElementsByClassName("studentLoginButton");
+  const studentSignUpButton = document.getElementsByClassName(
+    "studentSignUpButton"
+  );
 
 
  
@@ -99,8 +100,7 @@ export default function Header() {
         );
       });
   }
-  //Event listener
-  // studentSignUpButton.addEventListener("click", sendStudentLogin);
+
 
   return (
     <div className={styles.container}>
@@ -163,6 +163,7 @@ export default function Header() {
           {/* Register and Login Modal */}
           {isRegisterLoginClicked && (
             <div className={styles.modal}>
+              {/* <LoginAndSignUpCard/> */}
               <div className={styles.signUpContainer}>
                 <button
                   onClick={handleIsEscClicked}
