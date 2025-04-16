@@ -21,7 +21,7 @@ export default function ProfileScreen({ students }) {
     <div className={styles.profileScreen}>
       {user.map((student) => {
         return (
-          <Link className={styles.profileLink} to={"/studentProfileViewer/:studentID"}>
+          <Link className={styles.profileLink} to={`/studentProfileViewer/${student.student_id}`}>
             <Card
               key={student.student_id}
               name={student.name.toUpperCase()}
