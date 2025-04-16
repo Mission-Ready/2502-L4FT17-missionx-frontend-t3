@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import SideBar from "../../common/SideBar";
-import Header from "../../common/Header";
+import SideBar from "../../common/teacher-dashboard/SideBar";
+import Header from "../../common/teacher-dashboard/Header";
 import styles from "./TeacherDashboard.module.css";
 import Footer from "../../common/Footer";
 

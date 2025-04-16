@@ -22,7 +22,7 @@ export default function ProgressTracker() {
       <div className={styles.Screen}>
         <div className={styles.InnerScreen}>
           <div className={styles.Text}>
-            <p id={styles.leftText}>BEGINNER COURSE</p>
+            <p id={styles.leftText}>PROGRESS TRACKER</p>
             <p id={styles.rightText}>EXPORT AS SPREADSHEET</p>
           </div>
           <div className={styles.Cards}>
