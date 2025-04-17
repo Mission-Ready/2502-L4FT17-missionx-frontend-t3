@@ -1,28 +1,21 @@
 import KerrysFooter from "../components/KerrysFooter"
 import ShaziasNavbar from "../components/ShaziasNavbar"
 import styles from "./ProjectLibrary.module.css"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
-import Project01 from "../../../../public/images/projects/Project01.png"
-import Project02 from "../../../../public/images/projects/Project02.png"
-import Project03 from "../../../../public/images/projects/Project03.png"
-import Project04 from "../../../../public/images/projects/Project04.png"
-import Project05 from "../../../../public/images/projects/Project05.png"
-import Project06 from "../../../../public/images/projects/Project06.png"
-import Project07 from "../../../../public/images/projects/Project07.png"
-import Project08 from "../../../../public/images/projects/Project08.png"
-import Project09 from "../../../../public/images/projects/Project09.png"
-import Project10 from "../../../../public/images/projects/Project10.png"
-import Project11 from "../../../../public/images/projects/Project11.png"
-import Project12 from "../../../../public/images/projects/Project12.png"
-import Project13 from "../../../../public/images/projects/Project13.png"
-import Project14 from "../../../../public/images/projects/Project14.png"
-import Project15 from "../../../../public/images/projects/Project15.png"
+
 
 
 
 
 function ProjectLibrary() {
+  const [projectData, setProjectData] = useState([]);
+  const [selectedTier, setSelectedTier] = useState("BEGINNER")
+  const [selectedItems, setSelectedItems] = useState("ALL")
+
+
+
+
     const [checkedFree, setCheckedFree] = useState(false)
     const [checkedPremium, setCheckedPremium] = useState(false)
 
@@ -46,14 +39,69 @@ function ProjectLibrary() {
     const [checkedArt, setCheckedArt] = useState(false)
     const [checkedMusic, setCheckedMusic] = useState(false)
 
-    const [selectedTier, setSelectedTier] = useState("BEGINNER")
-    const [selectedItems, setSelectedItems] = useState("ALL")
+    
 
 
+    useEffect(() => {
+      fetch("http://localhost:4000/api/projectLibrary")
+        .then((res) => res.json())
+        .then((res) => setProjectData(res.data));
+    }, []);
+    
+
+    const filteredProjects = projectData.filter((project) => {
+      const matchesTier = project.course === selectedTier;
+  
+      const subscriptionFilterEnabled = checkedFree || checkedPremium;
+      const matchesSubscription = !subscriptionFilterEnabled ||
+        (checkedFree && project.subscription === "Free") ||
+        (checkedPremium && project.subscription === "Premium");
+
+        const activityFilterEnabled =
+  checkedAnimation || checkedGame || checkedChatbot || checkedAugmentedReality;
+
+  const matchesActivity =
+  !activityFilterEnabled ||
+  (checkedAnimation && project.activity_type === "Animation") ||
+  (checkedGame && project.activity_type === "Game") ||
+  (checkedChatbot && project.activity_type === "Chatbot") ||
+  (checkedAugmentedReality && project.activity_type === "Augmented Reality");
 
 
+  const yearLevelFilterEnabled =
+  checkedOneToFour || checkedFiveToSix || checkedSevenToEight || checkedNineToThirteen;
 
-   
+  const matchesYearLevel = !yearLevelFilterEnabled ||
+  (checkedOneToFour && project.year_level >= 1 && project.year_level <= 4) ||
+  (checkedFiveToSix && project.year_level >= 5 && project.year_level <= 6) ||
+  (checkedSevenToEight && project.year_level >= 7 && project.year_level <= 8) ||
+  (checkedNineToThirteen && project.year_level >= 9 && project.year_level <= 13);
+
+const subjectFilterEnabled =
+  checkedComputerScience || checkedMaths || checkedScience ||
+  checkedLanguage || checkedArt || checkedMusic;
+
+const matchesSubject = !subjectFilterEnabled ||
+  (checkedComputerScience && project.subject_matter === "Computer Science") ||
+  (checkedMaths && project.subject_matter === "Maths") ||
+  (checkedScience && project.subject_matter === "Science") ||
+  (checkedLanguage && project.subject_matter === "Language") ||
+  (checkedArt && project.subject_matter === "Art") ||
+  (checkedMusic && project.subject_matter === "Music");
+  
+  return matchesTier && matchesSubscription && matchesActivity &&
+  matchesYearLevel && matchesSubject;
+    });
+
+    const limitedProjects =
+    selectedItems === "ALL"
+      ? filteredProjects
+      : filteredProjects.slice(
+          0,
+          selectedItems === "FIVE" ? 5 :
+          selectedItems === "TEN" ? 10 : 0
+        );
+
   return (
     <div className={styles.Background}>
       <div id="top" />
@@ -214,87 +262,19 @@ function ProjectLibrary() {
           </div>
 
         </div>
+
+        
       
-      <div className={styles.projectContainer}>
-        <div>
-          <img src={Project01} alt="" />
-          <h2><strong>Introduction</strong></h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project02} alt="" />
-          <h2>My Birthday</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project03} alt="" />
-          <h2>10 Block Challenge</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project04} alt="" />
-          <h2>Build a band</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project05} alt="" />
-          <h2>The bear and the monkey</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project06} alt="" />
-          <h2>Debugging</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project07} alt="" />
-          <h2>About me</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project08} alt="" />
-          <h2>I am here!</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project09} alt="" />
-          <h2>Funny faces</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project10} alt="" />
-          <h2>It tickles!</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project11} alt="" />
-          <h2>Penguin in a Desert</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project12} alt="" />
-          <h2>Time Travel</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project13} alt="" />
-          <h2>Birthday Card</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project14} alt="" />
-          <h2>The Lion and the Mouse part 1</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-        <div>
-          <img src={Project15} alt="" />
-          <h2>The Lion and the</h2>
-          <h4>BEGINNER | Animation</h4>
-        </div>
-
-      </div>
-
-      </section>
+        <div className={styles.projectContainer}>
+        {limitedProjects.map((project) => (
+              <div key={project.project_id} className={styles.projectCard}>
+                <img src={project.project_pic} alt={project.name} />
+                <h2>{project.name}</h2>
+                <h4>{project.course} | {project.activity_type}</h4>
+              </div>
+            ))}
+          </div>
+        </section>
     </div>
 
     <div className={styles.backBtns}>

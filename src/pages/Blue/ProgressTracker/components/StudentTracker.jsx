@@ -1,29 +1,50 @@
 import styles from "./StudentTracker.module.css";
+import { useEffect, useState } from "react";
 
-export default function StudentTracker({ student }) {
+export default function StudentTracker({ key, name, student_id }) {
+  const [completion, setCompletion] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/api/completions")
+      .then((response) => response.json())
+      .then((result) => {
+        setCompletion(result.data);
+      })
+      .catch((err) => console.error("error", err));
+  }, []);
+
+  const completedCount = completion.filter(
+    (c) => c.student_id === student_id && c.date_completed
+  ).length;
+
   return (
     <div>
       <div className={styles.StudentTracker}>
         <div className={styles.NameAndProgress}>
-          <p className={styles.StudentName}>{student.toUpperCase()}</p>
-          <p className={styles.ProjectCompleted}>/15 Projects Completed</p>
+          <p className={styles.StudentName}>{name.toUpperCase()}</p>
+          <p className={styles.ProjectCompleted}>
+            {completedCount}/15 Projects Completed
+          </p>
         </div>
         <div className={styles.Circles}>
-          <span className={styles.Dot}>1</span>
-          <span className={styles.Dot}>2</span>
-          <span className={styles.Dot}>3</span>
-          <span className={styles.Dot}>4</span>
-          <span className={styles.Dot}>5</span>
-          <span className={styles.Dot}>6</span>
-          <span className={styles.Dot}>7</span>
-          <span className={styles.Dot}>8</span>
-          <span className={styles.Dot}>9</span>
-          <span className={styles.Dot}>10</span>
-          <span className={styles.Dot}>11</span>
-          <span className={styles.Dot}>12</span>
-          <span className={styles.Dot}>13</span>
-          <span className={styles.Dot}>14</span>
-          <span className={styles.Dot}>15</span>
+          {[...Array(15)].map((a, index) => {
+            const projectNumber = index + 1;
+            const match = completion.filter((c) => 
+              c.student_id === student_id &&
+                c.project_id === projectNumber &&
+                c.date_completed
+            );
+            return (
+              <span
+                key={projectNumber}
+                className={`${styles.Dot} ${
+                  match.length > 0 ? styles.Completed : ""
+                }`}
+              >
+                {projectNumber}
+              </span>
+            );
+          })}
         </div>
       </div>
     </div>
