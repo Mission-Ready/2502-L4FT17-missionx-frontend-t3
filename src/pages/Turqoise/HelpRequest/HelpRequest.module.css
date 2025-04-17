@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   font-size: 25px;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 52vh;
   margin-top: 20px;
 }
@@ -94,18 +94,17 @@
   display: flexbox;
   flex-direction: column;
   font-size: 10px;
-  /* margin-right: 50px; */
 }
 .spanTime {
   display: flex;
   justify-content: end;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .text {
     display: none;
   }
   .dateTime {
-    margin: 0;
+    margin-right: 25px;
   }
 }
