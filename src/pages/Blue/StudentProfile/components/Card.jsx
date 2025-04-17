@@ -5,7 +5,7 @@ export default function Card({ name, image }) {
     <div className={styles.card}>
       <img
         className={styles.image}
-        src={image}
+        src= {image}
         alt={name}
       />
       <p className={styles.name}>{name}</p>

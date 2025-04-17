@@ -1,11 +1,8 @@
 import styles from "./HelpRequest.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import classes from "../../../common/data/classes";
 
 export default function HelpRequest() {
-  // const [students, setStudents] = useState(classes);
-
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
@@ -69,9 +66,7 @@ export default function HelpRequest() {
                     {student.gender === "Female" ? "her" : "his"} project.
                   </div>
                   <div className={styles.dateTime}>
-                    <span className={styles.spanDate}>
-                      {student.date_created}
-                    </span>
+                    <span className={styles.spanDate}>{student.date}</span>
                     <span className={styles.spanTime}>{student.time}</span>
                   </div>
                 </div>

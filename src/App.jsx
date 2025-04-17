@@ -76,7 +76,7 @@ function App() {
           element={<TeacherProfileViewer></TeacherProfileViewer>}
         ></Route>
         <Route
-          path="studentProfileViewer"
+          path="studentProfileViewer/:studentId"
           element={<StudentProfileViewer></StudentProfileViewer>}
         ></Route>
       </Routes>

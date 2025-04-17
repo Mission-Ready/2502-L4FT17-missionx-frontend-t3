@@ -1,25 +1,41 @@
+import {useState, useEffect} from 'react'
 import styles from "./StudentProfileViewer.module.css"
-import RawiriFletcher from "../../../../public/images/students/RawiriFletcher.png"
 import KerrysFooter from "../components/KerrysFooter"
 import ShaziasNavbar from "../components/ShaziasNavbar"
 import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 function StudentProfileViewer() {
+  const [studentData, setStudentData] = useState([])
+  const { studentId } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/api/studentProfileViewer/${studentId}`)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setStudentData(res.data);
+      });
+  }, [studentId]);
+
   return (
     
     // Background Grey Color Open Tag//
     
-    <div className={styles.studentProfileViewerBackground}> 
+    <div className={styles.Background}> 
     <ShaziasNavbar></ShaziasNavbar>
-    <div className={styles.outerBox}>
-    {/* Small Box */}
-      <section className={styles.profileBox}>
+
+    {studentData.map((student) => (<>
+    <div key={student.student_id} className={styles.outerBox}>
+      
+    {/* ======== Left Container ======== */}
+      <section className={styles.leftContainer}>
       
         <div>
 
          {/* Profile Image */}
           <figure className={styles.profileImageBox}>
-            <img className={styles.profileImage} src={RawiriFletcher} alt="Student: Rawiri Fletcher" />
+            <img className={styles.profileImage} src={student.profile_pic} alt="Student: Rawiri Fletcher" />
           </figure>
           
           <div className={styles.profileBoxButtons}>
@@ -32,22 +48,15 @@ function StudentProfileViewer() {
         
       </section>
 
-    {/* Big Box */}
-      <section className={styles.profileInfoBox}>
+    {/* ========= Right Container ======== */}
+      <section className={styles.rightContainer}>
         <div className={styles.profileInfoDiv}>
 
-          <div className={styles.profileName}>
-            <h1>Rawiri Fletcher</h1>
-          </div>
+          <div className={styles.profileName}><h1>{student.name}</h1></div>
 
-          <div className={styles.profileSchool}>
-              <div>
-                <h3>School</h3>
-              </div>
-
-              <div>
-                <h3>Homai School</h3>
-              </div>             
+          <div className={styles.profileSchool}><div><h3>School</h3></div>
+          
+          <div><h3>{student.school}</h3></div>             
           </div>
           
           <div className={styles.profileSchool}>
@@ -66,7 +75,7 @@ function StudentProfileViewer() {
               </div>
 
               <div>
-                <h3>Beginner</h3>
+                <h3>{student.course}</h3>
               </div>             
           </div>
           
@@ -76,7 +85,7 @@ function StudentProfileViewer() {
               </div>
 
               <div>
-                <h3>25 June 2010</h3>
+                <h3>{new Date(student.date_of_birth).toLocaleDateString()}</h3>
               </div>             
           </div>
           
@@ -86,7 +95,7 @@ function StudentProfileViewer() {
               </div>
 
               <div>
-                <h3>022 524 63 99</h3>
+                <h3>{student.contact_number}</h3>
               </div>             
           </div>
           
@@ -96,7 +105,7 @@ function StudentProfileViewer() {
               </div>
 
               <div>
-                <h3>fletchy.r@gmail.com</h3>
+                <h3>{student.email}</h3>
               </div>             
           </div>
 
@@ -112,11 +121,12 @@ function StudentProfileViewer() {
         <button className={styles.backToProjectsButton}>BACK TO PROJECTS</button> 
         </Link>
       </div>
-    
+      </>
+    ))}
     
       <KerrysFooter></KerrysFooter>
     </div>
-
+    
     
     //Background Grey Color Close Tag //
   )
