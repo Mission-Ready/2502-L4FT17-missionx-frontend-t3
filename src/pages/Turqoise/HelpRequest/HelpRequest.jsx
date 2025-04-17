@@ -67,6 +67,9 @@ export default function HelpRequest() {
                   </div>
                   <div className={styles.dateTime}>
                     <span className={styles.spanDate}>{student.date}</span>
+                    <span className={styles.spanDate}>
+                      {student.date_created}
+                    </span>
                     <span className={styles.spanTime}>{student.time}</span>
                   </div>
                 </div>
