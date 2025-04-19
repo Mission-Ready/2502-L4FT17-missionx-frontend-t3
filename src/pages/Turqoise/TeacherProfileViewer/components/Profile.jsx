@@ -1,13 +1,15 @@
 import styles from "./Profile.module.css";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Profile() {
   const [teachers, setTeachers] = useState([]);
+  const { Id } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:4000/api/teacher");
+        const response = await fetch(`http://localhost:4000/api/teacher/${Id}`);
         const result = await response.json();
         setTeachers(result.data);
       } catch (error) {
@@ -15,7 +17,7 @@ function Profile() {
       }
     }
     fetchData();
-  }, []);
+  }, [Id]);
 
   return (
     <section className={styles.component}>
@@ -59,7 +61,15 @@ function Profile() {
                 </ul>
                 <ul>
                   <li className={styles.list}> {teacher.school}</li>
-                  <li className={styles.list}> {teacher.date_of_birth}</li>
+                  <li className={styles.list}>
+                    {new Date(teacher.date_of_birth)
+                      .toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })
+                      .replace(/ /g, " ")}
+                  </li>
                   <li className={styles.list}> {teacher.contact_number}</li>
                   <li className={styles.list}> {teacher.email}</li>
                 </ul>
