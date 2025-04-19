@@ -5,14 +5,16 @@ import LevelUpWorksWhite from "../../../../assets/Navbar/LevelUpWorks-white.png"
 import MaoriFlag from "../../../../assets/Navbar/MaoriFlag.png";
 import NZFlag from "../../../../assets/Navbar/NZFlag.png";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Header() {
   const [teachers, setTeachers] = useState([]);
+  const { Id } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:4000/api/teacher");
+        const response = await fetch(`http://localhost:4000/api/teacher/${Id}`);
         const result = await response.json();
         setTeachers(result.data);
       } catch (error) {
@@ -20,7 +22,7 @@ function Header() {
       }
     }
     fetchData();
-  }, []);
+  }, [Id]);
 
   return (
     <section className={styles.container}>

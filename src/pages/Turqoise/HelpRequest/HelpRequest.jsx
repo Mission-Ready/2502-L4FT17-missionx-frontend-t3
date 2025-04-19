@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function HelpRequest() {
-
-
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
@@ -68,7 +66,10 @@ export default function HelpRequest() {
                     {student.gender === "Female" ? "her" : "his"} project.
                   </div>
                   <div className={styles.dateTime}>
-                    <span className={styles.spanDate}>{student.date_created}</span>
+                    <span className={styles.spanDate}>{student.date}</span>
+                    <span className={styles.spanDate}>
+                      {student.date_created}
+                    </span>
                     <span className={styles.spanTime}>{student.time}</span>
                   </div>
                 </div>
