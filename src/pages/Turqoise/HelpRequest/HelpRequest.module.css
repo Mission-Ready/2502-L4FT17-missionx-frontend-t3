@@ -59,12 +59,13 @@
   align-items: center;
   gap: 20px;
 }
-.checking {
+/* .checking {
   transition: 0.3s ease-in-out;
+  position: absolute;
 }
 .checking:hover {
-  transform: scale(1.2);
-}
+  transform: scale(1);
+} */
 .box {
   list-style: none;
   border: 2px solid rgba(125, 113, 113, 0.232);
