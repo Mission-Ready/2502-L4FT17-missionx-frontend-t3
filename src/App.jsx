@@ -72,7 +72,7 @@ function App() {
           element={<ProjectLibrary></ProjectLibrary>}
         ></Route>
         <Route
-          path="teacherProfileViewer"
+          path="teacherProfileViewer/:Id"
           element={<TeacherProfileViewer></TeacherProfileViewer>}
         ></Route>
         <Route
