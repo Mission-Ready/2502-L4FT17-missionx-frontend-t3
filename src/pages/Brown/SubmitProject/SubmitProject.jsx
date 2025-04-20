@@ -136,9 +136,9 @@ const SubmitProject = (props) => {
             // ref={fileInputRef} // Attach ref to the file input
             style={{ display: 'none' }} // Hide the input.
           />
-          <label className={styles.fileLabel}>
+          {/* <label className={styles.fileLabel}>
             Choose File
-          </label>
+          </label> */}
           <button
             className={styles.submProBtn}
             onClick={handleSendPhotoClick} // Handle the click event for sending the photo
