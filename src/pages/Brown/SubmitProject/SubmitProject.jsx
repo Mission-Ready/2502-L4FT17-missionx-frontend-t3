@@ -10,6 +10,7 @@ const SubmitProject = (props) => {
   const [activeCircle, setActiveCircle] = useState(null); // State for active circle
   const [selectedPhoto, setSelectedPhoto] = useState(null); // State for selected photo
   const [submissionStatus, setSubmissionStatus] = useState(""); // State for submission status
+  const [activeButton, setActiveButton] = useState("");
 
   // Get project data based on activeProject
   const projectData = studentProjectsData.find(
@@ -21,30 +22,30 @@ const SubmitProject = (props) => {
     setActiveCircle(activeCircle === number ? null : number);
   };
 
-  // Handle photo selection
-  const handlePhotoChange = (event) => {
-    const file = event.target.files[0]; // Get the selected file
-    if (file) {
-      setSelectedPhoto(file); // Save the selected file
-    }
-  };
-
-  // Handle sending the photo to the backend
-  const handleSendPhotoClick = async () => {
-    if (!selectedPhoto) {
-      alert("Please select a photo to send."); // Alert if no photo is selected
-      return;
-    }
-
-    const formData = new FormData(); // Create FormData object
-    formData.append("projectId", props.activeProject); // Append project ID
-    formData.append("photo", selectedPhoto); // Append selected photo
-    formData.append("dateSubmitted", projectData.dates.date_submitted); // Append date submitted
-    formData.append("submissionStatus", projectData.submission_status); // Append submission status
+//   // Handle photo selection
+//   const handlePhotoChange = (event) => {
+//     const file = event.target.files[0]; // Get the selected file
+//     if (file) {
+//       setSelectedPhoto(file); // Save the selected file
+//     }
+//   };
+// 
+//   // Handle sending the photo to the backend
+//   const handleSendPhotoClick = async () => {
+//     if (!selectedPhoto) {
+//       alert("Please select a photo to send."); // Alert if no photo is selected
+//       return;
+//     }
+// 
+//     const formData = new FormData(); // Create FormData object
+//     formData.append("projectId", props.activeProject); // Append project ID
+//     formData.append("photo", selectedPhoto); // Append selected photo
+//     formData.append("dateSubmitted", projectData.dates.date_submitted); // Append date submitted
+//     formData.append("submissionStatus", projectData.submission_status); // Append submission status
 
     try {
       const response = await fetch("/api/send-photo", {
-        method: "POST",
+        method: "PATCH",
         body: formData,
       });
 
@@ -61,6 +62,22 @@ const SubmitProject = (props) => {
       alert("An error occurred while sending the photo."); // Notify user of error
     }
   };
+
+  function fetchImage() {
+    fetch("http://localhost:4000/student-dashboard/SubmitProject")
+      .then((res) => res.json())
+      .then((resData) => {
+        console.log(resData);
+        setData(resData.content);
+        setActiveButton("image");
+        // setData('<img src="path_to_your_image.jpg" alt="Sample Image" />');
+      })
+      //Improved error handling: Improved handling when an error occurs.
+      .catch((err) => {
+        console.error("Fetch image error:", err);
+        alert("An error occurred while fetching the image.");
+      });
+  }
 
   return (
     <div className={styles.mainContainer}>
@@ -95,7 +112,7 @@ const SubmitProject = (props) => {
           </label>
           <button
             className={styles.submProBtn}
-            onClick={handleSendPhotoClick}
+            onClick={fetchImage}
           >
             <img src={sendPhoto} alt="Send Photo" />
             <p>Send Photo</p>
@@ -125,7 +142,6 @@ const SubmitProject = (props) => {
       </div>
     </div>
   );
-};
 
 export default SubmitProject;
 
