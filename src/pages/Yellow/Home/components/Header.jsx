@@ -1,46 +1,78 @@
-import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import star from "../../../../assets/Home/star.png";
 import LevelUpWorksWhite from "../../../../assets/Navbar/LevelUpWorks-white.png";
 import AvatarWhite from "../../../../assets/Navbar/Avatar-white.png";
 import MaoriFlag from "../../../../assets/Navbar/MaoriFlag.png";
 import NZFlag from "../../../../assets/Navbar/NZFlag.png";
-import { useState} from "react";
+import { useState } from "react";
 import students from "../../../../assets/LoginSignup/students.png";
 import teachers from "../../../../assets/LoginSignup/teachers.png";
 import esc from "../../../../assets/LoginSignup/esc.png";
+
 // import LoginAndSignUpCard from "../../LoginAndSignup/components/LoginAndSignUpCard";
-
-
-
 
 export default function Header() {
   const [isRegisterLoginClicked, setIsRegisterLoginClicked] = useState(false);
   // const LoginAndSignup = <Link to={"./loginAndSignup"}></Link>;
   const [isStudentLogIn, setIsStudentLogIn] = useState(true);
   const [isTeacherLogIn, setIsTeacherLogIn] = useState(true);
-  const [isStudentEmail, setIsStudentEmail] = useState('')
-  const [isStudentPassword, setIsStudentPassword] = useState('')
-  const [isStudentLoginResult,setIsStudentLoginResult] = useState ('')
+  const [isStudentEmail, setIsStudentEmail] = useState("");
+  const [isStudentPassword, setIsStudentPassword] = useState("");
+  const [isStudentLoginResult, setIsStudentLoginResult] = useState("");
+  const [isTeacherEmail, setIsTeacherEmail] = useState("");
+  const [isTeacherPassword, setIsTeacherPassword] = useState("");
+  const [isTeacherLoginResult, setIsTeacherLoginResult] = useState("");
+  const navigate = useNavigate();
+   const [studentSignUpForm, setStudentSignUpForm] = useState({
+     name: "",
+     email: "",
+     password: "",
+     confirmPassword: "",
+   });
+  
+   const [teacherSignUpForm, setTeacherSignUpForm] = useState({
+     name: "",
+     email: "",
+     password: "",
+     confirmPassword: "",
+   });
+  
 
-  const studentEmail =
-    document.getElementsByClassName("studentLoginEmail");
-  const studentLoginPassword = document.getElementsByClassName(
-    "studentLoginPassword"
-  );
-  const studentLoginResult =
-    document.getElementsByClassName("studentLoginResult");
-  const studentLoginButton =
-    document.getElementsByClassName("studentLoginButton");
-  const studentSignUpButton = document.getElementsByClassName(
-    "studentSignUpButton"
-  );
+  const handleStudentSignUpFormChange = (e) => {
+    const { name, value } = e.target;
+    setStudentSignUpForm((prev) => 
+      ( {...prev, [name]: value, })
+    
+    );
+  };
+
+  const handleStudentSignUpSubmit = (e) => {
+    e.preventDefault();
+    console.log(studentSignUpForm);
+
+        fetch("http://localhost:4000/signup/student", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({studentSignUpForm}
+          ),
+        });
+  };
+  
+  const handleTeacherSignUpFormChange = (e) => {
+    const { name, value } = e.target;
+    setTeacherSignUpForm((prev) => ({ ...prev, [name]: value, })
+    );
+
+  };
+
+  const handleTeacherSignUpSubmit = (e) => {
+    e.preventDefault();
+    console.log(teacherSignUpForm);
+
+  }
 
 
- 
-
-
-  //function
 
   function handleIsRegisterLoginClicked(e) {
     setIsRegisterLoginClicked(true);
@@ -50,18 +82,27 @@ export default function Header() {
     setIsRegisterLoginClicked(!true);
   }
 
-
   function studentEmailEntered(event) {
-  const studentEmail = (event.target.value);
+    const studentEmail = event.target.value;
     setIsStudentEmail(studentEmail);
   }
- 
- function studentPassword(event) {
-   const studentPassword = (event.target.value);
-  setIsStudentPassword(studentPassword);
- }
- 
 
+  function studentPassword(event) {
+    const studentPassword = event.target.value;
+    setIsStudentPassword(studentPassword);
+  }
+
+  function teacherEmailEntered(event) {
+    const teacherEmail = event.target.value;
+    setIsTeacherEmail(teacherEmail);
+  }
+
+  function teacherPassword(event) {
+    const teacherPassword = event.target.value;
+    setIsTeacherPassword(teacherPassword);
+  }
+
+  /// Student LOG IN DB Request
 
   function sendStudentLogin(event) {
     event.preventDefault(); // Prevent form refresh
@@ -85,6 +126,9 @@ export default function Header() {
               Login Successful! Welcome, {result.name}
             </span>
           );
+          setTimeout(() => {
+            navigate("/Home"); // Navigate to the "/dashboard" route after 3 seconds
+          }, 3000); // Navigate to the "/dashboard" route
         } else if (result.status === "error") {
           setIsStudentLoginResult(
             <span style={{ color: "red" }}>Login Failed: {result.message}</span>
@@ -101,6 +145,48 @@ export default function Header() {
       });
   }
 
+  /// Teacher LOG IN DB Request
+
+  function sendTeacherLogin(event) {
+    event.preventDefault(); // Prevent form refresh
+    console.log("Logging In with:", isTeacherEmail, isTeacherPassword);
+
+    fetch("http://localhost:4000/login/teacher", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: isTeacherEmail,
+        password: isTeacherPassword,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+
+        if (result.status === "success") {
+          setIsTeacherLoginResult(
+            <span style={{ color: "green" }}>
+              Login Successful! Welcome, {result.name}
+            </span>
+          );
+          setTimeout(() => {
+            navigate("/studentProjectLibrary"); // Navigate to the "/dashboard" route after 3 seconds
+          }, 3000); // Navigate to the "/dashboard" route
+        } else if (result.status === "error") {
+          setIsTeacherLoginResult(
+            <span style={{ color: "red" }}>Login Failed: {result.message}</span>
+          );
+        }
+      })
+      .catch((err) => {
+        console.error("Error during login:", err);
+        setIsTeacherLoginResult(
+          <span style={{ color: "red" }}>
+            Something went wrong! Please try again.
+          </span>
+        );
+      });
+  }
 
   return (
     <div className={styles.container}>
@@ -184,22 +270,20 @@ export default function Header() {
                   >
                     Students
                   </h1>
-                  <section>
+                  <div className={styles.studentLoginAndSignUpButton}>
                     <button
-                      className={styles.studentLoginButton}
-                      {...(isStudentLogIn ? styles.active : "")}
+                      className={isStudentLogIn ? styles.active : ""}
                       onClick={() => setIsStudentLogIn(true)}
                     >
                       LogIn
                     </button>
                     <button
-                      className={styles.studentSignUpButton}
-                      {...(!isStudentLogIn ? styles.active : "")}
+                      className={!isStudentLogIn ? styles.active : ""}
                       onClick={() => setIsStudentLogIn(false)}
                     >
                       SignUp
                     </button>
-                  </section>
+                  </div>
 
                   {isStudentLogIn ? (
                     <>
@@ -220,7 +304,7 @@ export default function Header() {
                           placeholder="Password"
                           onChange={studentPassword}
                         />
-                        <div className={styles.studentLoginResult}></div>
+
                         <button onClick={sendStudentLogin}>LOG IN</button>
                         <div
                           className={styles.studentLoginResult}
@@ -234,28 +318,40 @@ export default function Header() {
                     ""
                   )}
                   {!isStudentLogIn ? (
-                    <section className={styles.studentSignUpInputField}>
+                    <form
+                      className={styles.studentSignUpInputField}
+                      onSubmit={handleStudentSignUpSubmit}
+                    >
                       <input
                         className={styles.studentSignUpName}
                         type="name"
                         placeholder="Full Name"
+                        name="name"
+                        onChange={handleStudentSignUpFormChange}
                       ></input>
                       <input
                         className={styles.studentSignUpEmail}
                         type="email"
                         placeholder="Email Address"
+                        name="email"
+                        onChange={handleStudentSignUpFormChange}
                       ></input>
                       <input
                         className={styles.studentSignUpPassword}
                         type="password"
                         placeholder="Password"
+                        name="password"
+                        onChange={handleStudentSignUpFormChange}
                       ></input>
                       <input
                         className={styles.studentSignUpConfirmPassword}
                         type="password"
                         placeholder="Confirm Password"
+                        name="confirmPassword"
+                        onChange={handleStudentSignUpFormChange}
                       ></input>
-                    </section>
+                      <button type="submit">Sign Up</button>
+                    </form>
                   ) : (
                     ""
                   )}
@@ -273,16 +369,16 @@ export default function Header() {
                   >
                     Teachers
                   </h1>
-                  <section>
+                  <section className={styles.teacherLoginAndSignUpButton}>
                     <button
                       className={isTeacherLogIn ? styles.active : ""}
-                      onClick={() => setIsTeacherLogIn(false)}
+                      onClick={() => setIsTeacherLogIn(true)}
                     >
                       Log In
                     </button>
                     <button
                       className={!isTeacherLogIn ? styles.active : ""}
-                      onClick={() => setIsTeacherLogIn(true)}
+                      onClick={() => setIsTeacherLogIn(false)}
                     >
                       Sign Up
                     </button>
@@ -295,14 +391,24 @@ export default function Header() {
                           className={styles.teacherLoginEmail}
                           type="email"
                           placeholder="Email Address"
+                          value={isTeacherEmail}
+                          onChange={teacherEmailEntered}
                         />
                         <input
                           className={styles.teacherLoginPassword}
                           type="password"
                           placeholder="Password"
+                          value={isTeacherPassword}
+                          onChange={teacherPassword}
                         />
-                        <div className={styles.teacherLoginResult}></div>
-                        <button>LOG IN</button>
+
+                        <button onClick={sendTeacherLogin}>LOG IN</button>
+                      </div>
+                      <div
+                        className={styles.teacherLoginResult}
+                        value={isTeacherLoginResult}
+                      >
+                        {isTeacherLoginResult}
                       </div>
                     </>
                   ) : (
@@ -310,28 +416,38 @@ export default function Header() {
                   )}
 
                   {!isTeacherLogIn ? (
-                    <section className={styles.teacherSignUpInputField}>
+                    <form className={styles.teacherSignUpInputField}
+                    onSubmit={handleTeacherSignUpSubmit}>
                       <input
                         className={styles.teacherSignUpName}
                         type="name"
                         placeholder="Full Name"
+                        name="name"
+                        onChange={handleTeacherSignUpFormChange}
                       ></input>
                       <input
                         className={styles.teacherSignUpEmail}
                         type="email"
                         placeholder="Email Address"
+                        name="email"
+                        onChange={handleTeacherSignUpFormChange}
                       ></input>
                       <input
                         className={styles.teacherSignUpPassword}
                         type="password"
                         placeholder="Password"
+                        name="password"
+                        onChange={handleTeacherSignUpFormChange}
                       ></input>
                       <input
                         className={styles.teacherSignUpConfirmPassword}
                         type="password"
                         placeholder="Confirm Password"
+                        name="confirmPassword"
+                        onChange={handleTeacherSignUpFormChange}
                       ></input>
-                    </section>
+                      <button type="submit">Sign Up</button>
+                    </form>
                   ) : (
                     ""
                   )}
