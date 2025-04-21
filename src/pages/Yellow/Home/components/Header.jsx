@@ -20,59 +20,124 @@ export default function Header() {
   const [isStudentEmail, setIsStudentEmail] = useState("");
   const [isStudentPassword, setIsStudentPassword] = useState("");
   const [isStudentLoginResult, setIsStudentLoginResult] = useState("");
+   const [isStudentSignUpResult, setIsStudentSignUpResult] = useState("");
   const [isTeacherEmail, setIsTeacherEmail] = useState("");
   const [isTeacherPassword, setIsTeacherPassword] = useState("");
   const [isTeacherLoginResult, setIsTeacherLoginResult] = useState("");
+  const [isTeacherSignUpResult, setIsTeacherSignUpResult] = useState("");
   const navigate = useNavigate();
-   const [studentSignUpForm, setStudentSignUpForm] = useState({
-     name: "",
-     email: "",
-     password: "",
-     confirmPassword: "",
-   });
-  
-   const [teacherSignUpForm, setTeacherSignUpForm] = useState({
-     name: "",
-     email: "",
-     password: "",
-     confirmPassword: "",
-   });
-  
+  const [studentSignUpForm, setStudentSignUpForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [teacherSignUpForm, setTeacherSignUpForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    email: "",
+    general: "",
+  });
 
   const handleStudentSignUpFormChange = (e) => {
     const { name, value } = e.target;
-    setStudentSignUpForm((prev) => 
-      ( {...prev, [name]: value, })
-    
-    );
+
+    // Clears any error on that field when typing
+    setFormErrors((prev) => ({ ...prev, [name]: "" }));
+
+    setStudentSignUpForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleStudentSignUpSubmit = (e) => {
     e.preventDefault();
     console.log(studentSignUpForm);
+    setFormErrors({ email: "", general: "" }); // clear old errors
 
-        fetch("http://localhost:4000/signup/student", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({studentSignUpForm}
-          ),
-        });
+    fetch("http://localhost:4000/signup/student", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(studentSignUpForm),
+    })
+
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+
+        if (result.status === 'Success') {
+          setIsStudentSignUpResult(
+            <span style={{ color: "green" }}>Sign Up Successful!
+              Welcome, {result.name} Please wait a minute while we load your page </span >
+          );
+          setTimeout(() => {
+            navigate("/Home"); // Navigate to the "/dashboard" route after 3 seconds
+          }, 3000); // Navigate to the "/dashboard" route
+
+        } else if (result.status === "EmailError") {
+          setIsStudentSignUpResult(
+            <span style={{ color: "red" }}>SignUp Failed: {result.message}</span>
+          );
+        }
+      })
+      .catch((err) => {
+        console.error("Error during SignUp", err);
+        setIsStudentSignUpResult(
+          <span style={{ color: "red" }}>
+            Something went wrong! Please try again.
+          </span>
+        );
+    })
   };
-  
+
   const handleTeacherSignUpFormChange = (e) => {
     const { name, value } = e.target;
-    setTeacherSignUpForm((prev) => ({ ...prev, [name]: value, })
-    );
-
+    setTeacherSignUpForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleTeacherSignUpSubmit = (e) => {
     e.preventDefault();
     console.log(teacherSignUpForm);
+    fetch("http://localhost:4000/signup/teacher", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(teacherSignUpForm),
+    })
 
-  }
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
 
+        if (result.status === 'Success') {
+          setIsTeacherSignUpResult(
+            <span style={{ color: "green" }}>Sign Up Successful!
+              Welcome, {result.name} Please wait a minute while we load your page </span >
+          );
+          setTimeout(() => {
+            navigate("/Home"); // Navigate to the "/dashboard" route after 3 seconds
+          }, 3000); // Navigate to the "/dashboard" route
 
+        } else if (result.status === "EmailError") {
+          setIsTeacherSignUpResult(
+            <span style={{ color: "red" }}>
+              SignUp Failed: {result.message}
+            </span>
+          );
+        }
+      })
+      .catch((err) => {
+        console.error("Error during SignUp", err);
+        setIsTeacherSignUpResult(
+          <span style={{ color: "red" }}>
+            Something went wrong! Please try again.
+          </span>
+        );
+    })
+  };
 
   function handleIsRegisterLoginClicked(e) {
     setIsRegisterLoginClicked(true);
@@ -351,6 +416,12 @@ export default function Header() {
                         onChange={handleStudentSignUpFormChange}
                       ></input>
                       <button type="submit">Sign Up</button>
+                      <div
+                          className={styles.studentSignUpResult}
+                          value={isStudentSignUpResult}
+                        >
+                          {isStudentSignUpResult}
+                        </div>
                     </form>
                   ) : (
                     ""
@@ -416,8 +487,10 @@ export default function Header() {
                   )}
 
                   {!isTeacherLogIn ? (
-                    <form className={styles.teacherSignUpInputField}
-                    onSubmit={handleTeacherSignUpSubmit}>
+                    <form
+                      className={styles.teacherSignUpInputField}
+                      onSubmit={handleTeacherSignUpSubmit}
+                    >
                       <input
                         className={styles.teacherSignUpName}
                         type="name"
@@ -447,6 +520,12 @@ export default function Header() {
                         onChange={handleTeacherSignUpFormChange}
                       ></input>
                       <button type="submit">Sign Up</button>
+                      <div
+                          className={styles.teacherSignUpResult}
+                          value={isTeacherSignUpResult}
+                        >
+                          {isTeacherSignUpResult}
+                        </div>                      
                     </form>
                   ) : (
                     ""
