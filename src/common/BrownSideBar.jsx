@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./BrownSideBar.module.css";
 import { useState } from "react";
 
-export default function SideBar() {
+export default function SideBar({setActiveProject}) {
   const [open, setOpen] = useState(true);
 
   return (
