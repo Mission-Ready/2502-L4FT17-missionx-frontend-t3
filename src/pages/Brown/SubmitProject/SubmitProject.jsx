@@ -40,7 +40,7 @@ const SubmitProject = (props) => {
         "http://localhost:4000/api/student-dashboard/SubmitProject/store-submission", // Ensure this URL is correct
         {
           student_id: 1, // Replace with actual student ID
-          project_id: 2, // Replace with actual project ID
+          project_id: 5, // Replace with actual project ID
           submission: submissionURL, // Uploaded URL
         },
         {

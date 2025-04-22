@@ -1,7 +1,4 @@
-import React, { useState } from "react"; // Import React and useState
-// import Header from "../../../common/components/Header.jsx";
-// import SideBar from "../../../common/components/SideBar.jsx";
-// import Footer from "../../../common/components/Footer.jsx";
+import React, { useState, useEffect } from "react"; // Import React, useState, and useEffect
 import styles from "./ProjectSubmission.module.css"; // Import CSS styles
 import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; // Import project data
 import studentData from "../../../pages/Brown/ProjectSubmission/studentData.js"; // Import student data
@@ -11,14 +8,15 @@ import projectImage from "../../../assets/StudentDashboard/makeProject-screensho
 import ImageModal from "./components/ImageModal"; // Import components of image modal
 import ProjectSubmissionCard from "./components/ProjectSubmissionCard.jsx";
 const AidenAndrews = "/images/students/AidenAndrews.png"; // Path to profile image
+import axios from "axios"; // Import Axios
 
- // Find the student data based on project student_id
+// Find the student data based on project student_id
 
+export default function ProjectSubmission({ teacher_id = 34 }) {
 
+  const [successMessage, setSuccessMessage] = useState(""); // State for success message
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
-
-
-export default function ProjectSubmission({teacher_id = 34}) {
   const PNG_FILE_URL = AidenAndrews; // Update the URL to be relative
   const downloadFileAtURL = (url) => {
     const fileName = url.split("/").pop(); // Get the file name from the URL
@@ -30,12 +28,50 @@ export default function ProjectSubmission({teacher_id = 34}) {
     aTag.remove(); // Remove the anchor from the document
   };
 
+  const markProjectsAsCompleted = async (studentProjectsMarked) => {
+    try {
+      const response = await axios.patch(
+        "http://localhost:4000/api/teacher-dashboard/ProjectSubmission/markCompleted",
+        {
+          studentProjectsMarked,
+        }
+      );
+
+      console.log('Response:', response.data);
+      setSuccessMessage('Projects marked as completed successfully!'); // Set success message
+      setErrorMessage(''); // Clear error message
+    } catch (error) {
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+        setErrorMessage(`Error: ${error.response.data.error}`); // Set error message
+        setSuccessMessage(''); // Clear success message
+      } else {
+        console.error('Error:', error.message);
+        setErrorMessage('Error: Unable to reach the server. Please try again later.'); // Set error message
+        setSuccessMessage(''); // Clear success message
+      }
+    }
+  };
+  // Use cases
+  const studentProjectsMarked = [
+    { student_id: 15, project_id: 6 },
+    { student_id: 15, project_id: 7 },
+  ];
+
+    // Effect to clear messages after a few seconds
+    useEffect(() => {
+      if (successMessage || errorMessage) {
+        const timer = setTimeout(() => {
+          setSuccessMessage('');
+          setErrorMessage('');
+        }, 5000); // Clear messages after 5 seconds
+
+        return () => clearTimeout(timer); // Cleanup timer on unmount
+    }
+  }, [successMessage, errorMessage]);
 
   return (
     <>
-      {/* <Header />  */}
-      {/* Display Header component */}
-
       <div style={{ display: "flex" }}>
         {/* <SideBar /> Display SideBar component */}
         <div className={styles.projectSubmissionBackground}>
@@ -52,9 +88,13 @@ export default function ProjectSubmission({teacher_id = 34}) {
                 >
                   📥 DOWNLOAD FILES
                 </button>
-                <button>✅ MARK AS COMPLETE PROJECT</button>
+                {/* <button>✅ MARK AS COMPLETE PROJECT</button> */}
+                <button
+                  onClick={() => markProjectsAsCompleted(studentProjectsMarked)}>
+                  ✅ MARK AS COMPLETE PROJECT
+                </button>
               </div>
-            </div>
+            </div>            
 
             <section className={styles.projectscrollContainer}>
               {studentProjectsData.map((project, index) => (
@@ -64,8 +104,6 @@ export default function ProjectSubmission({teacher_id = 34}) {
           </main>
         </div>
       </div>
-      {/* <Footer />  */}
-      {/* Display  component */}
     </>
   );
 }
