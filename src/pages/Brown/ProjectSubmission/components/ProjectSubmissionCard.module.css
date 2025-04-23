@@ -87,55 +87,7 @@
     padding: 20px; /* Padding inside the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
   }
-  
-  /* Checkbox container style */
-  .checkboxContainer {
-    display: flex; /* Use flexbox for layout */
-    width: 70vh; /* Width of the checkbox container */
-    flex-direction: row;
-    align-items: center; /* Center items vertically */
-    margin-right: 20px; /* Right margin */
-    position: absolute; /* Position relative for absolute children */
-    transform: translate(-30px, 100px);
-  }
-  
-  /* Style for checkbox input */
-  input[type="checkbox"] {
-    width: 32px; /* Checkbox width */
-    height: 32px; /* Checkbox height */
-    position: relative; /* Position relative for styling */
-  }
-  
-  /* Checkmark style for custom checkbox */
-  .checkmark {
-    display: inline-block; /* Inline block for proper sizing */
-    width: 32px; /* Width of the checkmark */
-    height: 32px; /* Height of the checkmark */
-    background-color: #ffffff; /* White background */
-    border: 1px solid #707070; /* Gray border */
-    border-radius: 3px; /* Slightly rounded corners */
-    margin-right: 5px; /* Space to the right of the checkmark */
-    position: relative; /* Position relative for absolute children */
-  }
-  
-  /* Style for the checkmark's before pseudo-element */
-  .checkmark::before {
-    content: ''; /* Empty content for the pseudo-element */
-    position: absolute; /* Position absolutely within the checkmark */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    height: 30%; /* Height of the pseudo-element */
-    background-color: rgba(0, 0, 0, 0.1); /* Light gray background */
-    border-radius: 3px 3px 0 0; /* Rounded top corners */
-    z-index: 1; /* Layer above the background */
-  }
-  
-  /* Style when checkbox is checked */
-  input[type="checkbox"]:checked + .checkmark {
-    background-color: #B2E4FA; /* Change background color when checked */
-  }
-  
+    
   /* Style for student images */
   .studentImage {  
     width: 40px; /* Fixed width for student images */
