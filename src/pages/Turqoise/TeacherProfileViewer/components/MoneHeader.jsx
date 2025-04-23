@@ -6,13 +6,9 @@ import NZFlag from "../../../../assets/Navbar/NZFlag.png";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Profile from "./Profile";
-import MoneFooter from "./MoneFooter";
-import Linkbtn from "./Linkbtn";
 
 function Header() {
   const [teachers, setTeachers] = useState([]);
-  const [showProfile, setShowProfile] = useState(false);
   const { Id } = useParams();
 
   useEffect(() => {
@@ -27,10 +23,6 @@ function Header() {
     }
     fetchData();
   }, [Id]);
-
-  const handleProfileClick = () => {
-    setShowProfile(true);
-  };
 
   return (
     <section className={styles.container}>
@@ -72,9 +64,9 @@ function Header() {
                     alt="NZ Flag"
                   />
                 </h4>
-                <button
+                <Link
+                  to={"../teacher-dashboard/helpRequest"}
                   className={styles.linkStudentProfileViewer}
-                  onClick={handleProfileClick}
                 >
                   <div className={styles.userBox}>
                     <img
@@ -84,15 +76,12 @@ function Header() {
                     />
                     <h3>{teacher.name}</h3>
                   </div>
-                </button>
+                </Link>
               </nav>
             </div>
           </section>
         );
       })}
-      {showProfile && <Profile />}
-      <Linkbtn />
-      <MoneFooter />
     </section>
   );
 }
