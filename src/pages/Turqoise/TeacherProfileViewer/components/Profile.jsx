@@ -63,7 +63,7 @@ function Profile() {
                   <li className={styles.list}> {teacher.school}</li>
                   <li className={styles.list}>
                     {new Date(teacher.date_of_birth)
-                      .toLocaleDateString("en-GB", {
+                      .toLocaleDateString("en-NZ", {
                         day: "2-digit",
                         month: "short",
                         year: "numeric",

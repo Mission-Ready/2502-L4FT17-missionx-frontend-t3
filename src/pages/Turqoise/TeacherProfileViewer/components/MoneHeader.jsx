@@ -1,16 +1,20 @@
 import styles from "./MoneHeader.module.css";
 import star from "../../../../assets/Home/star.png";
 import LevelUpWorksWhite from "../../../../assets/Navbar/LevelUpWorks-white.png";
-// import JasminaSalvador from "../../../../../public/images/teachers/JasminaSalvador.png";
 import MaoriFlag from "../../../../assets/Navbar/MaoriFlag.png";
 import NZFlag from "../../../../assets/Navbar/NZFlag.png";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Profile from "./Profile";
+import MoneFooter from "./MoneFooter";
+import Linkbtn from "./Linkbtn";
 
 function Header() {
   const [teachers, setTeachers] = useState([]);
+  const [showProfile, setShowProfile] = useState(false);
   const { Id } = useParams();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -23,6 +27,10 @@ function Header() {
     }
     fetchData();
   }, [Id]);
+
+  const handleProfileClick = () => {
+    setShowProfile(true);
+  };
 
   return (
     <section className={styles.container}>
@@ -64,9 +72,9 @@ function Header() {
                     alt="NZ Flag"
                   />
                 </h4>
-                <Link
-                  to="/teacher-dashboard/helpRequest"
+                <button
                   className={styles.linkStudentProfileViewer}
+                  onClick={handleProfileClick}
                 >
                   <div className={styles.userBox}>
                     <img
@@ -76,13 +84,17 @@ function Header() {
                     />
                     <h3>{teacher.name}</h3>
                   </div>
-                </Link>
+                </button>
               </nav>
             </div>
           </section>
         );
       })}
+      {showProfile && <Profile />}
+      <Linkbtn />
+      <MoneFooter />
     </section>
   );
 }
+
 export default Header;

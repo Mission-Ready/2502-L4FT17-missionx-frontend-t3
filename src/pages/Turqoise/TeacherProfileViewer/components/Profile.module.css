@@ -15,6 +15,8 @@
 
 .teachers_id {
   display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .profileBox {
   display: flex;
@@ -31,6 +33,11 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+}
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .profileBoxButtons {
@@ -102,4 +109,10 @@
 .profileData ul li {
   list-style: none;
   margin: 50px 0;
+}
+
+@media screen and (max-width: 930px) {
+  .teachers_id {
+    flex-direction: column;
+  }
 }
