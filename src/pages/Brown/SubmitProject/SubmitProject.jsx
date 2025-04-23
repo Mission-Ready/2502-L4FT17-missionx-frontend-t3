@@ -19,9 +19,9 @@ const SubmitProject = (props) => {
   // const [submissionStatus, setSubmissionStatus] = useState("");
   const [uploadedUrl, setUploadedUrl] = useState("");
 
-   const projectData = studentProjectsData.find(
-    (project) => project.id === props.activeProject
-  );
+  //  const projectData = studentProjectsData.find(
+  //   (project) => project.id === props.activeProject
+  // );
 
   const handleCircleClick = (number) => {
     setActiveCircle(activeCircle === number ? null : number); // Toggle active state
@@ -40,7 +40,7 @@ const SubmitProject = (props) => {
         "http://localhost:4000/api/student-dashboard/SubmitProject/store-submission", // Ensure this URL is correct
         {
           student_id: 1, // Replace with actual student ID
-          project_id: 5, // Replace with actual project ID
+          project_id: 1, // Replace with actual project ID
           submission: submissionURL, // Uploaded URL
         },
         {
