@@ -25,7 +25,7 @@ export default function HelpRequest() {
 
       for (const student of doneStudents) {
         const response = await fetch("http://localhost:4000/api/markAsDone", {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
