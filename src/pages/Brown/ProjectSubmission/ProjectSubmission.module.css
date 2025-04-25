@@ -35,6 +35,7 @@
   margin-top: 10px; /* Margin at the top */
   margin-left: 10vh;
   margin-right: 10vh;
+  overflow: auto;
 }
 
 /* Style for the project submission title */
@@ -66,13 +67,13 @@
   font-family: Open Sans, Bold;
 }
 
-/* Flex container for child divs in the submission container */
+/* Flex container for child divs in the submission container
 .projectSubmissionContainer > div {
-  display: flex; /* Use flexbox for layout */
-}
+  display: flex;
+} */
 
 /* Small container style for each project submission */
-.projectSubmissionSmallContainer {
+.projectSubmissionSmallContainer >  {
   display: flex; 
   /* flex-direction: column;  */ 
   justify-content: center;
@@ -91,7 +92,7 @@
 /* Checkbox container style */
 .checkboxContainer {
   display: flex; /* Use flexbox for layout */
-  width: 70vh; /* Width of the checkbox container */
+  width: 90vh; /* Width of the checkbox container */
   flex-direction: row;
   align-items: center; /* Center items vertically */
   margin-right: 20px; /* Right margin */
