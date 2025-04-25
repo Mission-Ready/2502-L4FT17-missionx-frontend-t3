@@ -5,6 +5,10 @@
   }
 
 /* {what we offer section} */
+
+.whatWeOfferSection {
+  width: 100vw;
+}
 .leftSection {
     display: flex;
     flex-direction: column;
@@ -33,15 +37,28 @@ section h2 {
  /* {images section connected to the what we offer section} */
 .rightSection{
     display: flex;
+    flex-direction: row;
     justify-content: right;
     margin-top: 0px;
     width: 50vw;
-    padding-left : 2000px
+    padding-left: 90%;
 }
+.radioButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-right: 20%;
+    
+}
+
 
 
 /* {/* Teaching kids programming sections with photos */
 
+
+.groupContainer{
+    width: 100vw;
+}
 .groupContainer h1 {
     display: flex;
     justify-content: center;
@@ -58,6 +75,10 @@ section h2 {
 }
 
 /* {how our programmes helps teachers and schools section} */
+
+.moreInfoContainer{
+    width: 100vw;
+}
 .moreInfoContainer h1 {
     display: flex;
     justify-content: center;
@@ -82,11 +103,13 @@ section h2 {
     flex-direction: column;
     justify-content: center;
     padding-left: 320px;
+    width: 100vw;
 
 }
 
 .keyCompetencies {
     display: grid;
+    width: 100vw;
     
 }
 
@@ -103,15 +126,252 @@ section h2 {
 
     padding-left: 282px;
     padding-top: 150px;
-    width: 625px;
-    height: 417px;
+    width: 50vw;
+    height: 80%;
 }
 
 .enquireNowRight{
    
  
-    padding-left: 482px;
+    /* padding-left: 482px; */
     padding-top: 150px;
+    width: 50vw;
   
 }
 
+
+.button {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+
+    
+
+}
+/* styling for the buttons  */
+.learnMore{
+font-size: 16px;
+top: 381px;
+left: 398px;
+width: 175px;
+height: 35px;
+border-color: #42C0F6 10px;
+border-radius: 5px;
+background-color: white;
+color: grey;
+cursor: pointer;
+
+
+
+}
+
+
+.signupButton {
+font-size: 16px;
+top: 381px;
+left: 398px;
+width: 175px;
+height: 35px;
+border: none;
+border-radius: 5px;
+background-color: rgb(207, 56, 144);
+color: white;
+cursor: pointer;
+
+
+}
+
+@media (max-width:768px) {
+
+
+
+
+    .rightSection{
+        display: none;
+
+
+    }
+
+    .radioButton {
+        display: none;
+    }
+
+    .leftSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 0px;
+    padding-top: 50px;
+    padding-left: 266px;
+    
+    
+    
+    
+}
+
+    .leftSection h1 h4 h2 {
+    font-size: 5px;
+    
+ 
+
+    }
+
+    .studentsCreateButtons {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 20vw;
+    margin-left: 0px;
+    margin-top: 0px;
+    
+    }
+
+    .studentsCreateButtons img {
+
+    object-fit:contain
+  }
+
+.groupContainer {
+    padding-top: 1000px ;
+  }
+.groupContainer h1 {
+    font-size: 20px;
+    text-align: center;
+    width: 50vw;
+    margin-right: 100px;
+    margin-left: 150px;
+    margin-top: 0px;
+    padding-top: 100px;
+    padding-left: 50px;
+  }
+
+  .groupImages {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 20vw;
+    margin-left: 60px;
+    margin-top: 0px;
+    
+  }
+  .groupImages img {
+     align-self: center;
+  }
+
+  .moreInfoContainer {
+    padding: 20px 10px;
+    text-align: center;
+    width: 100vw;
+  }
+
+  .moreInfoContainer h1 {
+    font-size: 20px;
+    text-align: center;
+    width: 50vw;
+    margin-right: 100px;
+    margin-left: 150px;
+    margin-top: 0px;
+    padding-top: 100px;
+    padding-left: 50px;
+  }
+
+
+  .moreInfoButtons {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    width: 80%;
+    
+  }
+
+  .informationOnClick {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .keyCompetencies h2 {
+    font-size: 18px;
+  }
+
+  .keyCompetencies h3 {
+    font-size: 14px;
+  }
+
+
+  .enquireNowLeft {
+    display: none
+
+  
+  }
+
+  .enquireNowLeft img {
+    align-self: center;
+    display: none;
+
+  }
+
+  .enquireNowRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .enquireNowRight h1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    text-align: center;
+    width: 50vw;
+    /* margin-right: 100px; */
+    /* margin-left: 150px; */
+    margin-top: 0px;
+    padding-top: 50px;
+    padding-left: 260px;
+    /* padding-right: 400px; */
+    
+  }
+
+   .enquireNowRight h3,
+  .enquireNowRight h4{
+    font-size: 10px;
+    text-align: center;
+    width: 50vw;
+    /* margin-right: 100px;
+    margin-left: 50px;
+    
+    padding-right: 300px; */
+    padding-left: 260px;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+    padding-left: 260px;
+  }
+
+  .learnMore,
+  .signupButton {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+ 
+}
+
+
+@media (max-width: 1024px) {
+  
+}
