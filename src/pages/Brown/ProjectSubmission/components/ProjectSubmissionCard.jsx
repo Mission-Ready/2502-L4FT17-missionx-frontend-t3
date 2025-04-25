@@ -21,9 +21,10 @@ import ImageModal from "./ImageModal"; // Import components of image modal
 // flexibly manage the content displayed.
 // As a result, Within the ProjectSubmissionCard component,
 // I use the project property passed in to display the project details.
-export default function ProjectSubmissionCard({ project }) {
+export default function ProjectSubmissionCard({ project, onCheckboxChange }) {
   // Manage checkbox state
-  const [isChecked, setIsChecked] = useState(true);
+  // When the checkbox is first rendered it will be in an unchecked state as false state condition.
+  const [isChecked, setIsChecked] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false); // Additionally, // Manage modal open state
 
   //   // Assigned another variable name as pronoun to distinguish mens and womens
@@ -35,8 +36,12 @@ export default function ProjectSubmissionCard({ project }) {
 
   // Handle checkbox change
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked); // Toggle checkbox state
+    const newCheckedState = !isChecked; //Get the new check state
+    setIsChecked(newCheckedState);//Update check state
+    onCheckboxChange(project.student_id, project.project_id, newCheckedState); // Notify parents components of changes
   };
+//     setIsChecked(!isChecked); // Toggle checkbox state
+//   };
 
   // Render the component
   return (

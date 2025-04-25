@@ -3,54 +3,108 @@ import BrownSideBar from "../../common/BrownSideBar";
 import styles from "./StudentDashboard.module.css";
 import BrownHeader from "../../common/BrownHeader";
 import Footer from "../../common/Footer";
-import { useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios'; // Import Axios
 // import studentProjectsData from "../../../pages/Brown/ProjectSubmission/studentProjectsData.js"; 
 
-export default function StudentDashboard() {
+// { // Accept studentId as a prop
+// In the ParentComponent, studentId is defined and passed down to StudentDashboard.
+// This allows studentId to be dynamic and change based on the parent component's state or logic.
+export default function StudentDashboard({ studentId = 13 }) { 
   
-  const projectNumbers = [];
-  // const studentId = studentProjectsData.studentID; 
-  const studentId = 23; // student IDを設定（必要に応じて変更）
-
-
-  for (let i = 1; i <= 15; i++) {
-    projectNumbers.push(i); 
-  }
+ // const studentId = 13; // Set the student ID (change if necessary)
+ const projectNumbers = Array.from({ length: 15 }, (_, i) => i + 1); // Create an array of project numbers
   
-  const location = useLocation();
+// Managing in a list ensures the flexibility to allow multiple projects to be selected in the future.
+// Benefits of list management 1)Future extensibility:
+// Even if I use a single project ID today, managing in a list will allow me to smoothly add the ability
+// to select multiple projects in the future.
+// Improved user experience:
+// When users can select multiple projects, managing in a list allows them to clearly see which projects are selected.
+  const [selectedProjects, setSelectedProjects] = useState([]); // Manages an array of selected project IDs
+  const [submissionUrl, setSubmissionUrl] = useState(""); // State that manages submission URL
 
-  const [activeProject, setActiveProject] = useState(1);
+  // Log selected projects whenever they change
+  // I can use useEffect to fetch data from my backend to get the submissionUrl based on the specific selected project_id.
+  useEffect(() => {
+    const fetchSubmissionUrl = async () => {
+      if (selectedProjects.length > 0) { // If there is a selected project
+        try {
+          // Retrieve the submission URL from the database based on the given student ID and project ID.
+          // I am requesting a submissionUrl to get data about a specific project in the updated database.\
+          // This may be necessary to view more information about the project or historical submission data.
+          const response = await axios.get(
+            `http://localhost:4000/api/student-dashboard/SubmitProject/get-submission/${studentId}/${selectedProjects[0]}`
+          );
+          // Use a SQL statement to retrieve the submissions from the student_projects table.
+          // If the data is found, a 200 response will be returned including the submission value.
+          // 
+          setSubmissionUrl(response.data.submission); // Set the updated obtained URL
+        } catch (error) {
+          // If no data is found it will return a 404 error.
+          console.error("Error fetching submission URL:", error);
+        }
+      }
+    };
+    // Use useEffect to log the contents of selectedProjects when it is updated.
+    console.log("Selected projects updated:", selectedProjects);  
+    fetchSubmissionUrl();
 
-  const handleClick = (number) => {
-    setActiveProject(number);
+    // Executed whenever electedProjects or studentId is changed
+    // selectedProjects is updated when the circle button is clicked.
+    // Specifically, setActiveCircle(number) is called and the selected project ID is stored in activeCircle.
+  }, [selectedProjects, studentId]); 
+
+  // Each number represents the current project ID in the projectNumbers array.
+  const handleClick = (number) => {    
+    // selectedProjects.includes(number) checks if the specified project ID is already selected.
+    // An if statement is used to separate processing depending on whether the item is selected or not.
+    if (selectedProjects.includes(number)) {
+      // If it is selected, remove it from the selection or add them in array.
+      // If I want to check the latest status, use the prev passed as an argument to output the log as is.
+      setSelectedProjects((prev) => {
+        // If already selected, remove it, otherwise add it
+        const updatedProjects = prev.filter((id) => id !== number); // Remove the ID
+        console.log("Selected projects after removal:", updatedProjects); // Show updated project ID
+        return updatedProjects; // Return the updated list
+      });
+    } else {
+      // If it is not selected, add it to the selection
+      setSelectedProjects((prev) => {
+        // If not, add a new ID using spread spread operator (...) .
+        const updatedProjects = [...prev, number]; // Add the ID
+        console.log("Selected projects after addition:", updatedProjects); // Show updated project ID
+        return updatedProjects; // Return the updated list
+      });
+    }
   };
+  
 
   return (
-
     <div className="StudentDashboard">
       <header>
-        <BrownHeader setActiveProject={setActiveProject} />
+        <BrownHeader />
         <div className={styles.headerContainer}>
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>PROJECT</h1>
             <h2 className={styles.subtitle}>introduction</h2>
           </div>
           <div className={styles.projectCircles}>
+          {/* number represents the current project ID being processed within the loop.
+          For example, in the first iteration, number is 1, in the next iteration it is 2, and finally it is 15. */}
+          {/* So when I click on a project circle,
+          the handleClick function is passed the project ID that corresponds to that circle and
+          it is added or removed from the selectedProjects array. */}
             {projectNumbers.map((number) => (
               <div key={`project-${number}`}>
                 <Link
-                  // to={`/student-dashboard/project/${number}`}
-                  className={`${styles.circle} ${location.pathname === `/student-dashboard/project/${number}` ? styles.active : ''}`}
+                  className={`${styles.circle} ${selectedProjects.includes(number) ? styles.active : ''}`}
                   aria-label={`Project ${number}`}
-                  onClick={() => handleClick(number)} // Update Project on Click
+                  // This means that when the link of circle with project_id # is clicked,
+                  // the handleClick function will be called with the current number (the project ID) passed as an argument.
+                  onClick={() => handleClick(number)} // Select a Project      
                 >
-                  {activeProject === number ? (
-                    <span>{number}</span> // Show active project number
-                  ) : (
-                    <span className={styles.smallCircle}></span> // Show small circle when inactive
-                  )}
+                  {number}
                 </Link>
               </div>
             ))}
@@ -60,11 +114,10 @@ export default function StudentDashboard() {
       <div style={{ display: "flex" }}>
         <BrownSideBar />
         <div className={styles.wholeScreen2} style={{ flex: 1 }}>
-          {/* View project details */}
-          {/* {activeProject && (
-            <ProjectDetails projectId={activeProject} studentId={studentId} />
-          )} */}
-          <Outlet context={{ activeProject, studentId }} /> {/* Passing activeProject and studentID to an Outlet */}
+          {/* In the StudentDashboard component, use Outlet to pass the studentId. */}
+          {/* Passing selectedProjects and studentID to an Outlet */}
+          {/* The URL of the uploaded file, for display or processing in a child component. */}
+          <Outlet context={{ selectedProjects, studentId, submissionUrl }} /> 
         </div>
       </div>
       <footer>
