@@ -18,7 +18,7 @@ function Header() {
         const result = await response.json();
         setTeachers(result.data);
       } catch (error) {
-        console.error("errorrrrrrrr", error);
+        alert("Error: " + "Check page 404 or server down");
       }
     }
     fetchData();
@@ -72,9 +72,9 @@ function Header() {
                     <img
                       className={styles.userImage}
                       src={teacher.profile_pic}
-                      alt="image"
+                      alt={`${teacher.name || "Not Available"}`}
                     />
-                    <h3>{teacher.name}</h3>
+                    <h3>{teacher.name || "Not Available"}</h3>
                   </div>
                 </Link>
               </nav>

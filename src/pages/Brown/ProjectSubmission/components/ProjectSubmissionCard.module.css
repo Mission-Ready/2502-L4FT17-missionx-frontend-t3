@@ -1,0 +1,165 @@
+/* Universal selector to apply box-sizing, margin, and padding globally */
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+  }
+  
+  /* Background style for the project submission section */
+  /* .innerContainer */
+  .projectSubmissionBackground {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #b2e4fa; /* Light blue background color */
+    width: calc(190vh -10vh); /* Full width */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .projectCardContainer{
+    display: flex;
+  }
+  
+  /* Container style for the project submission content */
+  /* .innerContainer */
+  .projectSubmissionContainer {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    background-color: #d9f2fd; /* Slightly darker blue background */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: flex-start; /* Align items to the start */
+    width: 100%; /* Slightly less than full width */
+    height: 80vh; /* 80% of viewport height */
+    border-radius: 20px; /* Rounded corners */
+    padding: 70px; /* Padding around the container */
+    margin-top: 10px; /* Margin at the top */
+    margin-left: 10vh;
+    margin-right: 10vh;
+  }
+  
+  /* Style for the project submission title */
+  .projectSubmissionText {  
+    font-family: "adobe-clean", sans-serif; /* Font family */
+    font-weight: bold; /* Bold text */
+    font-style: Nunito, Black; /* Font style (may need correction) */
+    font-size: 24px; /* Font size */
+    margin-bottom: 20px; /* Margin below the title */
+    color: #6C6C6C; /* Text color */
+    border-left-color: #6C6C6C; /* Left border color (may need border property) */
+    margin-bottom: 10px; /* Adjust bottom margin */
+    margin-top: 0; /* No top margin */
+  }
+  
+  /* Header container style for title and buttons */
+  .headerContainer {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between title and buttons */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Full width */
+    margin-bottom: 40px; /* Margin below the header */
+  }
+  
+  /* Button styles within the markBtn container */
+  .markBtn button {
+    margin-left: 10px; /* Space between buttons */
+    color: #6C6C6C; /* Button text color */
+    font-family: Open Sans, Bold;
+  }
+  
+  /* Flex container for child divs in the submission container */
+  .projectSubmissionContainer > div {
+    display: flex; /* Use flexbox for layout */
+  }
+  
+  /* Small container style for each project submission */
+  .projectSubmissionSmallContainer {
+    display: flex; 
+    /* flex-direction: column;  */ 
+    justify-content: center;
+    align-items: center; 
+    background-color: #FFFFFF; /* White background */
+    width: calc(180vh - 10px); /* Width adjusted to account for margins */
+    height: auto; /* Automatic height */
+    margin-top: 20px; /* Top margin */
+    margin-left: 20px; /* Left margin */
+    margin-right: 20px; /* Right margin */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px; /* Padding inside the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  }
+    
+  /* Style for student images */
+  .studentImage {  
+    width: 40px; /* Fixed width for student images */
+    height: auto; /* Automatic height */
+    margin-left: 10px; /* Left margin */
+  }
+  
+  /* Style for project images */
+  .projectImage {
+    display: flex;
+    width: 70%; /* Set width to 70% of the container */
+    max-width: 300px; /* Maximum width of 100px */
+    height: auto; /* Automatic height */
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 10px; /* Top margin */
+    /* justify-content: center;  */
+    margin-left: auto; 
+    margin-right: auto;
+    display: block; 
+    position: relative; 
+    top: 10px; 
+    }
+  
+  .enlargePhotoContainer {
+    display: flex; 
+    align-items: center; 
+    cursor: pointer; 
+    margin-top: 10px; 
+    justify-content: center;
+  }
+  
+  /* Style for enlarge photo text */
+  .enlargePhotoText {
+    margin-top: 8px; /* Top margin */
+    font-weight: bold; /* Bold text */
+    text-align: center; 
+    color: #707070;
+    font-style: Open Sans, Bold
+  }
+  
+  .centeredText {
+    color: #707070; 
+    margin: 0; 
+    text-align: center; 
+  }
+  
+  .leftAlignedImage {
+    display: block; 
+    margin-left: 0; 
+    margin-right: auto; 
+    max-width: 100%; 
+    height: auto; 
+  }
+  
+  .dateSubmitted {  
+    color: #707070; 
+    font-size: 1em;   
+    margin-left: 100vh; /* Move further right from current location */  
+    padding-left: 20px; /* Set additional margins */
+    margin-top: -150px; /* above 150px move */ 
+  }
+  
+  .dateSubmitted .dateText {
+    font-style: Open Sans, SemiBold;  
+  }
+  
+  .dateSubmitted .timeText {   
+    margin-left: 12.5vh;
+    font-style: Open Sans, SemiBold;
+    
+  }
+  
+  
+  
+  

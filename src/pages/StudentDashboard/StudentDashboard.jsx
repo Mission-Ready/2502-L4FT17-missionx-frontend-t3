@@ -21,7 +21,7 @@ export default function StudentDashboard() {
   
   const location = useLocation();
 
-  const [activeProject, setActiveProject] = useState(null);
+  const [activeProject, setActiveProject] = useState(1);
 
   const handleClick = (number) => {
     setActiveProject(number);
@@ -31,7 +31,7 @@ export default function StudentDashboard() {
 
     <div className="StudentDashboard">
       <header>
-        <BrownHeader />
+        <BrownHeader setActiveProject={setActiveProject} />
         <div className={styles.headerContainer}>
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>PROJECT</h1>
