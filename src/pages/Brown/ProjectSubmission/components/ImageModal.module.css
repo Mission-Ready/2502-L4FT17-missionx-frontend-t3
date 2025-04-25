@@ -26,11 +26,14 @@
   right: 20px; /* Distance from the right of the modal */
   font-size: 24px; /* Font size for the close button */
   cursor: pointer; /* Change cursor to pointer on hover */
-  color: white; /* White color for the close button text */
+  color: solid black; /* black color for the close button text */
 }
 
 /* Style for the enlarged image in the modal */
 .enlargedImage {
-  width: 100%; /* Full width of the modal content */
-  height: auto; /* Automatic height to maintain aspect ratio */
+  max-width: 1000px; /* 最大幅 */
+  max-height: 1000px; /* 最大高さ */
+  width: auto; /* 自動幅 */
+  height: auto; /* 自動高さ */
+  object-fit: contain; /* Maintain aspect ratio */
 }
