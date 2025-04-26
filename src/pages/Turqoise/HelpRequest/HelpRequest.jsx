@@ -40,7 +40,7 @@ export default function HelpRequest() {
       // Remove marked students from the list
       setStudents(students.filter((student) => !student.done));
     } catch (error) {
-      alert("Error updating records:", error);
+      alert("Error: " + ". Please check if the API path is correct.");
     }
   }
 
