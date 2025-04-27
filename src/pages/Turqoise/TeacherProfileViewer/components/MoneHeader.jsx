@@ -1,7 +1,6 @@
 import styles from "./MoneHeader.module.css";
 import star from "../../../../assets/Home/star.png";
 import LevelUpWorksWhite from "../../../../assets/Navbar/LevelUpWorks-white.png";
-// import JasminaSalvador from "../../../../../public/images/teachers/JasminaSalvador.png";
 import MaoriFlag from "../../../../assets/Navbar/MaoriFlag.png";
 import NZFlag from "../../../../assets/Navbar/NZFlag.png";
 import { Link } from "react-router-dom";
@@ -11,6 +10,7 @@ import { useState, useEffect } from "react";
 function Header() {
   const [teachers, setTeachers] = useState([]);
   const { Id } = useParams();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -18,7 +18,7 @@ function Header() {
         const result = await response.json();
         setTeachers(result.data);
       } catch (error) {
-        console.error("errorrrrrrrr", error);
+        alert("Error: " + "Check page 404 or server down");
       }
     }
     fetchData();
@@ -65,16 +65,16 @@ function Header() {
                   />
                 </h4>
                 <Link
-                  to="/teacher-dashboard/helpRequest"
+                  to={"../teacher-dashboard/helpRequest"}
                   className={styles.linkStudentProfileViewer}
                 >
                   <div className={styles.userBox}>
                     <img
                       className={styles.userImage}
                       src={teacher.profile_pic}
-                      alt="image"
+                      alt={`${teacher.name || "Not Available"}`}
                     />
-                    <h3>{teacher.name}</h3>
+                    <h3>{teacher.name || "Not Available"}</h3>
                   </div>
                 </Link>
               </nav>
@@ -85,4 +85,5 @@ function Header() {
     </section>
   );
 }
+
 export default Header;

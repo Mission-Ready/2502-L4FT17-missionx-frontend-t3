@@ -1,6 +1,8 @@
 .sideBar {
   /* Layout Properties */
-  width: 236px;
+  top: 0;
+  left: 0px;
+  width: 260px;
   height: 90vh;
   background-color: #43c0f6;
   display: flex;

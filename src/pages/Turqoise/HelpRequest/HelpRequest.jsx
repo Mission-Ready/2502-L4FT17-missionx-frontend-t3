@@ -12,7 +12,7 @@ export default function HelpRequest() {
         const result = await response.json();
         setStudents(result.data);
       } catch (error) {
-        console.error("errorrrrrrrr", error);
+        alert("Error: " + ". Please check if the API path is correct.");
       }
     }
     fetchData();
@@ -25,7 +25,7 @@ export default function HelpRequest() {
 
       for (const student of doneStudents) {
         const response = await fetch("http://localhost:4000/api/markAsDone", {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
@@ -33,14 +33,14 @@ export default function HelpRequest() {
         });
 
         if (!response.ok) {
-          console.error(`Failed to update request_id: ${student.request_id}`);
+          alert(`Failed to update request_id: ${student.request_id}`);
         }
       }
 
       // Remove marked students from the list
       setStudents(students.filter((student) => !student.done));
     } catch (error) {
-      console.error("Error updating records:", error);
+      alert("Error: " + ". Please check if the API path is correct.");
     }
   }
 

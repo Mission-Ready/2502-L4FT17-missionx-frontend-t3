@@ -16,8 +16,13 @@ import HelpRequest from "./pages/Turqoise/HelpRequest/HelpRequest";
 import TeacherProfileViewer from "./pages/Turqoise/TeacherProfileViewer/TeacherProfileViewer";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
+import NotFound from './NotFound'; // Ensure the path is correct
 
 function App() {
+
+
+
+
   return (
     <>
       <Routes>
@@ -79,6 +84,8 @@ function App() {
           path="studentProfileViewer/:studentId"
           element={<StudentProfileViewer></StudentProfileViewer>}
         ></Route>
+         {/* Add the NotFound component as the last route */}
+         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -101,11 +101,12 @@
   justify-content: end;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .text {
     display: none;
   }
-  .dateTime {
-    margin-right: 25px;
+  .dateTimeContainer {
+    display: flex;
+    justify-content: end;
   }
 }

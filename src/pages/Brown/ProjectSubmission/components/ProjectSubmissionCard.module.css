@@ -1,0 +1,119 @@
+/* Card styles */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: calc(180vh - 10px);
+  height: auto;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styles */
+.image {
+  width: auto; 
+  height: auto; 
+  position: relative; 
+  left: 70%; 
+  transform: translateX(-90%); 
+}
+
+.project-image {
+  display: flex;
+  width: 70%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 10px;
+}
+
+.enlarge-photo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.enlarge-photo-text {
+  margin-top: 8px;
+  font-weight: bold;
+  text-align: center;
+  color: #707070;
+  font-style: "Open Sans", Bold;
+}
+
+/* card components */
+.imageContainer {
+  height: 20vh; 
+  overflow: hidden; 
+  display: flex; 
+  justify-content: flex-start; 
+}
+
+.image {
+  width: 15%; 
+  height: 50%; 
+  margin-left: -150%; 
+}
+
+.sectionContainer {
+  display: flex;   
+  align-items: center; 
+  margin-left: 50%; 
+  margin-top: -5vh; 
+  width: 90%;   
+}
+
+/* Text styles */
+.text-center {
+  color: #707070;
+  margin: 0;
+  text-align: left;
+}
+
+.imageContainer {
+  height: 20vh; 
+  overflow: hidden; 
+}
+
+.projectImage {
+  width: 100%; 
+  height: auto; 
+}
+
+/* date and time control */
+.date {
+  color: #707070;
+  font-size: 1em;
+  margin-left: 100vh;
+  padding-left: 20px;
+  margin-top: -350px;
+}
+
+.date .date-text {
+  font-style: "Open Sans", SemiBold;
+}
+
+.date .time-text {
+  margin-left: 12.5vh;
+  font-style: "Open Sans", SemiBold;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    height: 25vh;
+  }
+}
+
+

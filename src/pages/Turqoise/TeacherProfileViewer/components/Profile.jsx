@@ -13,7 +13,7 @@ function Profile() {
         const result = await response.json();
         setTeachers(result.data);
       } catch (error) {
-        console.error("errorrrrrrrr", error);
+        alert("Error: " + "Check page 404 or server");
       }
     }
     fetchData();
@@ -21,8 +21,8 @@ function Profile() {
 
   return (
     <section className={styles.component}>
-      {teachers.map(function (teacher) {
-        return (
+      {teachers.length > 0 ? (
+        teachers.map((teacher) => (
           <div key={teacher.teachers_id} className={styles.teachers_id}>
             <section className={styles.profileBox}>
               <div>
@@ -30,17 +30,17 @@ function Profile() {
                   <img
                     className={styles.profileImage}
                     src={teacher.profile_pic}
-                    alt="Teacher: Jasmina Salvador"
+                    alt={`${teacher.name || "Not Available"}`}
                   />
                 </div>
                 <ul className={styles.profileBoxButtons}>
-                  <Link to="editProfile">
+                  <Link to={`/editProfile/${teacher.teachers_id}`}>
                     <button>EDIT PROFILE</button>
                   </Link>
-                  <Link to="changePhoto">
+                  <Link to={`/changePhoto/${teacher.teachers_id}`}>
                     <button>CHANGE PHOTO</button>
                   </Link>
-                  <Link to="setting">
+                  <Link to={`/setting/${teacher.teachers_id}`}>
                     <button>SETTING</button>
                   </Link>
                 </ul>
@@ -49,7 +49,7 @@ function Profile() {
 
             <section className={styles.profileInfoBox}>
               <div className={styles.profileInfo}>
-                <h1>{teacher.name}</h1>
+                <h1>{teacher.name || "Not Available"}</h1>
               </div>
 
               <div className={styles.profileData}>
@@ -60,24 +60,34 @@ function Profile() {
                   <li>Email Address</li>
                 </ul>
                 <ul>
-                  <li className={styles.list}> {teacher.school}</li>
                   <li className={styles.list}>
-                    {new Date(teacher.date_of_birth)
-                      .toLocaleDateString("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                      })
-                      .replace(/ /g, " ")}
+                    {teacher.school || "Not Available"}
                   </li>
-                  <li className={styles.list}> {teacher.contact_number}</li>
-                  <li className={styles.list}> {teacher.email}</li>
+                  <li className={styles.list}>
+                    {teacher.date_of_birth
+                      ? new Date(teacher.date_of_birth)
+                          .toLocaleDateString("en-NZ", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                          })
+                          .replace(/ /g, " ")
+                      : "Not Available"}
+                  </li>
+                  <li className={styles.list}>
+                    {teacher.contact_number || "Not Available"}
+                  </li>
+                  <li className={styles.list}>
+                    {teacher.email || "Not Available"}
+                  </li>
                 </ul>
               </div>
             </section>
           </div>
-        );
-      })}
+        ))
+      ) : (
+        <h1>Teacher data is Not Available.</h1>
+      )}
     </section>
   );
 }

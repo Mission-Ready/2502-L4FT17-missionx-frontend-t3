@@ -1,6 +1,6 @@
 import styles from './BrownHeader.module.css'
 
-export default function BrownHeader() {
+export default function BrownHeader({setActiveProject}) {
   return (
     <section className={styles.header}>
         <div>
