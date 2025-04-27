@@ -19,7 +19,7 @@ export default function ProjectSubmission({ teacherId = 34 }) {
   const [successMessage, setSuccessMessage] = useState(""); // State for success message
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const [isLoading, setIsLoading] = useState(true); // State for loading status
-  const [selectedProjects, setSelectedProjects] = useState([]); // 選択されたプロジェクトの状態
+  const [selectedProjects, setSelectedProjects] = useState([]); // Status of the selected project
 
   // Fetch project data from the backend when the component mounts
   // A ProjectSubmission component for retrieving and displaying project data from the backend.
@@ -89,7 +89,7 @@ export default function ProjectSubmission({ teacherId = 34 }) {
       console.error("Error downloading file:", error);
       alert("Failed to download the file."); // Show an alert if there's an error
     }
-  };
+    };
 
   // Functions that manage the state of checkboxes
   const handleCheckboxChange = (studentId, projectId, isChecked) => {
@@ -109,9 +109,7 @@ export default function ProjectSubmission({ teacherId = 34 }) {
               project.project_id === projectId
             ) //Deselect
         )
-      );
-    }
-  };
+      ); } };
 
   // Mark projects as completed
   const markProjectsAsCompleted = async () => {
@@ -125,15 +123,32 @@ export default function ProjectSubmission({ teacherId = 34 }) {
       );
 
       // Remove completed projects from the list
+      // Here, I am receiving the list of the current projects (prevProjects).
+      // This code is doing the task of 'removing the selected project from the list if it is in the list.
+      // Finally, it updates the remaining projects into a new list.
       setProjects((prevProjects) =>
+        // Reasons for Exclusion Project Deletion:If a user wants to remove a selected project from the list.
+        // In this case, by excluding the chosen project, users can manage unnecessary projects.
+        // Filtering:When wanting to display only projects that do not meet certain conditions.
+        // For example, by excluding completed marked projects or projects not related to specific students,
+        // only the necessary information can be displayed as an updated database.
+        // Confirmation of Selection: Sometimes, a project selected by the user may be temporarily removed
+        // from the list to confirm that project.
+        // This makes it easier to see the differences from other projects.
         prevProjects.filter(
           (project) =>
+            // selectedProjects is the list of projects you want to remove.
+            // "some" method is a way to check if there are any items in the list that meet the conditions.
+            // "!" (exclamation mark) means 'not',
+            // so it will only keep the case where there are no duplicates of the current project in the selected projects.
             !selectedProjects.some(
+              // Here, the selected project's student ID and project ID are being compared
+              // to see if they are the same as the current project's ID.
               (marked) =>
                 marked.student_id === project.student_id &&
                 marked.project_id === project.project_id
             )
-        )
+          )
       );
 
       setSuccessMessage("Projects marked as completed successfully!");
@@ -152,7 +167,7 @@ export default function ProjectSubmission({ teacherId = 34 }) {
       }
     }
   };
-  //   // Function to mark projects as completed
+ 
   // Render the component
   return (
     <div style={{ display: "flex" }}>
@@ -187,21 +202,19 @@ export default function ProjectSubmission({ teacherId = 34 }) {
             {/* If initial state of projects'length is more then 0  */}
             {projects.length > 0 ? (
               // projects array:
-
               // projects is a state variable that stores the project data obtained from the API. It is initialized using useState.
               // Each element (project) in the projects array is passed to ProjectSubmissionCard.
               // save the initial state from fetched data from backend called projects and use the data to map over it in here.
               // The projects.map(...) part executes a callback function for each element in the projects array.
               // The current element (in this case, project) and its index are passed as arguments
               // to this callback function.
-
               projects.map((project, index) => (
                 // The ProjectSubmissionCard component uses properties (props),
                 // specifically a property called project,
                 // to pass project data from its parent component, called ProjectSubmission,
                 // to a child component of ProjectSubmissionCard.
                 <div key={index} className={styles.projectRow}>
-                {/* チェックボックス */}
+                {/* checkbox */}
                 <input
                   type="checkbox"
                   className={styles.checkmark}
@@ -222,7 +235,8 @@ export default function ProjectSubmission({ teacherId = 34 }) {
                   // there is no need to pass the index.
                   project={project}
                   // onCheckboxChange={handleCheckboxChange}
-                  // The processing of the checkboxes will be done in the parent component.
+                  // The processing of the checkboxes will be done in the parent component,
+                  // so no need to pass to a child component.
                 />
                </div>  
               ))
