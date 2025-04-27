@@ -20,13 +20,25 @@ const SubmitProject = () => {
   // selectedProjects: An array of selected project IDs.
   // Used to perform processing based on the selected projects in child components.
   // studentId: Student ID. This is required when communicating with the backend.
-  const { selectedProjects, studentId } = useOutletContext(); // Get selectedProjects and studentId from the parent component
+  // I obtained the selectedProjects, studentId, and submissionURL passed from the parent component
+  // using const { selectedProjects, studentId, submissionURL } = useOutletContext();.
+  // This allows the child component (SubmitProject) to access the data from the parent.
+  const { selectedProjects, studentId, submissionURL: initialSubmissionURL } = useOutletContext(); 
+
+  // const [uploadedUrl, setUploadedUrl] = useState(""); This creates a state to manage the URL of the uploaded file.
+  // This state is used to save the URL when the upload is complete from uploadthing service.
   const [uploadedUrl, setUploadedUrl] = useState(""); // State to manage uploaded URLs
 
+  // easy to read and understand for anyone who might work on it in the future,
+  // I did not change variable name from parents to child so I keep using the same submissionURL.
+  // Keep the same name for clarity as submissionURL
+  const [submissionURL, setSubmissionURL] = useState(initialSubmissionURL); // New state for submissionURL
+
   // Send the uploaded photo URL to the backend
-  // What happens when the upload is complete?
   // In the handleUploadComplete function,
   // send the URL of the uploaded file to all selected project IDs.
+  // The handleUploadComplete function is called when the file upload is complete.
+  // Within this function, the URL of the uploaded file is obtained and saved in the state.
   const handleUploadComplete = async (res) => {
     // In the child component (e.g. SubmitProject), I can use the submissionUrl passed
     // from the parent and do whatever I need to, such as verifying and displaying the uploaded file.
