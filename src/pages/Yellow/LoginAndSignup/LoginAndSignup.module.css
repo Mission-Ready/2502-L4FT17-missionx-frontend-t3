@@ -73,7 +73,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  position: absolute;
+  position: relative;
   top: 56px;
   left: 460px;
   width: 1300px;
@@ -285,59 +285,47 @@
 
 @media (max-width: 768px) {
   .container {
-    display: flex;
     flex-direction: column;
     height: auto;
-    /* padding: 10px 0px; */
-    align-self: center;
-    width: 100vw;
-    margin: 0px,0px;
-    padding: 0px,0px;
-    
+    padding: 10px 0px;
+    align-items: center;
   }
 
   .star {
-    display: flex;
     flex-direction: column;
-    margin-left: 0px;
-    padding-left: 0px;
-
-
-    
-    /* padding-bottom: 100px; */
+    align-items: center;
+    padding-bottom: 100px;
   }
 
   .mainNav {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    margin-right: 20%;
-
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
   }
 
   .mainNav li {
+    padding: 5px 0;
     font-size: 14px;
-
   }
 
   .languageAndLogin {
+    padding-left: 100px;
     display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin-right: 70%;
+    flex-direction: row;
+    align-items: center;
   }
 
   .signUpContainer {
+    width: 100%;
     left: 10%;
     top: 60px;
     grid-template-columns: 1fr; /* Stack student and teacher sections */
-    width: 70vw;
-   
+    padding: 40px 20px;
   }
 
   .modal {
-    width: 70vw;
-    height: 70vh;
+    width: 100vw;
+    height: 100vh;
     overflow-y: auto;
     backdrop-filter: blur(8px);
   }

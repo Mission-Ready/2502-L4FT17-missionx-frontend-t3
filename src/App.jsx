@@ -19,6 +19,10 @@ import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
 import NotFound from './NotFound'; // Ensure the path is correct
 
 function App() {
+
+
+
+
   return (
     <>
       <Routes>

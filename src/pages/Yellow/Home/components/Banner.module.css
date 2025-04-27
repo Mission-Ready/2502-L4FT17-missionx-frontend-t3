@@ -14,7 +14,7 @@
     
     top: 64px;
     left: 0px;
-    width: 100%;
+    width: 100vw;
     height: 400px;
     padding: 0px,0px;
     margin: 0px,0px;
@@ -48,18 +48,92 @@
     
 }
 
-/* styling for the buttons  */
+
 .button {
     display: flex;
-    padding-left: 266px;
-    padding-top: 100px;
-    margin-left:80px;
+    flex-direction: row;
+    gap: 50px;
+
+
     
+
+}
+/* styling for the buttons  */
+.learnMore{
+font-size: 16px;
+top: 381px;
+left: 398px;
+width: 175px;
+height: 35px;
+border-color: #42C0F6 10px;
+border-radius: 5px;
+background-color: white;
+color: grey;
+cursor: pointer;
+
 
 
 }
 
+
 .signupButton {
-  display: flex;
-  margin-left: 100px;
+font-size: 16px;
+top: 381px;
+left: 398px;
+width: 175px;
+height: 35px;
+border: none;
+border-radius: 5px;
+background-color: rgb(207, 56, 144);
+color: white;
+cursor: pointer;
+
+
+}
+
+@media (max-width: 768px) {
+.container {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../../assets/Home/hero.png);
+    align-items: center;
+    top: 64px;
+    width: 100vw;
+    padding: 0px,0px;
+    margin: 0px,0px;
+}
+
+/* styling for the biggest text */
+.subHeroText {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    top: 266px;
+    width: 50%;
+    height: 30%;
+    margin-left: 150px;
+    padding-left: 0px;
+    padding-top: 80px;
+    
+}
+
+.heroText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding-left: 0px;
+    margin-left: 150px;
+    
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+
+}
+
 }
