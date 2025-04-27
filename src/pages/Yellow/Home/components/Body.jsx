@@ -20,8 +20,7 @@ import Radio from "@mui/material/Radio";
 import LoginAndSignup from "../../LoginAndSignup/LoginAndSignup";
 
 export default function Body() {
-
-//Toggle key competency button
+  //Toggle key competency button
   const [isKeyCompetenciesClicked, setIsKeyCompetenciesClicked] =
     useState(false);
 
@@ -29,9 +28,9 @@ export default function Body() {
     setIsKeyCompetenciesClicked((prev) => !prev);
   };
 
+  // Handling button/Image clicks to update the displayed image on the right side
   const [activeImage, setActiveImage] = useState(laptopImage1);
 
-  // Handling button/Image clicks to update the displayed image on the right side
   const handleClickAnimation = () => {
     setActiveImage(laptopImage1);
   };
@@ -45,7 +44,7 @@ export default function Body() {
     setActiveImage(laptopImage4);
   };
 
-  //Open and close Sign Up page 
+  //Open and close Sign Up page
 
   const [isSignUpClicked, setIsSignUpClicked] = useState(false);
 
@@ -166,6 +165,8 @@ export default function Body() {
           </Button>
           <Button variant="outlined">IR4.0</Button>
         </div>
+
+        {/* Key Competency button toggle */}
 
         {isKeyCompetenciesClicked && (
           <div>
@@ -298,6 +299,8 @@ export default function Body() {
           <div className={style.button}>
             {/* buttons */}
             <button className={style.learnMore}>Learn More</button>
+
+            {/* Sign up Button to open Log In and sign up Modal  */}
 
             <button className={style.signupButton} onClick={openModal}>
               Sign up{" "}

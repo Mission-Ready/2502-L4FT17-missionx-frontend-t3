@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Hero from "../../../../assets/Home/hero.png";
 import style from "./Banner.module.css";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
@@ -7,7 +6,7 @@ import LoginAndSignup from "../../LoginAndSignup/LoginAndSignup";
 
 function Banner() {
 
-  // Open SignUp Page
+  // Open SignUp Page as a Modal
   const [isSignUpClicked, setIsSignUpClicked] = useState(false);
 
   const openModal = () => setIsSignUpClicked(true);
@@ -56,6 +55,8 @@ function Banner() {
           <div className={style.button}>
             {/* buttons */}
             <button className={style.learnMore}>Learn More</button>
+
+            {/* Sign up Button to  open login and sign up Modal  */}
 
             <button className={style.signupButton} onClick={openModal}>
               Sign up{" "}

@@ -37,6 +37,10 @@ export default function LoginAndSignup({ onClose }) {
     general: "",
   });
 
+  // Student Sign Up Logic
+
+  //what happens when there is a change in the input field
+
   const handleStudentSignUpFormChange = (e) => {
     const { name, value } = e.target;
 
@@ -46,7 +50,7 @@ export default function LoginAndSignup({ onClose }) {
     setStudentSignUpForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Student Sign Up Logic
+  //what happens when sign up button is submitted or clicked
   const handleStudentSignUpSubmit = (e) => {
     e.preventDefault();
     console.log(studentSignUpForm);
@@ -61,6 +65,7 @@ export default function LoginAndSignup({ onClose }) {
       .then((result) => {
         console.log(result);
 
+        // if sign up is successful
         if (result.status === "Success") {
           setIsStudentSignUpResult(
             <span style={{ color: "green" }}>
@@ -70,11 +75,28 @@ export default function LoginAndSignup({ onClose }) {
           );
           setTimeout(() => {
             navigate(`/studentProfileViewer/${result.id}`); // Navigate to the "/dashboard" route after 3 seconds
-          }, 3000); // Navigate to the "/dashboard" route
-        } else if (result.status === "EmailError") {
+          }, 3000); //
+        }
+        // what happens is sign up fails
+        else if (result.status === "EmailError") {
           setIsStudentSignUpResult(
             <span style={{ color: "red" }}>
               SignUp Failed: {result.message}
+            </span>
+          );
+        } else if (result.status === "ValidationError") {
+          setIsStudentSignUpResult(
+            <span style={{ color: "red" }}>
+              Sign Up Failed: {result.message}
+            </span>
+          );
+        }
+
+        // Any other error
+        else {
+          setIsStudentSignUpResult(
+            <span style={{ color: "red" }}>
+              Something went wrong: {result.message || "Unknown error"}
             </span>
           );
         }
@@ -91,11 +113,13 @@ export default function LoginAndSignup({ onClose }) {
 
   // Teacher Sign Up Logic
 
+  // what happens when input value is changed
   const handleTeacherSignUpFormChange = (e) => {
     const { name, value } = e.target;
     setTeacherSignUpForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  //what happens when submit button is clicked
   const handleTeacherSignUpSubmit = (e) => {
     e.preventDefault();
     console.log(teacherSignUpForm);
@@ -108,6 +132,7 @@ export default function LoginAndSignup({ onClose }) {
       .then((result) => {
         console.log(result);
 
+        //successful sign up message
         if (result.status === "Success") {
           setIsTeacherSignUpResult(
             <span style={{ color: "green" }}>
@@ -124,6 +149,23 @@ export default function LoginAndSignup({ onClose }) {
               SignUp Failed: {result.message}
             </span>
           );
+
+        }
+        else if (result.status === "ValidationError") {
+          setIsTeacherSignUpResult(
+            <span style={{ color: "red" }}>
+              Sign Up Failed: {result.message}
+            </span>
+          );
+        }
+
+        // Any other error
+        else {
+          ssetIsTeacherSignUpResult(
+            <span style={{ color: "red" }}>
+              Something went wrong: {result.message || "Unknown error"}
+            </span>
+          );
         }
       })
       .catch((err) => {
@@ -136,30 +178,20 @@ export default function LoginAndSignup({ onClose }) {
       });
   };
 
+  /// Student LOG IN DB Request
 
-
+  //on change in student email input field
   function studentEmailEntered(event) {
     const studentEmail = event.target.value;
     setIsStudentEmail(studentEmail);
   }
-
+  //on change in student password input field
   function studentPassword(event) {
     const studentPassword = event.target.value;
     setIsStudentPassword(studentPassword);
   }
 
-  function teacherEmailEntered(event) {
-    const teacherEmail = event.target.value;
-    setIsTeacherEmail(teacherEmail);
-  }
-
-  function teacherPassword(event) {
-    const teacherPassword = event.target.value;
-    setIsTeacherPassword(teacherPassword);
-  }
-
-  /// Student LOG IN DB Request
-
+  //on submit student login and password
   function sendStudentLogin(event) {
     event.preventDefault(); // Prevent form refresh
     console.log("Logging In with:", isStudentEmail, isStudentPassword);
@@ -203,6 +235,20 @@ export default function LoginAndSignup({ onClose }) {
 
   /// Teacher LOG IN DB Request
 
+  ///on change in teacher email input field
+  function teacherEmailEntered(event) {
+    const teacherEmail = event.target.value;
+    setIsTeacherEmail(teacherEmail);
+  }
+
+  //on change in teacher password input field
+
+  function teacherPassword(event) {
+    const teacherPassword = event.target.value;
+    setIsTeacherPassword(teacherPassword);
+  }
+
+  //on submit in teacher log in information
   function sendTeacherLogin(event) {
     event.preventDefault(); // Prevent form refresh
     console.log("Logging In with:", isTeacherEmail, isTeacherPassword);
@@ -248,7 +294,7 @@ export default function LoginAndSignup({ onClose }) {
     <div className={styles.modal}>
       {/* <LoginAndSignUpCard/> */}
       <div className={styles.signUpContainer}>
-        {/* Students Sign Up Section  */}
+        {/* Students Log in and Sign up Buttons   */}
         <div>
           <button onClick={onClose} className={styles.escButton}>
             <img className={styles.escButton} src={esc} alt="esc" />
@@ -300,6 +346,8 @@ export default function LoginAndSignup({ onClose }) {
             </button>
           </div>
 
+          {/* Student Log in section  */}
+
           {isStudentLogIn ? (
             <>
               <form className={styles.studentLogInForm}>
@@ -331,6 +379,8 @@ export default function LoginAndSignup({ onClose }) {
           ) : (
             ""
           )}
+
+          {/* Student Sign up section  */}
           {!isStudentLogIn ? (
             <form
               className={styles.studentSignUpInputField}
@@ -377,7 +427,7 @@ export default function LoginAndSignup({ onClose }) {
           )}
         </div>
 
-        {/* Teachers Sign Up Section */}
+        {/* Teachers Sign Up and login button Section */}
         <div>
           <img src={teachers} alt=" teachers" />
           <section>
@@ -423,6 +473,8 @@ export default function LoginAndSignup({ onClose }) {
             </button>
           </section>
 
+          {/* Teacher Log in section  */}
+
           {isTeacherLogIn ? (
             <>
               <form className={styles.teacherLogInForm}>
@@ -452,6 +504,8 @@ export default function LoginAndSignup({ onClose }) {
           ) : (
             ""
           )}
+
+          {/* Teacher sign up section  */}
 
           {!isTeacherLogIn ? (
             <form

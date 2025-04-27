@@ -14,6 +14,8 @@ import LoginAndSignup from "../../LoginAndSignup/LoginAndSignup";
 
 
 export default function Header() {
+
+  // Login and Sih up modal//
   const [isRegisterLoginClicked, setIsRegisterLoginClicked] = useState(false);
 
   const openModal = () => setIsRegisterLoginClicked(true);
