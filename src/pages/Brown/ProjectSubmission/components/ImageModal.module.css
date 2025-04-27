@@ -1,39 +1,40 @@
 /* Overlay style for the modal */
 .modalOverlay {
-  position: fixed; /* Fix the overlay to the viewport */
-  top: 0; /* Align to the top of the viewport */
-  left: 0; /* Align to the left of the viewport */
-  right: 0; /* Align to the right of the viewport */
-  bottom: 0; /* Align to the bottom of the viewport */
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  display: flex; /* Use flexbox for centering content */
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-  z-index: 1000; /* Ensure the modal is displayed on top of other elements */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 /* Content area of the modal */
 .modalContent {
-  position: relative; /* Position relative for absolute children */
-  max-width: 90%; /* Maximum width of the modal content */
-  max-height: 90%; /* Maximum height of the modal content */
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 /* Style for the close button in the modal */
 .closeButton {
-  position: absolute; /* Position absolutely within the modal content */
-  top: 10px; /* Distance from the top of the modal */
-  right: 20px; /* Distance from the right of the modal */
-  font-size: 24px; /* Font size for the close button */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  color: solid black; /* black color for the close button text */
+  position: absolute;
+  top: 1vh;
+  right: 2vh;
+  font-size: 2.4vh;
+  cursor: pointer;
+  color: black;
 }
 
 /* Style for the enlarged image in the modal */
 .enlargedImage {
-  max-width: 1000px; /* 最大幅 */
-  max-height: 1000px; /* 最大高さ */
-  width: auto; /* 自動幅 */
-  height: auto; /* 自動高さ */
-  object-fit: contain; /* Maintain aspect ratio */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
+
