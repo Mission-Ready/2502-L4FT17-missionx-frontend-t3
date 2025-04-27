@@ -23,15 +23,16 @@ function StudentProfileViewer() {
     // Background Grey Color Open Tag//
     
     <div className={styles.Background}> 
+    {/* Header */}
     <ShaziasNavbar></ShaziasNavbar>
 
+    {/* .map */}
     {studentData.map((student) => (<>
     <div key={student.student_id} className={styles.outerBox}>
       
     {/* ======== Left Container ======== */}
       <section className={styles.leftContainer}>
-      
-        <div>
+      <div>
 
          {/* Profile Image */}
           <figure className={styles.profileImageBox}>
@@ -43,79 +44,58 @@ function StudentProfileViewer() {
             <button>EDIT PROFILE</button> <br /> <br />
             <button>CHANGE PHOTO</button>
           </div>
-
-        </div>
-        
+      </div>
       </section>
 
     {/* ========= Right Container ======== */}
       <section className={styles.rightContainer}>
         <div className={styles.profileInfoDiv}>
 
+          {/* Student Name */}
           <div className={styles.profileName}><h1>{student.name}</h1></div>
 
+          {/* Student School */}
           <div className={styles.profileSchool}><div><h3>School</h3></div>
-          
           <div><h3>{student.school}</h3></div>             
           </div>
           
+          {/* Student Teacher */}
           <div className={styles.profileSchool}>
-              <div>
-                <h3>Teacher</h3>
-              </div>
-
-              <div>
-                <h3>Jasmina Salvador</h3>
-              </div>             
+              <div><h3>Teacher</h3></div>
+              <div><h3>Jasmina Salvador</h3></div>             
           </div>
           
+          {/* Student Course */}
           <div className={styles.profileSchool}>
-              <div>
-                <h3>Course</h3>
-              </div>
-
-              <div>
-                <h3>{student.course}</h3>
-              </div>             
+              <div><h3>Course</h3></div>
+              <div><h3>{student.course}</h3></div>             
           </div>
           
+          {/* Student DOB */}
           <div className={styles.profileSchool}>
-              <div>
-                <h3>Date of Birth</h3>
-              </div>
-
-              <div>
-                <h3>{new Date(student.date_of_birth).toLocaleDateString()}</h3>
-              </div>             
+              <div><h3>Date of Birth</h3></div>
+              <div><h3>{new Date(student.date_of_birth).toLocaleDateString()}</h3></div>             
           </div>
           
+          {/* Student Contact No. */}
           <div className={styles.profileSchool}>
-              <div>
-                <h3>Contact No</h3>
-              </div>
-
-              <div>
-                <h3>{student.contact_number}</h3>
-              </div>             
+              <div><h3>Contact No</h3></div>
+              <div><h3>{student.contact_number}</h3></div>             
           </div>
           
+          {/* Student Email */}
           <div className={styles.profileSchool}>
-              <div>
-                <h3>Email Address</h3>
-              </div>
-
-              <div>
-                <h3>{student.email}</h3>
-              </div>             
+              <div><h3>Email Address</h3></div>
+              <div><h3>{student.email}</h3></div>             
           </div>
 
           <div className={styles.profileContact}></div>
           <div className={styles.profileEmail}></div>
-          
         </div>
-
       </section>
       </div>
+
+      {/* Buttons */}
       <div className={styles.backToProjectsButtonBox}>
         <Link to="/projectLibrary" className={styles.linkProjectLibrary}>
         <button className={styles.backToProjectsButton}>BACK TO PROJECTS</button> 
@@ -124,13 +104,10 @@ function StudentProfileViewer() {
       </>
     ))}
     
+      {/* Footer */}
       <KerrysFooter></KerrysFooter>
     </div>
-    
-    
-    //Background Grey Color Close Tag //
   )
 }
-
 
 export default StudentProfileViewer

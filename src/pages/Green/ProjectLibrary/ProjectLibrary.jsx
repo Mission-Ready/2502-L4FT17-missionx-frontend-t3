@@ -4,70 +4,67 @@ import styles from "./ProjectLibrary.module.css"
 import {useState, useEffect} from "react"
 
 
-
-
-
-
 function ProjectLibrary() {
   const [projectData, setProjectData] = useState([]);
   const [selectedTier, setSelectedTier] = useState("BEGINNER")
   const [selectedItems, setSelectedItems] = useState("ALL")
 
+  // Subscription Variables
+  const [checkedFree, setCheckedFree] = useState(false)
+  const [checkedPremium, setCheckedPremium] = useState(false)
 
+  // Activity Type Variables
+  const [checkedAnimation, setCheckedAnimation] = useState(false)
+  const [checkedGame, setCheckedGame] = useState(false)
+  const [checkedChatbot, setCheckedChatbot] = useState(false)
+  const [checkedAugmentedReality, setCheckedAugmentedReality] = useState(false)
 
+  // Year Level Variables
+  const [checkedOneToFour, setCheckedOneToFour] = useState(false)
+  const [checkedFiveToSix, setCheckedFiveToSix] = useState(false)
+  const [checkedSevenToEight, setCheckedSevenToEight] = useState(false)
+  const [checkedNineToThirteen, setCheckedNineToThirteen] = useState(false)
 
-    const [checkedFree, setCheckedFree] = useState(false)
-    const [checkedPremium, setCheckedPremium] = useState(false)
+  // Subject Matter Variables
+  const [checkedComputerScience, setCheckedComputerScience] = useState(false)
+  const [checkedMaths, setCheckedMaths] = useState(false)
+  const [checkedScience, setCheckedScience] = useState(false)
+  const [checkedLanguage, setCheckedLanguage] = useState(false)
+  const [checkedArt, setCheckedArt] = useState(false)
+  const [checkedMusic, setCheckedMusic] = useState(false)
+// ------------------------------------------------------------------------------- //
 
-
-    const [checkedAnimation, setCheckedAnimation] = useState(false)
-    const [checkedGame, setCheckedGame] = useState(false)
-    const [checkedChatbot, setCheckedChatbot] = useState(false)
-    const [checkedAugmentedReality, setCheckedAugmentedReality] = useState(false)
-
-    
-    const [checkedOneToFour, setCheckedOneToFour] = useState(false)
-    const [checkedFiveToSix, setCheckedFiveToSix] = useState(false)
-    const [checkedSevenToEight, setCheckedSevenToEight] = useState(false)
-    const [checkedNineToThirteen, setCheckedNineToThirteen] = useState(false)
-
-
-    const [checkedComputerScience, setCheckedComputerScience] = useState(false)
-    const [checkedMaths, setCheckedMaths] = useState(false)
-    const [checkedScience, setCheckedScience] = useState(false)
-    const [checkedLanguage, setCheckedLanguage] = useState(false)
-    const [checkedArt, setCheckedArt] = useState(false)
-    const [checkedMusic, setCheckedMusic] = useState(false)
-
-    
-
-
+    // Back-end fetch
     useEffect(() => {
       fetch("http://localhost:4000/api/projectLibrary")
         .then((res) => res.json())
         .then((res) => setProjectData(res.data));
     }, []);
-    
 
-    const filteredProjects = projectData.filter((project) => {
-      const matchesTier = project.course === selectedTier;
+   // ------------------------------------------------------------------------------- //
+
+  // Filtering
+  const filteredProjects = projectData.filter((project) => {
+
+  // Subscription Filtering
+  const matchesTier = project.course === selectedTier;
+  const subscriptionFilterEnabled = checkedFree || checkedPremium;
+
+  const matchesSubscription = !subscriptionFilterEnabled ||
+  (checkedFree && project.subscription === "Free") ||
+  (checkedPremium && project.subscription === "Premium");
   
-      const subscriptionFilterEnabled = checkedFree || checkedPremium;
-      const matchesSubscription = !subscriptionFilterEnabled ||
-        (checkedFree && project.subscription === "Free") ||
-        (checkedPremium && project.subscription === "Premium");
-
-        const activityFilterEnabled =
+  // Activity Type Filtering
+  const activityFilterEnabled =
   checkedAnimation || checkedGame || checkedChatbot || checkedAugmentedReality;
 
-  const matchesActivity =
-  !activityFilterEnabled ||
+  const matchesActivity = !activityFilterEnabled ||
   (checkedAnimation && project.activity_type === "Animation") ||
   (checkedGame && project.activity_type === "Game") ||
   (checkedChatbot && project.activity_type === "Chatbot") ||
   (checkedAugmentedReality && project.activity_type === "Augmented Reality");
 
-
+  // Year Level Filtering
   const yearLevelFilterEnabled =
   checkedOneToFour || checkedFiveToSix || checkedSevenToEight || checkedNineToThirteen;
 
@@ -77,11 +74,12 @@ function ProjectLibrary() {
   (checkedSevenToEight && project.year_level >= 7 && project.year_level <= 8) ||
   (checkedNineToThirteen && project.year_level >= 9 && project.year_level <= 13);
 
-const subjectFilterEnabled =
+  // Subject Matter Filtering
+  const subjectFilterEnabled =
   checkedComputerScience || checkedMaths || checkedScience ||
   checkedLanguage || checkedArt || checkedMusic;
 
-const matchesSubject = !subjectFilterEnabled ||
+  const matchesSubject = !subjectFilterEnabled ||
   (checkedComputerScience && project.subject_matter === "Computer Science") ||
   (checkedMaths && project.subject_matter === "Maths") ||
   (checkedScience && project.subject_matter === "Science") ||
@@ -89,10 +87,12 @@ const matchesSubject = !subjectFilterEnabled ||
   (checkedArt && project.subject_matter === "Art") ||
   (checkedMusic && project.subject_matter === "Music");
   
+  // Filtering Return
   return matchesTier && matchesSubscription && matchesActivity &&
   matchesYearLevel && matchesSubject;
     });
 
+    // Project Amount Filtering
     const limitedProjects =
     selectedItems === "ALL"
       ? filteredProjects
@@ -102,16 +102,21 @@ const matchesSubject = !subjectFilterEnabled ||
           selectedItems === "TEN" ? 10 : 0
         );
 
+  // ------------------------------------------------------------------------------------ // 
+
   return (
     <div className={styles.Background}>
       <div id="top" />
-
+      
+      {/* Header */}
       <ShaziasNavbar></ShaziasNavbar>
 
     <div className={styles.outerBox}>
       <section className={styles.filterBarBox}>
         <div className={styles.innerFilterBarBox}>
         
+        {/* ======== LEFT SIDE BAR ======== */}
+        {/* Subscription */}
         <div>
           <h4>SUBSCRIPTION</h4><hr />
           <label>
@@ -128,6 +133,7 @@ const matchesSubject = !subjectFilterEnabled ||
           </label>
           </div>
 
+        {/* Activity Type */}
         <div>
           <h4>ACTIVITY TYPE</h4><hr />
           <label>
@@ -156,6 +162,7 @@ const matchesSubject = !subjectFilterEnabled ||
             Augmented Reality
           </label>
 
+        {/* Year Level */}
         </div>
         <div>
           <h4>YEAR LEVEL</h4><hr />
@@ -184,9 +191,10 @@ const matchesSubject = !subjectFilterEnabled ||
             9 - 13
           </label>
 
+        {/* Subject Matter */}
         </div>
         <div>
-          <h4>SUBECT MATTER</h4><hr />
+          <h4>SUBJECT MATTER</h4><hr />
           <label>
             <input type="checkbox"
             checked={checkedComputerScience}
@@ -230,12 +238,16 @@ const matchesSubject = !subjectFilterEnabled ||
 
       </section>
 
+      {/* Right Main Container */}
       <section className={styles.projectsBox}>
         <div>
+          {/* Title & Welcome */}
           <h1>PROJECTS</h1>
           <p>Welcome to the project library. You can use the filters on the 
              right to help you search for specific projects</p>
         </div>
+
+        {/* Tier Filtering */}
         <div className={styles.filterTopBar}>
           <div className={styles.filterTier}>
             <button className={`${styles.tierBtn} ${styles.beginnerBtn} ${selectedTier === "BEGINNER" ? styles.active : ""}`}
@@ -247,6 +259,8 @@ const matchesSubject = !subjectFilterEnabled ||
             onClick={() => setSelectedTier("ADVANCED")}>ADVANCED</button>
 
           </div>
+
+          {/* Project Amount Filtering */}
           <div className={styles.filterItems}>
             <p>SHOW</p>
             <div>
@@ -263,8 +277,7 @@ const matchesSubject = !subjectFilterEnabled ||
 
         </div>
 
-        
-      
+        {/* .map Project Cards */}
         <div className={styles.projectContainer}>
         {limitedProjects.map((project) => (
               <div key={project.project_id} className={styles.projectCard}>
@@ -277,11 +290,13 @@ const matchesSubject = !subjectFilterEnabled ||
         </section>
     </div>
 
+    {/* Buttons */}
     <div className={styles.backBtns}>
       <a href="#top"><button className={styles.backToTop}>BACK TO TOP</button></a>
       <button className={styles.backToDash}> BACK TO DASHBOARD</button>
     </div>
-
+      
+      {/* Footer */}
       <KerrysFooter></KerrysFooter>
     </div>
   )
