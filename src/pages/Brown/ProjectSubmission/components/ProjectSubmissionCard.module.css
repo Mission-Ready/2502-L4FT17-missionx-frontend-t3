@@ -15,11 +15,11 @@
 
 /* Image styles */
 .image {
-  width: auto; /* または適切な幅に設定 */
-  height: auto; /* または適切な高さに設定 */
-  position: relative; /* 位置を相対的に設定 */
-  left: 70%; /* 90%だけ右に移動 */
-  transform: translateX(-90%); /* 左に90%移動して見た目を調整 */
+  width: auto; 
+  height: auto; 
+  position: relative; 
+  left: 70%; 
+  transform: translateX(-90%); 
 }
 
 .project-image {

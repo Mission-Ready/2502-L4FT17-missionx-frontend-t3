@@ -82,7 +82,6 @@ export default function ProjectSubmissionCard({ project }) {
                   project.gender
                 )} project ID #: ${project.project_id}`}
           </h1>
-
           {/* h2 can be used*/}
           {/* If I need an <h1>, use it as the top-level heading and have other headings follow it in the hierarchy. */}
           {/* There may be similar nesting occurring in parent components and other parts of the ProjectSubmissionCard component.
@@ -93,21 +92,28 @@ export default function ProjectSubmissionCard({ project }) {
 
           {/* Display Project imagery */}
           <div
-            className={styles.imageContainer}
-            onClick={() => setIsModalOpen(true)}
+            // This is a box for the picture of a project. 
+            // When I click it, a bigger version of the picture appears!
+            className={styles.imageContainer}// This is the container for the project image
+            onClick={() => setIsModalOpen(true)}// When I click, open the image modal
           >
+            {/* This is the actual picture of the project.
+             It has a special description so that everyone knows what it is. */}
             <img
-              src={project.submission}
-              alt="Project Screenshot"
-              className={styles.projectImage}
+              src={project.submission}// This is the URL of the project's image
+              alt="Project Screenshot"// This is a description of the image for accessibility
+              className={styles.projectImage}// This applies styles to the project image
             />
           </div>
           {/* Enlarge photo */}
           <div
-            className={styles.enlargePhoto}
-            onClick={() => setIsModalOpen(true)}
-            style={{ cursor: "pointer" }}
+            // This is a part that lets me click to see the picture bigger.
+            // It has a magnifying glass emoji and says "ENLARGE PHOTO" to let me know what to do.
+            className={styles.enlargePhoto}// This is the container for the enlarge button
+            onClick={() => setIsModalOpen(true)}// When I click, open the image modal
+            style={{ cursor: "pointer" }} // This changes the mouse pointer to a hand when hovering
           >
+            {/*This is the text that says "ENLARGE PHOTO" */}
             <span role="img" aria-label="magnifying glass">
               {" "}
               🔍{" "}
@@ -117,25 +123,41 @@ export default function ProjectSubmissionCard({ project }) {
         </div>
         {/* ---------------------------------------------------------------------------------------- */}
       </div>
-      {/* added new div */}
+      {/* Date Container */}
+
+      {/* This is where the date and time the project was submitted are shown.
+      It tells me when the project was turned in. */}
+      {/* New container added for the date(date:upper place/ time: lower place) */}      
       <div className={styles.dateContainer}>
         {" "}
         {/* New div tag added */}
         <h3 className={styles.date}>
           <span className={styles.dateText}>
+          {/* This shows the "date" the project was submitted */}
             {formatDate(project.date_submitted).datePart}
           </span>
           <br />
           <span className={styles.timeText}>
+          {/* This shows the "time" the project was submitted */}
             {formatDate(project.date_submitted).timePart}
           </span>
         </h3>
       </div>
-
+      {/* This is like a pop-up that shows the big picture when I click.
+       It can be closed when I am done looking at it. */}
+       {/* ImageModal is used to receive functions and data from another component to display a modal. */}
+       {/* Controls the display and hide of the modal, as well as the images to be displayed. */}
       <ImageModal
-        isOpen={isModalOpen} // Modal open/closed state
-        onClose={() => setIsModalOpen(false)} // Function to close the modal
-        imageSrc={project.submission} // URL of the project image
+        //This controls if the modal is open or closed
+        isOpen={isModalOpen} 
+        // This is the callback function to close the modal when I click outside or on a close button.
+        // onClose Property: onClose is used as a function to close the modal.
+        // This function is called when the modal should be closed.
+        // Arrow Function:() => setIsModalOpen(false) is an arrow function.
+        // When this function is called, setIsModalOpen(false) is executed, and the modal closes.
+        onClose={() => setIsModalOpen(false)} 
+        // This is the URL of the project image I want to show in the modal
+        imageSrc={project.submission} 
       />
     </div>
   );
