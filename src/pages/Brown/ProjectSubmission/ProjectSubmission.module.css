@@ -29,9 +29,8 @@
   overflow: auto;
 }
 
+
 /* Header styles */
-
-
 .header {
   display: flex; 
   justify-content: space-between; 
@@ -48,7 +47,7 @@
   gap: 10px; 
 }
 
-
+/* button styles */
 button {
   padding: 0.5rem 1rem; 
   font-size: 1rem; 
@@ -56,12 +55,12 @@ button {
   border: none; 
   background: transparent; 
   color: inherit; 
-  outline: none; /* フォーカス時のアウトラインをなくす */
-  transition: background 0.5s; /* ホバー時のトランジションを追加 */
+  outline: none; 
+  transition: background 0.5s; 
 }
 
 button:hover {
-  background: rgba(0, 0, 0, 0.1); /* ホバー時の背景色を設定（必要に応じて調整） */
+  background: rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -71,19 +70,19 @@ button:hover {
   margin-top: 2vh;
 }
 
-
+/* Project check box and mark div row styles */
 .projectRow {
-  display: flex; /* フレックスボックスを使用 */
-  align-items: center; /* 垂直方向に中央揃え */
-  margin-bottom: 12px; /* カード間の余白 */
-  padding: 10px; /* 内側の余白 */
-  border:  #b2e4fa; /* 枠線 */
-  border-radius: 1vh; /* 角を丸くする */
-  transition: background-color 0.3s; /* ホバー時のトランジション */
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 12px; 
+  padding: 10px; 
+  border:  #b2e4fa; 
+  border-radius: 1vh; 
+  transition: background-color 0.3s; 
   }
 
 .projectRow:hover {
-  background-color: d9f2fd; /* ホバー時の背景色 */
+  background-color: d9f2fd; 
 }
 
 /* Checkbox styles */
@@ -131,12 +130,12 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked + .checkmark {
   background-color: #B2E4FA;
-  width: 10vh; /* チェックマークの幅を変更（必要に応じて調整） */
-  height: 10vh; /* チェックマークの高さを変更（必要に応じて調整） */
-}
+  width: 10vh;
+  height: 10vh; 
 
 .checkmark-text {
-  font-size: 2.5em; /* フォントサイズを大きくする（必要に応じて調整） */
-  line-height: 5vh; /* チェックマークの高さに合わせる（調整可能） */
-  vertical-align: middle; /* 垂直方向の整列を調整 */
+  font-size: 2.5em; 
+  line-height: 5vh; 
+  vertical-align: middle; 
+}
 }
