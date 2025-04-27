@@ -161,7 +161,7 @@ export default function LoginAndSignup({ onClose }) {
 
         // Any other error
         else {
-          ssetIsTeacherSignUpResult(
+          setIsTeacherSignUpResult(
             <span style={{ color: "red" }}>
               Something went wrong: {result.message || "Unknown error"}
             </span>
