@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import KerrysFooter from "../components/KerrysFooter"
-import ShaziasNavbarTeacher from "../components/ShaziasNavbarTeacher"
-import styles from "./ProjectLibrary.module.css"
+import ShaziasNavbar from "../components/ShaziasNavbar"
+import styles from "./ProjectLibraryStudent.module.css"
 import {useState, useEffect} from "react"
 
 
@@ -111,7 +111,7 @@ function ProjectLibrary() {
       <div id="top" />
       
       {/* Header */}
-      <ShaziasNavbarTeacher></ShaziasNavbarTeacher>
+      <ShaziasNavbar></ShaziasNavbar>
 
     <div className={styles.outerBox}>
       <section className={styles.filterBarBox}>
@@ -309,10 +309,6 @@ function ProjectLibrary() {
     {/* Buttons */}
     <div className={styles.backBtns}>
       <a href="#top"><button className={styles.backToTop}>BACK TO TOP</button></a>
-
-      <Link to="/teacher-dashboard/helpRequest">
-      <button className={styles.backToDash}> BACK TO DASHBOARD</button>
-      </Link>
     </div>
       
       {/* Footer */}

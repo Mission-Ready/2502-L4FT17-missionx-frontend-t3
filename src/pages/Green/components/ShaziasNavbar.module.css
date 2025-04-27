@@ -37,6 +37,9 @@
   align-items: end;
   list-style: none;
   margin-bottom: 8px;
+  text-decoration: none;
+  color: White;
+  
   
   text-align: justify;
 }
@@ -47,6 +50,9 @@
   font-size: 16px;
   padding-left: 100px;
   cursor: pointer;
+  text-decoration: none;
+  color: White;
+  
 
 }
 

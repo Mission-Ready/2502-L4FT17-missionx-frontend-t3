@@ -7,6 +7,7 @@ import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective"
 import MakeProject from "./pages/Pink/MakeProject/MakeProject";
 import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
 import ProjectLibrary from "./pages/Green/ProjectLibrary/ProjectLibrary";
+import ProjectLibraryStudent from "./pages/Green/ProjectLibrary/ProjectLibraryStudent";
 import StudentProfileViewer from "./pages/Green/StudentProfileViewer/StudentProfileViewer";
 import ProjectSubmission from "./pages/Brown/ProjectSubmission/ProjectSubmission";
 import SubmitProject from "./pages/Brown/SubmitProject/SubmitProject";
@@ -75,6 +76,10 @@ function App() {
         <Route
           path="/ProjectLibrary"
           element={<ProjectLibrary></ProjectLibrary>}
+        ></Route>
+        <Route
+          path="/ProjectLibraryStudent"
+          element={<ProjectLibraryStudent></ProjectLibraryStudent>}
         ></Route>
         <Route
           path="teacherProfileViewer/:Id"

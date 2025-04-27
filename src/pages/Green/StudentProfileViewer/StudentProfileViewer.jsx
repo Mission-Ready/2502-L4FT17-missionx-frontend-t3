@@ -61,8 +61,8 @@ function StudentProfileViewer() {
           
           {/* Student Teacher */}
           <div className={styles.profileSchool}>
-              <div><h3>Teacher</h3></div>
-              <div><h3>Jasmina Salvador</h3></div>             
+          <div><h3>Teacher</h3></div>
+          <div><h3>{student.teacher_name}</h3></div>             
           </div>
           
           {/* Student Course */}
