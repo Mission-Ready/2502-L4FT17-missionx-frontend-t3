@@ -74,7 +74,7 @@ export default function LoginAndSignup({ onClose }) {
             </span>
           );
           setTimeout(() => {
-            navigate(`/studentProfileViewer/${result.id}`); // Navigate to the "/dashboard" route after 3 seconds
+            navigate(`/projectLibrary`); // Navigate to the "/dashboard" route after 3 seconds
           }, 3000); //
         }
         // what happens is sign up fails
@@ -141,7 +141,7 @@ export default function LoginAndSignup({ onClose }) {
             </span>
           );
           setTimeout(() => {
-            navigate(`/teacherProfileViewer/${result.id}`); // Navigate to the "/dashboard" route after 3 seconds
+            navigate(`/projectLibrary`); // Navigate to the "/dashboard" route after 3 seconds
           }, 3000); // Navigate to the "/dashboard" route
         } else if (result.status === "EmailError") {
           setIsTeacherSignUpResult(
@@ -149,9 +149,7 @@ export default function LoginAndSignup({ onClose }) {
               SignUp Failed: {result.message}
             </span>
           );
-
-        }
-        else if (result.status === "ValidationError") {
+        } else if (result.status === "ValidationError") {
           setIsTeacherSignUpResult(
             <span style={{ color: "red" }}>
               Sign Up Failed: {result.message}
@@ -161,7 +159,7 @@ export default function LoginAndSignup({ onClose }) {
 
         // Any other error
         else {
-          ssetIsTeacherSignUpResult(
+          setIsTeacherSignUpResult(
             <span style={{ color: "red" }}>
               Something went wrong: {result.message || "Unknown error"}
             </span>
@@ -215,7 +213,7 @@ export default function LoginAndSignup({ onClose }) {
             </span>
           );
           setTimeout(() => {
-            navigate(`/studentProfileViewer/${result.id}`); // Navigate to the "/dashboard" route after 3 seconds
+            navigate(`/projectLibrary`); // Navigate to the "/dashboard" route after 3 seconds
           }, 3000); // Navigate to the "/dashboard" route
         } else if (result.status === "error") {
           setIsStudentLoginResult(
@@ -272,7 +270,7 @@ export default function LoginAndSignup({ onClose }) {
             </span>
           );
           setTimeout(() => {
-            navigate(`/teacherProfileViewer/${result.id}`); // Navigate to the "/dashboard" route after 3 seconds
+            navigate(`/projectLibrary`); // Navigate to the "/dashboard" route after 3 seconds
           }, 3000); // Navigate to the "/dashboard" route
         } else if (result.status === "error") {
           setIsTeacherLoginResult(

@@ -25,3 +25,26 @@
     margin-bottom: 10px;
     font-size: 22px;
 }
+
+
+@media (max-width: 432px) {
+
+    .footer{
+        flex-wrap: wrap;
+
+        height: 50vh;
+        padding: 0px;
+        font-size: .5em;
+        margin-bottom: 0px;
+    }
+    .footer h3 {
+    margin-bottom: 0px;
+    }
+    .footer h2 {
+    margin-bottom: 0px;
+    }
+    .footer h4 {
+        display: none;
+    
+}
+}

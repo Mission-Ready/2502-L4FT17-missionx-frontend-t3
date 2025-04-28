@@ -22,8 +22,7 @@ function Banner() {
             color="#767676"
             style={{
               fontFamily: "Nunito, Black",
-              fontSize: "60px",
-              textAlign: "left",
+              
             }}
           >
             Prepare young minds for a better{" "}
@@ -31,8 +30,7 @@ function Banner() {
               color="#42C0F6"
               style={{
                 fontFamily: "Nunito, Black",
-                fontSize: "60px",
-                textAlign: "left",
+                
                 color: "#42C0F6",
               }}
             >
@@ -46,8 +44,7 @@ function Banner() {
           style={{
             color: "#767676",
             fontFamily: "Open Sans,Regular",
-            fontSize: "24px",
-            textAlign: "left",
+            
           }}
         >
           Let us help you advance students in Digital Technologies and other
