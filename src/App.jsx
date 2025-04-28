@@ -6,7 +6,7 @@ import Instruction from "./pages/Pink/Instructions/Instructions";
 import LearningObjective from "./pages/Pink/LearningObjective/LearningObjective";
 import MakeProject from "./pages/Pink/MakeProject/MakeProject";
 import VideoTutorial from "./pages/Pink/VideoTutorial/VideoTutorial";
-import StudentProjectLibrary from "./pages/Green/StudentProjectLibrary/StudentProjectLibrary";
+import ProjectLibrary from "./pages/Green/ProjectLibrary/ProjectLibrary";
 import StudentProfileViewer from "./pages/Green/StudentProfileViewer/StudentProfileViewer";
 import ProjectSubmission from "./pages/Brown/ProjectSubmission/ProjectSubmission";
 import SubmitProject from "./pages/Brown/SubmitProject/SubmitProject";
@@ -16,6 +16,7 @@ import HelpRequest from "./pages/Turqoise/HelpRequest/HelpRequest";
 import TeacherProfileViewer from "./pages/Turqoise/TeacherProfileViewer/TeacherProfileViewer";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
+import NotFound from './NotFound'; // Ensure the path is correct
 
 function App() {
 
@@ -70,21 +71,21 @@ function App() {
             path="projectSubmission"
             element={<ProjectSubmission></ProjectSubmission>}
           ></Route>
-          <Route
-            path="studentProjectLibrary"
-            element={<StudentProjectLibrary></StudentProjectLibrary>}
-          ></Route>
         </Route>
-
         <Route
-          path="studentProfileViewer"
-          element={<StudentProfileViewer></StudentProfileViewer>}
+          path="/ProjectLibrary"
+          element={<ProjectLibrary></ProjectLibrary>}
         ></Route>
-
         <Route
-          path="teacherProfileViewer"
+          path="teacherProfileViewer/:Id"
           element={<TeacherProfileViewer></TeacherProfileViewer>}
         ></Route>
+        <Route
+          path="studentProfileViewer/:studentId"
+          element={<StudentProfileViewer></StudentProfileViewer>}
+        ></Route>
+         {/* Add the NotFound component as the last route */}
+         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

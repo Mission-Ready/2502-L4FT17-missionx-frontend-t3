@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  display: block;
+  background-color: #43c0f6;
+  color: azure;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 60px;
+}
+
+.container1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.star {
+  display: flex;
+  width: 100px;
+  height: 45px;
+  margin-left: 170px;
+  cursor: pointer;
+}
+
+.mainNav {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  list-style: none;
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+.mainNav li {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 50px;
+  cursor: pointer;
+}
+
+.languageAndLogin {
+  display: flex;
+  justify-items: end;
+  padding-right: 170px;
+  background: padding-box;
+  cursor: pointer;
+}
+
+.languageAndLogin h4 {
+  background: padding-box;
+}
+
+.outerUserBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.outerUserBox h4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 5px;
+}
+
+.userBox {
+  background-color: #43c0f6;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  transition: 0.3s ease-in-out;
+}
+.userBox:hover {
+  transform: scale(1.1);
+}
+.userImage {
+  width: 24;
+  height: 24px;
+}
+
+.linkStudentProfileViewer {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  margin-bottom: 3px;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    height: 60px;
+  }
+  .star {
+    margin-left: 0px;
+  }
+  .mainNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .languageAndLogin {
+    padding-right: 0px;
+  }
+  .outerUserBox {
+    background-color: #43c0f6;
+  }
+}

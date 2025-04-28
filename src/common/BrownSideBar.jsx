@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import styles from "./SideBar.module.css";
+import styles from "./BrownSideBar.module.css";
 import { useState } from "react";
 
-export default function SideBar() {
+export default function SideBar({setActiveProject}) {
   const [open, setOpen] = useState(true);
 
   return (
@@ -11,13 +11,13 @@ export default function SideBar() {
         <div className={styles.pictureBorder}>
           <img
             className={styles.profilePicture}
-            src="/images/teachers/JasminaSalvador.png"
-            alt="teacher"
+            src="/images/students/RawiriFletcher.png"
+            alt="student"
           />
         </div>
 
         <NavLink
-          to="progressTracker"
+          to="learningObjectives"
           className={({ isActive }) =>
             isActive
               ? `${styles.navLinkActive} ${styles.navLink}`
@@ -25,13 +25,13 @@ export default function SideBar() {
           }
         >
           <img
-            src="/src/assets/TeacherDashboard/progressTracker.png"
-            alt="progress-tracker"
+            src="/src/assets/StudentDashboard/learningObjectives.png"
+            alt="learning-objectives"
           />
-          <p>PROGRESS TRACKER</p>
+          <p>LEARNING OBJECTIVES</p>
         </NavLink>
         <NavLink
-          to="studentProfiles"
+          to="instructions"
           className={({ isActive }) =>
             isActive
               ? `${styles.navLinkActive} ${styles.navLink}`
@@ -39,13 +39,13 @@ export default function SideBar() {
           }
         >
           <img
-            src="/src/assets/TeacherDashboard/studentProfiles.png"
-            alt="student-profile"
+            src="/src/assets/StudentDashboard/instructions.png"
+            alt="instructions"
           />
-          <p>STUDENT PROFILE</p>
+          <p>INSTRUCTIONS</p>
         </NavLink>
         <NavLink
-          to="helpRequest"
+          to="videotutotial"
           className={({ isActive }) =>
             isActive
               ? `${styles.navLinkActive} ${styles.navLink}`
@@ -53,13 +53,13 @@ export default function SideBar() {
           }
         >
           <img
-            src="/src/assets/TeacherDashboard/helpRequests.png"
-            alt="help-request"
+            src="/src/assets/StudentDashboard/videoSelected.png"
+            alt="video-Selected"
           />
-          <p>HELP REQUEST</p>
+          <p>VIDEO TUTORIAL</p>
         </NavLink>
         <NavLink
-          to="projectSubmission"
+          to="makeprojects"
           className={({ isActive }) =>
             isActive
               ? `${styles.navLinkActive} ${styles.navLink}`
@@ -67,13 +67,13 @@ export default function SideBar() {
           }
         >
           <img
-            src="/src/assets/TeacherDashboard/projectSubmissions.png"
-            alt="project-submissions"
+            src="/src/assets/StudentDashboard/makeProject.png"
+            alt="make-project"
           />
-          <p>PROJECT SUBMISSION</p>
+          <p>MAKE PROJECT</p>
         </NavLink>
         <NavLink
-          to="studentProjectLibrary"
+          to="submitproject"
           className={({ isActive }) =>
             isActive
               ? `${styles.navLinkActive} ${styles.navLink}`
@@ -81,11 +81,42 @@ export default function SideBar() {
           }
         >
           <img
-            src="/src/assets/TeacherDashboard/projectLibrary.png"
-            alt="project-library"
+            src="/src/assets/StudentDashboard/submitProjectSelected.png"
+            alt="submitproject"
           />
-          <p>PROJECT LIBRARY</p>
+          <p>SUBMIT PROJECT</p>
+        </NavLink>       
+
+        <NavLink
+          to="bonuschallenge"
+          className={({ isActive }) =>
+            isActive
+              ? `${styles.navLinkActive} ${styles.navLink}`
+              : styles.navLink
+          }
+        >
+          <img
+            src="/src/assets/StudentDashboard/bonusChallenge.png"
+            alt="bonuschallenge"
+          />
+          <p>BONUS CHALLENGE</p>
         </NavLink>
+
+        <NavLink
+          to="takethequiz"
+          className={({ isActive }) =>
+            isActive
+              ? `${styles.navLinkActive} ${styles.navLink}`
+              : styles.navLink
+          }
+        >
+          <img
+            src="/src/assets/StudentDashboard/takeTheQuiz.png"
+            alt="takethequiz"
+          />
+          <p>TAKE THE QUIZ</p>
+        </NavLink>
+
       </div>
 
       <div onClick={() => setOpen(!open)} className={styles.arrowBox}>
@@ -109,4 +140,3 @@ export default function SideBar() {
     </div>
   );
 }
-

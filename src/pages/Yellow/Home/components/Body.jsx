@@ -82,7 +82,6 @@ export default function Body() {
           <h2
             style={{
               fontFamily: "Nunito, Bold",
-              fontSize: "34px",
               color: "#6C6C6C",
               width: "30em",
             }}
@@ -126,7 +125,7 @@ export default function Body() {
         <h1
           style={{
             fontFamily: "Nunito, Bold",
-            fontSize: "30px",
+            
             color: "#6C6C6C",
           }}
         >
@@ -149,7 +148,6 @@ export default function Body() {
         <h1
           style={{
             fontFamily: "Nunito, Bold",
-            fontSize: "30px",
             color: "#6C6C6C",
           }}
         >
@@ -265,9 +263,9 @@ export default function Body() {
           <h1
             style={{
               fontFamily: "Nunito, Bold",
-              fontSize: "40px",
+
               color: "#6C6C6C",
-              width: "30em",
+              
             }}
           >
             What are you waiting for?
@@ -277,9 +275,9 @@ export default function Body() {
           <h3
             style={{
               fontFamily: "Nunito, Bold",
-              fontSize: "30px",
+              
               color: "#6C6C6C",
-              width: "30em",
+             
             }}
           >
             Start teaching Digital Technologies today.
@@ -288,9 +286,9 @@ export default function Body() {
           <h4
             style={{
               fontFamily: "Nunito, Bold",
-              fontSize: "20px",
+          
               color: "#6C6C6C",
-              width: "30em",
+             
             }}
           >
             If you need more information, we are happy to answer any questions

@@ -149,9 +149,7 @@ export default function LoginAndSignup({ onClose }) {
               SignUp Failed: {result.message}
             </span>
           );
-
-        }
-        else if (result.status === "ValidationError") {
+        } else if (result.status === "ValidationError") {
           setIsTeacherSignUpResult(
             <span style={{ color: "red" }}>
               Sign Up Failed: {result.message}

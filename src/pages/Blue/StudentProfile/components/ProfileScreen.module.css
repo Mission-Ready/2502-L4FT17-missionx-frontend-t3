@@ -1,3 +1,7 @@
+* {
+  font-family: sans-serif;
+}
+
 .profileScreen {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -6,11 +10,10 @@
   align-items: center;
   gap: 5%;
   /* Layout Properties */
-  top: 109px;
-  left: 166px;
-  width: 1717px;
-  height: 860px;
+  width: 90%;
+  height: 80vh;
   border-radius: 30px;
+  overflow-y: auto;
 }
 
 .profileLink {

@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+    
+}
+
+.background {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.outerBox {
+    display: flex;
+    flex-direction: row;
+    padding: 50px 200px 50px 200px;
+}
+
+.filterBarBox {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    margin: 100px 50px 0px 0px;
+    
+    
+
+}
+label {
+    display: flex;
+    align-items: center;
+    
+}
+
+.innerFilterBarBox div {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.innerFilterBarBox h4 {
+    margin: 5px;
+    
+}
+
+  input[type="checkbox"] {
+    appearance: none;
+    transform: scale(0.5);
+    background: white;
+    border: 1px solid #555;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+   
+  }
+   
+  input[type="checkbox"]:checked {
+    background-color: #42A5F5;
+  }
+   
+  input[type="checkbox"]:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-size: 16px;
+    color: white;
+   
+  }
+
+
+
+.projectsBox {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.projectsBox > div > h1 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-family: "Nunito", "sans-serif";
+    font-weight: 1000;
+    font-size: 30px;
+    color: #707070;
+    margin-bottom: 10px;
+}
+.projectsBox > div > p {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-family: "Nunito", "sans-serif";
+    font-weight: 800;
+    font-size: 18px;
+    color: #707070;
+    margin-bottom: 20px;
+}
+
+.filterTopBar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    
+    padding: 30px 0px 0px;
+}
+
+.filterTier {
+    display: flex;
+    justify-content: left;
+    border-radius: 5px;
+    overflow: hidden;
+   
+}
+
+.tierBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f2f2;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    width: 120px;
+    border: none;
+
+}
+
+.tierBtn + .tierBtn {
+    border-left: 1px solid #ccc;
+}
+  
+.tierBtn.active {
+    background: linear-gradient(to right, #007bff, #00aaff);
+    color: white;
+}
+
+.filterItems {
+    display: flex;
+    justify-content: right;
+}
+.filterItems > div {
+    display: flex;
+    justify-content: right;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+.filterItems p {
+    margin-right: 10px;
+    font-weight: bold
+}
+
+.itemsBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f2f2;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    width: 50px;
+    border: none;
+
+}
+
+.itemsBtn + .itemsBtn {
+    border-left: 1px solid #ccc;
+}
+  
+.itemsBtn.active {
+    background: linear-gradient(to right, #007bff, #00aaff);
+    color: white;
+}
+.projectCard h2 {
+    margin-top: -100px;
+
+}
+.projectCard h4 {
+    margin-top: -40px;
+
+}
+
+.projectContainer {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 60px;
+    margin-top: 30px;
+    color: #666666;
+}
+.projectContainer div {
+    text-align: center;
+
+}
+
+.backBtns {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    right: 250px;
+    gap: 50px;
+    margin: 100px 0px 150px 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------------------- */
+.backToTop {
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 10px 20px;
+    background-color: #F4AC27;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+
+.backToDash {
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 10px 20px;
+    background-color: #EF097B;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+
+

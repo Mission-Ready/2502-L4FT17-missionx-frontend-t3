@@ -1,0 +1,167 @@
+/* Universal selector to apply box-sizing, margin, and padding globally */
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+/* Main container style */
+.mainContainer {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align items to the top */
+  padding: 20px; /* Add some padding */
+  background-color: #b2e4fa;
+  border-radius: 8px; /* Rounded corners */
+  width: 100%;
+  height: 90vh;
+}
+
+/* Middle container style */
+.midContainer {
+  display: flex;
+  flex-direction: row; /* Change to row for side-by-side layout */
+  /* background-color: #b2e4fa; */
+  justify-content: space-around;
+  align-content: space-around;
+  width: auto;
+  height: 820px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5vh; /* Space between inner containers */
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid #ddd; /* Light border */
+  padding: 40px; /* Inner padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.midContainer::before {
+  display: flex;
+  content: "";
+  left: 51%;
+  top: -10%;
+  width: 2px;
+  height: 87%;
+  /* background-color: #C7C2C2; */
+  transform: translateX(-50%);
+  position: relative;
+  padding-bottom: 13%;
+  padding-top: -4%;
+}
+
+/* Inner container style */
+.innerContainer {
+  display: flex; /* Flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+  background-color: #ffffff80;
+  /* border: 1px solid #ddd;  */
+  border-radius: 20px; /* Rounded corners */
+  padding: 2px; /* Inner padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: auto;
+  height: auto;
+  padding-left: -5vh;
+}
+/* Image style */
+.innerContainer > img {
+  width: 80vh;
+  height: 50vh;
+  object-fit: scale-down;
+  align-items: center;
+  align-items: center;
+}
+
+.innerContainer > h1 {
+  font-family: "Nunito";
+  font-size: 24px;
+  font-weight: bold;
+  color: #707070;
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 3%;
+}
+
+.innerContainer > p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #707070;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+/* Button style */
+.submProjBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  background-color: #f91c85; /* Bootstrap primary color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 15px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); /* ドロップシャドウ */
+}
+
+.submProBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  background-color: #f91c85; /* Bootstrap primary color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 15px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); /* drop shadow */
+}
+
+.submProBtn:hover {
+  transform: scale(1.05); /* ホバー時に少し大きくする */
+  color: #6C6C6C;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); /* drop shadow */
+}
+
+.submProBtn:active {
+  transform: scale(0.95); /* クリック時に少し小さくする */
+}
+
+.submProBtn img {
+  max-width: 100%; /* max width 100% */
+  height: auto;
+}
+
+.submProBtn p {
+  display: flex;
+  margin-top: 1px;
+  color: #6C6C6C;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); /* drop shadow */
+}
+
+.fileInput {
+  display: none; /* Hide the input */
+}
+
+.fileLabel {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #f91c85; /* Same color as the buttons */
+  color: white; /* White text color */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25); /* Drop shadow */
+}
+
+.fileLabel:hover {
+  background-color: #e01570; /* Darker shade on hover */
+}

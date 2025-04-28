@@ -1,0 +1,48 @@
+* {
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+.linkbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+  width: 100%;
+  gap: 30px;
+}
+
+.backToProjectsButton {
+  background-color: #d6b317;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 200px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin: 20px 0;
+}
+.backToProjectsButton:hover {
+  transform: scale(1.1);
+}
+
+.backToDashboardButton {
+  background-color: #ff0abc;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin: 20px 0;
+}
+.backToDashboardButton:hover {
+  transform: scale(1.1);
+}

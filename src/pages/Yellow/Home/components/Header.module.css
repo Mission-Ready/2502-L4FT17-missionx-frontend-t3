@@ -291,9 +291,8 @@
     /* padding: 10px 0px; */
     align-self: center;
     width: 100vw;
-    margin: 0px,0px;
-    padding: 0px,0px;
-    
+    margin: 0px, 0px;
+    padding: 0px, 0px;
   }
 
   .star {
@@ -302,8 +301,6 @@
     margin-left: 0px;
     padding-left: 0px;
 
-
-    
     /* padding-bottom: 100px; */
   }
 
@@ -312,12 +309,10 @@
     flex-direction: row;
     align-self: center;
     margin-right: 20%;
-
   }
 
   .mainNav li {
     font-size: 14px;
-
   }
 
   .languageAndLogin {
@@ -332,7 +327,83 @@
     top: 60px;
     grid-template-columns: 1fr; /* Stack student and teacher sections */
     width: 70vw;
-   
+  }
+
+  .modal {
+    width: 70vw;
+    height: 70vh;
+    overflow-y: auto;
+    backdrop-filter: blur(8px);
+  }
+
+  .studentLoginAndSignUpButton,
+  .teacherLoginAndSignUpButton {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .studentLogInForm,
+  .teacherLogInForm,
+  .studentSignUpInputField,
+  .teacherSignUpInputField {
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .studentLogInForm input,
+  .teacherLogInForm input,
+  .studentSignUpInputField input,
+  .teacherSignUpInputField input {
+    width: 40%;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 432px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-self: center;
+    width: 100vw;
+    margin: 0px, 0px;
+    padding: 0px, 0px;
+  }
+
+  .star {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .mainNav {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-right: 10%;
+  }
+
+  .mainNav li {
+    font-size: 14px;
+  }
+
+  .languageAndLogin {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-right: 50%;
+  }
+
+  .signUpContainer {
+    left: 10%;
+    top: 60px;
+    grid-template-columns: 1fr; /* Stack student and teacher sections */
+    width: 70vw;
   }
 
   .modal {
