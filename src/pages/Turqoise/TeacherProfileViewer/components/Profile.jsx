@@ -86,7 +86,15 @@ function Profile() {
           </div>
         ))
       ) : (
-        <h1>Teacher data is Not Available.</h1>
+        <h1
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          Teacher data is Not Available.
+        </h1>
       )}
     </section>
   );
