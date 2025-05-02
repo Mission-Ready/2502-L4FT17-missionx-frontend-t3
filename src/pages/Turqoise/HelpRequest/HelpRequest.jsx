@@ -59,7 +59,7 @@ export default function HelpRequest() {
       <div className={styles.innerContainer}>
         <p className={styles.helpRequest}>HELP REQUESTS</p>
         <div className={styles.headBtn}>
-          <p>📫 REPLY</p>
+          <p className={styles.replyBtn}>📫 REPLY</p>
           <button className={styles.markBtn} onClick={markAsRead}>
             ✔️ MARK AS READ
           </button>

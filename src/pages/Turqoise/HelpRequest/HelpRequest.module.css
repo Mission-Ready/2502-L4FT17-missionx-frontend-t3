@@ -34,6 +34,10 @@
   padding: 12px;
 }
 
+.replyBtn {
+  margin-top: 10px;
+}
+
 .markBtn {
   border: none;
   background-color: #d9f2fd;
